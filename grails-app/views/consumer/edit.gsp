@@ -15,7 +15,7 @@
     </div>
     <div class="card-body">
         <g:form controller="consumer" action="update">
-            <g:hiddenField name="id" value="${user.id}"/>
+            <g:hiddenField name="id" value="${consumer.id}"/>
             <g:render template="form" model="[edit:'yes']"/>
             <div class="form-action-panel">
                 <g:submitButton class="btn btn-primary" name="update" value="${g.message(code: "update")}"/>

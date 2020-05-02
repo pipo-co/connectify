@@ -6,7 +6,7 @@ class ConsumerController {
 
     def index() {
         def response = consumerService.list(params)
-        [consumerList: response.list, total: response.count]
+        [userList: response.list, total: response.count]
     }
 
     def details(Integer id){
@@ -66,7 +66,10 @@ class ConsumerController {
             redirect(controller: "consumer", action: "index")
         } else {
             response = consumerService.delete(response)
-            redirect(controller: "consumer", action: "index")
+            if(response.loggedIn)
+                redirect(controller: "authentication", action: "logout")
+            else
+                redirect(controller: "consumer", action: "index")
         }
     }
 }

@@ -11,7 +11,7 @@ class AuthenticationController {
 
     def doLogin(){
         if(authenticationService.doLogin(params.username, params.password))
-            redirect(controller: "user", action: "index")
+            redirect(uri: "/")
         else
             redirect(controller: "authentication", action: "login")
     }

@@ -17,6 +17,7 @@ class Consumer {
 
         static constraints = {
             lastName blank: false
+            user unique: true
 //            docType blank: false, inList: ["dni", "ci", "passport"]
 //            document blank: false, size: 8
 //            country blank: false

@@ -8,13 +8,7 @@ class AuthenticationService {
     private static final AUTHORIZED = "authorized"
 
     def setUserAuthorization(User user){
-        def authorization
-        if(user.userType == GlobalConfig.USER_TYPE.CONSUMER) {
-            authorization = [isLoggedIn: true, user: user.consumer]
-        } else {
-            authorization = [isLoggedIn: true, user: user]
-        }
-
+        def authorization = [isLoggedIn: true, user: user]
         AppUtil.getAppSession()[AUTHORIZED] = authorization
     }
 
@@ -35,8 +29,20 @@ class AuthenticationService {
         return false
     }
 
+    boolean isAuthenticated(User user){
+        return isAuthenticated() && AppUtil.getAppSession()[AUTHORIZED].user.id == user.id
+    }
+
     def getUser(){
         def authorization = AppUtil.getAppSession()[AUTHORIZED]
         return authorization?.user
+    }
+
+    def refreshLoggedUser(){
+        if(isAuthenticated()){
+            def authorization = AppUtil.getAppSession()[AUTHORIZED]
+            authorization.user = User.get(authorization.user.id)
+            AppUtil.getAppSession()[AUTHORIZED] = authorization
+        }
     }
 }

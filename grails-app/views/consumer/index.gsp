@@ -49,12 +49,12 @@
             </tr>
             </thead>
             <tbody>
-            <g:each in="${consumerList}" var="info">
+            <g:each in="${userList}" var="info">
                 <tr>
-                    <td>${info?.user?.username}</td> %{--OJO CAMBIAR--}%
-                    <td>${info?.user?.name}</td>
-                    <td>${info?.user?.email}</td>
-                    <td>${info?.user?.password}</td>
+                    <td>${info?.username}</td> %{--OJO CAMBIAR--}%
+                    <td>${info?.name}</td>
+                    <td>${info?.email}</td>
+                    <td>${info?.password}</td>
 
                     %{--Table Actions --}%
                     <td>

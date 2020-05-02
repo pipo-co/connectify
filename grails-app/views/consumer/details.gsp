@@ -13,19 +13,22 @@
         <g:message code="consumer" args="['Details']"/>
     </div>
     <div class="card-body">
-        <g:if test="${user}">
+        <g:if test="${consumer}">
             <table class="table">
                 <tr>
-                    <th class="text-right"><g:message code="username"/></th><td class="text-left">${user.username}</td>
+                    <th class="text-right"><g:message code="username"/></th><td class="text-left">${consumer.user.username}</td>
                 </tr>
                 <tr>
-                    <th class="text-right"><g:message code="name"/></th><td class="text-left">${user.name}</td>
+                    <th class="text-right"><g:message code="name"/></th><td class="text-left">${consumer.user.name}</td>
                 </tr>
                 <tr>
-                    <th class="text-right"><g:message code="email"/></th><td class="text-left">${user.email}</td>
+                    <th class="text-right"><g:message code="email"/></th><td class="text-left">${consumer.user.email}</td>
                 </tr>
                 <tr>
-                    <th class="text-right"><g:message code="password"/></th><td class="text-left">${user.password}</td>
+                    <th class="text-right"><g:message code="password"/></th><td class="text-left">${consumer.user.password}</td>
+                </tr>
+                <tr>
+                    <th class="text-right"><g:message code="last.name"/></th><td class="text-left">${consumer.lastName}</td>
                 </tr>
 %{--                <tr>--}%
 %{--                    <th class="text-right"><g:message code="member.type"/></th><td class="text-left">${member.memberType}</td>--}%
