@@ -1,3 +1,4 @@
+<%@ page import="connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -18,9 +19,17 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" role="navigation">
     <a class="navbar-brand" href="/#"><asset:image src="grails.svg" alt="Grails Logo"/></a>
-    <g:if test="${session["AUTHORIZED"] && session["AUTHORIZED"].isLoggedIn}">
-        <p>Welcome ${session["AUTHORIZED"].user.name}</p>
+    <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+        <g:if test="${session.authorized.user.user.userType = GlobalConfig.USER_TYPE.CONSUMER}">
+            <p>Welcome ${session.authorized.user.user.name} ${session.authorized.user.lastName}</p>
+        </g:if>
+        <g:else>
+            <p>Welcome ${session.authorized.user.name}</p>
+        </g:else>
     </g:if>
+    <g:else>
+        <p>Welcome</p>
+    </g:else>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

@@ -6,7 +6,7 @@ class AuthenticationController {
 
     def login() {
         if(authenticationService.isAuthenticated())
-            redirect(controller: "user", action: "index")
+            redirect(uri: "/")
     }
 
     def doLogin(){

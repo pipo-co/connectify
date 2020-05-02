@@ -5,13 +5,17 @@ class User {
     String password
     String email
     String name
+    String userType;
     Boolean isActive = true;
+
+    static belongsTo = [consumer: Consumer]
 
     static constraints = {
         username blank: false, unique: true
         password blank: false
         email email: true, blank: false
-        name blank:false
+        name blank: false
+        consumer nullable: true
     }
 
     def beforeInsert(){

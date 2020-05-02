@@ -5,10 +5,16 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class AuthenticationService {
 
-    private static final AUTHORIZED = "AUTHORIZED"
+    private static final AUTHORIZED = "authorized"
 
     def setUserAuthorization(User user){
-        def authorization = [isLoggedIn: true, user: user]
+        def authorization
+        if(user.userType == GlobalConfig.USER_TYPE.CONSUMER) {
+            authorization = [isLoggedIn: true, user: user.consumer]
+        } else {
+            authorization = [isLoggedIn: true, user: user]
+        }
+
         AppUtil.getAppSession()[AUTHORIZED] = authorization
     }
 
