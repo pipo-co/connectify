@@ -22,7 +22,7 @@ class ConsumerController {
     }
 
     def save(){
-        def response = consumerService.save(params)
+        def response = consumerService.save(params, request)
         if(!response.isSuccess){
             flash.redirectParams = response.model
             redirect(controller: "consumer", action: "create")
@@ -49,7 +49,7 @@ class ConsumerController {
         if(!response) {
             redirect(controller: "consumer", action: "index")
         } else {
-            response = consumerService.update(response, params)
+            response = consumerService.update(response, params, request)
             if(!response.isSuccess){
                 flash.redirectParams = response.model
                 redirect(controller: "consumer", action: "edit")

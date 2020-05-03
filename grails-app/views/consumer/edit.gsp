@@ -14,7 +14,7 @@
         <g:message code="consumer" args="['Update']"/>
     </div>
     <div class="card-body">
-        <g:form controller="consumer" action="update">
+        <g:form controller="consumer" action="update" enctype="multipart/form-data">
             <g:hiddenField name="id" value="${consumer.id}"/>
             <g:render template="form" model="[edit:'yes']"/>
             <div class="form-action-panel">

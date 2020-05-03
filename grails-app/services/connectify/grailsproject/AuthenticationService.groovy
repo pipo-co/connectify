@@ -13,7 +13,7 @@ class AuthenticationService {
     }
 
     def doLogin(String username, String password){
-        password = password.encodeAsMD5()
+        password = password.encodeAsSHA256()
         User user = User.findByUsernameAndPassword(username, password)
         if(user){
             setUserAuthorization(user)

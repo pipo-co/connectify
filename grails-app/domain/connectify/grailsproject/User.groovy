@@ -5,6 +5,7 @@ class User {
     String password
     String email
     String name
+    String avatar
     String userType;
     Boolean isActive = true;
 
@@ -16,13 +17,10 @@ class User {
         email email: true, blank: false, unique: true
         name blank: false
         consumer nullable: true
+        avatar nullable: true, blank: true
     }
 
     def beforeInsert(){
-        this.password = this.password.encodeAsMD5()
-    }
-
-    def beforeUpdate(){
-        this.password = this.password.encodeAsMD5()
+        this.password = this.password.encodeAsSHA256()
     }
 }

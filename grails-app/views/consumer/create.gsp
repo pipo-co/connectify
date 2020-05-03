@@ -14,7 +14,7 @@
         <g:message code="consumer" args="['Creation']"/>
     </div>
     <div class="card-body">
-        <g:form controller="consumer" action="save">
+        <g:form controller="consumer" action="save" enctype="multipart/form-data">
 
         %{--Partial Templating--}%
             <g:render template="form"/>

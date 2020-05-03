@@ -3,6 +3,8 @@ package connectify.grailsproject
 import grails.gorm.transactions.Transactional
 import grails.web.servlet.mvc.GrailsParameterMap
 
+import javax.servlet.http.HttpServletRequest
+
 @Transactional
 class UserService {
 
@@ -55,5 +57,32 @@ class UserService {
             return false
         }
         return true
+    }
+
+    def uploadAvatar(User user, HttpServletRequest request){
+        if (request.getFile("avatar") && !request.getFile("avatar").filename.equals("")){
+            FileUtil.uploadAvatar(user.avatar, request.getFile("avatar"))
+        }
+    }
+
+    def setUpUser(GrailsParameterMap params, String userType){
+        params.userType = userType
+        params.avatar = FileUtil.getAvatarName(params.username, params.avatar.filename) //No se porque tengo que hacer esto, pero funciona
+        User user = new User(params)
+        return user
+    }
+
+    def freeUserResources(User user){
+        deleteAvatar(user.avatar)
+    }
+
+    def deleteAvatar(String avatarFilename){
+        if(avatarFilename.equals(FileUtil.defaultAvatar))
+            return
+
+        boolean fileSuccessfullyDeleted =  new File(FileUtil.getAvatarDir() + "/" + avatarFilename).delete()
+        if(!fileSuccessfullyDeleted){
+            println("Error al borrar avatar")
+        }
     }
 }

@@ -50,3 +50,11 @@
     </g:hasErrors>
     <g:textField name="lastName" class="form-control" value="${fieldValue(bean: consumer, field: 'lastName')}" placeholder="Please Enter Last Name"/>
 </div>
+
+<div class="form-group">
+    <label><g:message code="avatar"/></label>
+    <g:field name="avatar" class="form-control" type="file" placeholder="Please Upload Avatar"/>
+    <g:if test="${contact?.avatar}">
+        <img src="${resource(dir: "avatar", file: "/${contact.image}")}" class="img-thumbnail" style="margin-top: 10px; height: 100px; width: 100px;"/>
+    </g:if>
+</div>
