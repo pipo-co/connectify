@@ -27,7 +27,7 @@
         </g:else>
     </a>
     <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-        <g:if test="${session.authorized.user.userType = GlobalConfig.USER_TYPE.CONSUMER}">
+        <g:if test="${session.authorized.user.userType == GlobalConfig.USER_TYPE.CONSUMER}">
             <p style="color: red">Welcome ${session.authorized.user.name} ${session.authorized.user.consumer.lastName}</p>
         </g:if>
         <g:else>
