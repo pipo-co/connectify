@@ -1,5 +1,7 @@
 package connectify.grailsproject
 
+import grails.gorm.transactions.Transactional
+
 class UserController {
 
     UserService userService
@@ -68,5 +70,29 @@ class UserController {
             response = userService.delete(response)
             redirect(controller: "user", action: "index")
         }
+    }
+
+    @Transactional
+    def confirm(String id){ // Email Confirmation Code
+        User user = User.findByConfirmCode(id)
+
+        //El confirmCode no era de ningun user
+        if(!user) {
+            redirect(uri: "/")
+            println("nope")
+            println(id)
+            return
+        }
+
+        def response = AppUtil.saveResponse(false, user)
+        user.isActive = true
+        user.confirmCode = null
+        if(user.validate()){
+            user.save(flush: true)
+            if(!user.hasErrors()){
+                response.isSuccess = true
+            }
+        }
+        redirect(uri: "/")
     }
 }

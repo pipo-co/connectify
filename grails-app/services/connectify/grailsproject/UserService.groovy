@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest
 @Transactional
 class UserService {
 
+    def mailService
+
     def save(GrailsParameterMap params){
         User user = new User(params)
         def response = AppUtil.saveResponse(false, user)
@@ -22,6 +24,7 @@ class UserService {
 
     def update(User user, GrailsParameterMap params){
         user.properties = params
+        user.confirmCode = null
         def response = AppUtil.saveResponse(false, user)
         if(user.validate()){
             user.save(flush: true)
@@ -68,6 +71,7 @@ class UserService {
     def setUpUser(GrailsParameterMap params, String userType){
         params.userType = userType
         params.avatar = FileUtil.getAvatarName(params.username, params.avatar.filename) //No se porque tengo que hacer esto, pero funciona
+        params.confirmCode = UUID.randomUUID().toString()
         User user = new User(params)
         return user
     }
@@ -83,6 +87,15 @@ class UserService {
         boolean fileSuccessfullyDeleted =  new File(FileUtil.getAvatarDir() + "/" + avatarFilename).delete()
         if(!fileSuccessfullyDeleted){
             println("Error al borrar avatar")
+        }
+    }
+
+    def sendConfirmationEmail(User user){
+        mailService.sendMail {
+            to user.email
+            subject "New User Confirmation"
+            html view: "/_mailtemplate", model: [user: user]
+            //html g.render(template: "mailtemplate", model: [user: user])
         }
     }
 }

@@ -20,6 +20,7 @@ class ConsumerService {
             consumer.save(flush: true)
             if(!consumer.hasErrors()){
                 response.isSuccess = true
+                userService.sendConfirmationEmail(consumer.user)
                 userService.uploadAvatar(consumer.user, request)
             }
         }

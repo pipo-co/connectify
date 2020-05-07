@@ -6,8 +6,9 @@ class User {
     String email
     String name
     String avatar
-    String userType;
-    Boolean isActive = true;
+    String userType
+    Boolean isActive = false
+    String confirmCode
 
     static belongsTo = [consumer: Consumer]
 
@@ -18,6 +19,7 @@ class User {
         name blank: false
         consumer nullable: true
         avatar nullable: true, blank: true
+        confirmCode nullable: true
     }
 
     def beforeInsert(){
