@@ -3,6 +3,7 @@ package connectify.grailsproject
 class ConsumerController {
 
     ConsumerService consumerService
+    AuthenticationService authenticationService
 
     def index() {
         def response = consumerService.list(params)
@@ -54,6 +55,7 @@ class ConsumerController {
                 flash.redirectParams = response.model
                 redirect(controller: "consumer", action: "edit")
             } else {
+                authenticationService.refreshLoggedUser()
                 redirect(controller: "consumer", action: "index")
             }
         }

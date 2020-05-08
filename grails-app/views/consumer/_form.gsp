@@ -54,7 +54,4 @@
 <div class="form-group">
     <label><g:message code="avatar"/></label>
     <g:field name="avatar" class="form-control" type="file" placeholder="Please Upload Avatar"/>
-    <g:if test="${consumer?.avatar}">
-        <img src="${resource(dir: "avatar", file: "/${consumer.image}")}" class="img-thumbnail" style="margin-top: 10px; height: 100px; width: 100px;"/>
-    </g:if>
 </div>

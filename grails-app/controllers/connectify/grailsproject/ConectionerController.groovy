@@ -3,6 +3,7 @@ package connectify.grailsproject
 class ConectionerController {
 
     ConectionerService conectionerService
+    AuthenticationService authenticationService
 
     def index() {
         def response = conectionerService.list(params)
@@ -54,6 +55,7 @@ class ConectionerController {
                 flash.redirectParams = response.model
                 redirect(controller: "conectioner", action: "edit")
             } else {
+                authenticationService.refreshLoggedUser()
                 redirect(controller: "conectioner", action: "index")
             }
         }
