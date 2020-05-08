@@ -18,7 +18,8 @@ class SecurityInterceptor {
 //    }
 
     SecurityInterceptor(){
-        match(controller: "user", action: "create")
+        match(controller: "consumer", action: "create")
+        match(controller: "conectioner", action: "create")
     }
 
     boolean before() {

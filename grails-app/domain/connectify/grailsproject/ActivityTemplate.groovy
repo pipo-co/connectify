@@ -2,6 +2,7 @@ package connectify.grailsproject
 
 class ActivityTemplate {
 
+    String name
     String description
     Integer duration
     String address
@@ -11,6 +12,7 @@ class ActivityTemplate {
     static belongsTo = [conectioner: Conectioner]
 
     static constraints = {
+        name blank: false
         description blank: false
         duration blank: false
         address blank: false
