@@ -89,4 +89,22 @@ class ConsumerService {
 
         return response
     }
+
+    def getPropertiesList(Consumer consumer){
+        def ans = [username: consumer.user.username]
+        ans.put('email', consumer.user.email)
+        ans.put('name', consumer.user.name)
+        ans.put('last.name', consumer.lastName)
+        ans.put(consumer.docType, consumer.document)
+        ans.put('country', consumer.country)
+        ans.put('province', consumer.province)
+        ans.put('district', consumer.district)
+        String aux = consumer.street + " " + consumer.houseNumber
+        ans.put('address', aux)
+        ans.put('cp', consumer.cp)
+        ans.put(consumer.phoneType, consumer.phoneNumber)
+
+
+        return ans
+    }
 }

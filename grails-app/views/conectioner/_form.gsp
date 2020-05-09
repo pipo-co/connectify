@@ -1,5 +1,6 @@
+%{--Username--}%
 <div class="form-group">
-    <label><g:message code="username"/> *</label>
+    <label><g:message code="username"/></label>
     <g:hasErrors bean="${conectioner}" field="user.username">
         <g:eachError bean="${conectioner}" field="user.username">
             <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -9,6 +10,7 @@
     <g:textField name="username" class="form-control" value="${fieldValue(bean: conectioner?.user, field: 'username')}" placeholder="Please Enter Username"/>
 </div>
 
+%{--Name--}%
 <div class="form-group">
     <label><g:message code="name"/></label>
     <g:hasErrors bean="${conectioner}" field="user.name">
@@ -19,6 +21,7 @@
     <g:textField name="name" class="form-control" value="${conectioner?.user?.name}" placeholder="Please Last Name"/>
 </div>
 
+%{--Email--}%
 <div class="form-group">
     <label><g:message code="email.address"/> *</label>
     <g:hasErrors bean="${conectioner?.user}" field="email">
@@ -29,6 +32,7 @@
     <g:field type="email" name="email" class="form-control" value="${conectioner?.user?.email}" placeholder="Please Enter Email"/>
 </div>
 
+%{--Pass--}%
 <g:if test="${!edit}">
     <div class="form-group">
         <label><g:message code="password"/> *</label>
@@ -41,6 +45,7 @@
     </div>
 </g:if>
 
+%{--CBU--}%
 <div class="form-group">
     <label><g:message code="cbu"/> *</label>
     <g:hasErrors bean="${conectioner}" field="cbu">
@@ -51,6 +56,7 @@
     <g:textField name="cbu" class="form-control" value="${fieldValue(bean: conectioner, field: 'cbu')}" placeholder="Please Enter CBU"/>
 </div>
 
+%{--Avatar--}%
 <div class="form-group">
     <label><g:message code="avatar"/></label>
     <g:field name="avatar" class="form-control" type="file" placeholder="Please Upload Avatar"/>

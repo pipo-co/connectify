@@ -14,8 +14,10 @@ class ConsumerController {
         def response = consumerService.getById(id)
         if(!response)
             redirect(controller: "consumer", action: "index")
-        else
-            [consumer: response]
+        else{
+            def aux = consumerService.getPropertiesList(response)
+            [consumer: response, propertiesList: aux]
+        }
     }
 
     def create(){

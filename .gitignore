@@ -10,3 +10,5 @@ out/
 .project
 .settings
 .classpath
+src/main/webapp/avatar/*
+!src/main/webapp/avatar/defaultAvatar.png
