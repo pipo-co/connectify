@@ -58,4 +58,15 @@ class ActivityTemplateService {
     def getById(Serializable id){
         return ActivityTemplate.get(id)
     }
+
+    def isActivityTemplateFromLoggedConectioner(ActivityTemplate activityTemplate){
+        Conectioner conectioner = authenticationService.getUser().conectioner
+        Long conectionerId = activityTemplate.conectioner.id
+        return conectionerId.equals(conectioner.id)
+    }
+
+    def isActivityTemplateFromLoggedConectioner(Serializable activityTemplateId){
+        ActivityTemplate activityTemplate = ActivityTemplate.get(activityTemplateId)
+        return activityTemplate && isActivityTemplateFromLoggedConectioner(activityTemplate)
+    }
 }

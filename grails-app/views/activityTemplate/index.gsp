@@ -47,6 +47,8 @@
                     <td>
                         <div class="btn-group">
                             <g:link controller="activityTemplate" action="details" class="btn btn-secondary" id="${info.id}">Detail</g:link>
+                            <g:link controller="activity" action="create" class="btn btn-secondary" id="${info.id}">Start Activity</g:link>
+                            <g:link controller="activity" action="index" class="btn btn-secondary" id="${info.id}">List Activities</g:link>
 %{--                            <g:link controller="activityTemplate" action="edit" class="btn btn-secondary" id="${info.id}">Edit</g:link>--}%
                             <g:link controller="activityTemplate" action="delete" id="${info.id}" class="btn btn-secondary delete-confirmation">Delete</g:link>
                         </div>
