@@ -21,100 +21,127 @@
 </head>
 
 <body>
+
 <div id="app">
     <v-app>
+        <navbar></navbar>
         <div class="navbar mb-5">
-            <v-toolbar fixed app color="#65C2AD">
+            <v-toolbar fixed app color="#2E3047">
                 <v-container fluid>
-                    <v-row no-gutters>
-                        <v-col md="5">
+                    <v-row no-gutters align="center">
+                        <v-col cols="5">
                             <v-list-item dense>
-                                <v-toolbar-title class="headline">SMARTIFY</v-toolbar-title>
-                                <v-btn class="ml-5" color="red "  outlined text> Cancelar</v-btn>
+                                <v-btn class="ma-1 pa-1" href="/" text>
+                                    <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Mapas</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Categorias</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text">Buscar <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                </v-btn>
                             </v-list-item>
                         </v-col>
-                        <v-col md="4" >
-                            <v-list-item dense>
-                                <v-toolbar-title class="ml-12">NUEVA RUTINA</v-toolbar-title>
+                        <v-col cols="4">
+                            <v-spacer></v-spacer>
+                        </v-col>
+                        <v-col cols="3" >
+                            <v-list-item dense class="ma-1 pa-1">
+                                <v-list-avatar >
+                                    <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+                                        <img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" style="height: 80px; width: 100px" class="card-img-top"/>
+                                    </g:if>
+                                    <g:else>
+                                        <v-btn class="ma-2 pa-2" text>
+                                            <v-toolbar-title class="subtitle-1 white--text">Registrarse</v-toolbar-title>
+                                        </v-btn>
+                                        <v-btn class="ma-2 pa-2" text>
+                                            <v-toolbar-title class="subtitle-1 white--text">Iniciar sesion</v-toolbar-title>
+                                        </v-btn>
+                                    </g:else>
+                                </v-list-avatar>
+                                <v-btn class="ma-2 pa-2" text>
+                                    <v-toolbar-title >
+                                        <g:if test="${session.authorized && session.authorized.isloggedin}">
+                                        <g:if test="${session.authorized.user.usertype == GlobalConfig.USER_TYPE.CONSUMER.consumer}">
+                                            <p style="color: red">welcome ${session.authorized.user.name} ${session.authorized.user.consumer.lastname}</p>
+                                        </g:if>
+                                        <g:else>
+                                            <v-toolbar-title class="subtitle-1 red--text " >Welcome  ${session.authorized.user.name}</v-toolbar-title>
+                                        </g:else>
+                                    </g:if>
+                                        <g:else>
+                                            <v-toolbar-title class="subtitle-1 red--text">Welcome</v-toolbar-title>
+                                        </g:else>
+                                    </v-toolbar-title>
+                                </v-btn>
+                                    <v-btn class="ma-1 pa-1" text>
+                                        <v-icon color="white" large>mdi-calendar </v-icon>
+                                    </v-btn>
+                                </v-btn>
                             </v-list-item>
                         </v-col>
                     </v-row>
                 </v-container>
             </v-toolbar>
         </div>
-%{--<nav class="navbar navbar-expand-lg navbar-light bg-primary navbar-static-top" role="navigation">
-    <div class="container-fluid px-5">
-        <div class="row px-0 mx-0">
-            <div class="col-6 ">
-                <div class="navbar-nav align-content-center">
-                    <a class="navbar-brand" href="/#">Connectify</a>
-                    <a class="nav-item nav-link" href="#"> Mapa <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Categorias</a>
-                    <a class="nav-item nav-link" href="#">Recientes</a>
-                    <a class="nav-item nav-link" href="#">Busqueda <i class="fa fa-search"></i></a>
-                </div>
-            </div>
-            <div class="col-3"></div>
-            <div class="col-2 py-3 pr-lg-5 align-content-center">
-                <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarcontent">
-                    <ul class="nav navbar-nav ml-auto">
-                        <g:if test="${session.authorized && session.authorized.isloggedin}">
-                            <img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" style="height: 80px; width: 100px" class="card-img-top"/>
-                        </g:if>
-                        <g:else>
-                            <asset:image src="grails.svg" alt="grails logo"/>
-                        </g:else>
-                    </ul>
-                     <ul class="nav navbar-nav ml-auto">
-                         <div class="nav-item nav-link" href="#">
-                             <g:if test="${session.authorized && session.authorized.isloggedin}">
-                                 <g:if test="${session.authorized.user.usertype == globalconfig.user_type.consumer}">
-                                     <p style="color: red">welcome ${session.authorized.user.name} ${session.authorized.user.consumer.lastname}</p>
-                                 </g:if>
-                                 <g:else>
-                                     <p style="color: red">welcome ${session.authorized.user.name}</p>
-                                 </g:else>
-                             </g:if>
-                             <g:else>
-                                 <p style="color: red">welcome</p>
-                             </g:else>
-                         </div>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</nav>--}%
 
 <g:layoutBody/>
 
-<div class="footer row" role="contentinfo">
-    <div class="col">
-        <a href="http://guides.grails.org" target="_blank">
-            <asset:image src="advancedgrails.svg" alt="Grails Guides" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://guides.grails.org" target="_blank">Grails Guides</a></strong>
-        <p>Building your first Grails app? Looking to add security, or create a Single-Page-App? Check out the <a href="http://guides.grails.org" target="_blank">Grails Guides</a> for step-by-step tutorials.</p>
+        <v-footer
+                color="#2E3047"
+                padless
+        >
+        <v-row
+                justify="center"
+                no-gutters
+        >
+            <v-row
+                    justify="center"
+                    no-gutters
+            >
+                <v-btn
+                        v-for="link in links"
+                        :key="link"
+                        color="white"
+                        text
+                        rounded
+                        class="my-2"
+                >
+                    {{ link }}
+                </v-btn>
+        </v-row>
+            <v-card
+                    flat
+                    tile
+                    class="lighten-1 white--text text-center"
+                    color="#2E3047"
+            >
+                <v-card-text>
+                    <v-btn
+                            v-for="icon in icons"
+                            :key="icon"
+                            class="mx-4 white--text"
+                            icon
+                    >
+                        <v-icon size="24px">{{ icon }}</v-icon>
+                    </v-btn>
+                </v-card-text>
 
-    </div>
-    <div class="col">
-        <a href="http://docs.grails.org" target="_blank">
-            <asset:image src="documentation.svg" alt="Grails Documentation" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://docs.grails.org" target="_blank">Documentation</a></strong>
-        <p>Ready to dig in? You can find in-depth documentation for all the features of Grails in the <a href="http://docs.grails.org" target="_blank">User Guide</a>.</p>
+                <v-card-text class="white--text pt-0">
+                    Somos un equipo de emprendedores que no tienen profesores ya que fueron poseidos por el espiritu italiano de las pastas. Ellos, convertidos en gnocci decidieron nunca mas volver a darnos clases para poder hacerse asi con nuestras ganas de bibir.
+                </v-card-text>
 
-    </div>
+                <v-divider></v-divider>
 
-    <div class="col">
-        <a href="https://grails-slack.cfapps.io" target="_blank">
-            <asset:image src="slack.svg" alt="Grails Slack" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="https://grails-slack.cfapps.io" target="_blank">Join the Community</a></strong>
-        <p>Get feedback and share your experience with other Grails developers in the community <a href="https://grails-slack.cfapps.io" target="_blank">Slack channel</a>.</p>
-    </div>
-</div>
+                <v-card-text class="white--text">
+                    {{ new Date().getFullYear() }} — <strong>Connectify</strong>
+                </v-card-text>
+            </v-card>
+        </v-footer>
 
 
 <div id="spinner" class="spinner" style="display:none;">
@@ -127,12 +154,9 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-<script>
-    export default {
 
-    }
-</script>
 <script>
+
     new Vue({
         el: '#app',
         vuetify: new Vuetify(),
@@ -142,15 +166,29 @@
                 { name: "Modo Cine", desc: "Baja las luces y prende el equipo de musica"},
                 { name: "Regar Frente", desc: "Prende aspersores del frente del hogar"},
                 { name: "Refrescar living", desc: "Bajar persianas living y prender el aire en 24"},
-            ]
+            ],
+            icons: [
+                'mdi-facebook',
+                'mdi-twitter',
+                'mdi-linkedin',
+                'mdi-instagram',
+            ],
+            links: [
+                'Home',
+                'About Us',
+                'Team',
+                'Services',
+                'Blog',
+                'Contact Us',
+            ],
         },
+
     })
+
 </script>
 
 </body>
 </html>
-
-
 <script>
     import VCol from "vuetify/src/components/VGrid/VCol";
     export default {
