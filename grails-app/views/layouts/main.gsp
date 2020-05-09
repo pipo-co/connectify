@@ -55,10 +55,10 @@
                                         <img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" style="height: 80px; width: 100px" class="card-img-top"/>
                                     </g:if>
                                     <g:else>
-                                        <v-btn class="ma-2 pa-2" text>
+                                        <v-btn class="ma-2 pa-2" text href="/consumer/index">
                                             <v-toolbar-title class="subtitle-1 white--text">Registrarse</v-toolbar-title>
                                         </v-btn>
-                                        <v-btn class="ma-2 pa-2" text>
+                                        <v-btn class="ma-2 pa-2" text href="/authentication/login">
                                             <v-toolbar-title class="subtitle-1 white--text">Iniciar sesion</v-toolbar-title>
                                         </v-btn>
                                     </g:else>
