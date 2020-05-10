@@ -8,5 +8,6 @@ class Category {
 
     static constraints = {
         name blank: false, unique: true
+        activityTemplate nullable: true
     }
 }
