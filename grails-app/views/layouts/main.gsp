@@ -24,7 +24,6 @@
 
 <div id="app">
     <v-app>
-        <navbar></navbar>
         <div class="navbar mb-5">
             <v-toolbar fixed app color="#2E3047">
                 <v-container fluid>
@@ -35,55 +34,76 @@
                                     <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-1 pa-1" text>
-                                    <v-toolbar-title class="subtitle-1 white--text" >Mapas</v-toolbar-title>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-1 pa-1" text>
-                                    <v-toolbar-title class="subtitle-1 white--text" >Categorias</v-toolbar-title>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-1 pa-1" text>
-                                    <v-toolbar-title class="subtitle-1 white--text">Buscar <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
                                 </v-btn>
                             </v-list-item>
                         </v-col>
-                        <v-col cols="4">
-                            <v-spacer></v-spacer>
-                        </v-col>
-                        <v-col cols="3" >
-                            <v-list-item dense class="ma-1 pa-1">
-                                <v-list-avatar >
-                                    <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-                                        <img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" style="height: 80px; width: 100px" class="card-img-top"/>
-                                    </g:if>
-                                    <g:else>
-                                        <v-btn class="ma-2 pa-2" text href="/consumer/index">
-                                            <v-toolbar-title class="subtitle-1 white--text">Registrarse</v-toolbar-title>
-                                        </v-btn>
-                                        <v-btn class="ma-2 pa-2" text href="/authentication/login">
-                                            <v-toolbar-title class="subtitle-1 white--text">Iniciar sesion</v-toolbar-title>
-                                        </v-btn>
-                                    </g:else>
-                                </v-list-avatar>
-                                <v-btn class="ma-2 pa-2" text>
-                                    <v-toolbar-title >
-                                        <g:if test="${session.authorized && session.authorized.isloggedin}">
-                                        <g:if test="${session.authorized.user.usertype == GlobalConfig.USER_TYPE.CONSUMER.consumer}">
-                                            <p style="color: red">welcome ${session.authorized.user.name} ${session.authorized.user.consumer.lastname}</p>
-                                        </g:if>
-                                        <g:else>
-                                            <v-toolbar-title class="subtitle-1 red--text " >Welcome  ${session.authorized.user.name}</v-toolbar-title>
-                                        </g:else>
-                                    </g:if>
-                                        <g:else>
-                                            <v-toolbar-title class="subtitle-1 red--text">Welcome</v-toolbar-title>
-                                        </g:else>
-                                    </v-toolbar-title>
-                                </v-btn>
-                                    <v-btn class="ma-1 pa-1" text>
-                                        <v-icon color="white" large>mdi-calendar </v-icon>
-                                    </v-btn>
-                                </v-btn>
-                            </v-list-item>
-                        </v-col>
+                        <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+                            <v-col cols="5">
+                                <v-spacer></v-spacer>
+                            </v-col>
+                             <v-col cols="2" class="pa-1" >
+                                 <v-list-item dense class="ma-1 pa-1">
+                             <v-list-item-avatar>
+                                 <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                             </v-list-item-avatar>
+                             <div class="text-center">
+                                 <v-menu offset-y>
+                                     <template v-slot:activator="{ on }">
+                                         <v-btn
+                                                 color="#59D0B4"
+                                                 dark
+                                                 v-on="on"
+                                                 text
+                                         >
+                                             ${session.authorized.user.name}
+                                             <v-icon small>mdi-chevron-down</v-icon>
+
+                                         </v-btn>
+                                     </template>
+                                     <v-list>
+                                         <v-list-item
+                                                 v-for="(item, index) in items"
+                                                 :key="index"
+                                                 @click=""
+                                                 :href="item.link"
+                                         >
+                                             <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
+                                         </v-list-item>
+                                     </v-list>
+                                 </v-menu>
+                             </div>
+                             %{--<v-btn class="ma-2 pa-2" text >
+
+                                <p class="white--text"> </p>
+                             </v-btn>--}%
+                             <v-btn class="ma-1 pa-1" text>
+                                 <v-icon color="white" large>mdi-calendar</v-icon>
+                             </v-btn>
+                             </v-list-item>
+                             </v-col>
+                        </g:if>
+                         <g:else>
+                             <v-col cols="4" >
+                                 <v-spacer></v-spacer>
+                             </v-col>
+                             <v-col>
+                                 <v-list-item dense class="ma-1 pa-1">
+                                     <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
+                                         <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                     </v-btn>
+                                     <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
+                                         <v-toolbar-title class="title white--text">Register</v-toolbar-title>
+                                     </v-btn>
+                                 </v-list-item>
+                             </v-col>
+                         </g:else>
                     </v-row>
                 </v-container>
             </v-toolbar>
@@ -181,6 +201,11 @@
                 'Blog',
                 'Contact Us',
             ],
+            items: [
+                { title:' Perfil', color:'black--text', link:'/consumer/edit'},
+                { title: 'Historial', color:'black--text', link:'#'},
+                { title: 'Cerrar sesion', color:'red--text', link:'/authentication/logout'}
+            ]
         },
 
     })
