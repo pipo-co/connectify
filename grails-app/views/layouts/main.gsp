@@ -27,7 +27,7 @@
             <v-toolbar fixed app color="#2E3047">
                 <v-container fluid>
                     <v-row no-gutters align="center">
-                        <v-col cols="5">
+                        <v-col cols="6">
                             <v-list-item dense>
                                 <v-btn class="ma-1 pa-1" href="/" text>
                                     <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
@@ -44,7 +44,7 @@
                             </v-list-item>
                         </v-col>
                         <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-                            <v-col cols="5">
+                            <v-col cols="4">
                                 <v-spacer></v-spacer>
                             </v-col>
                              <v-col cols="2" class="pa-1" >

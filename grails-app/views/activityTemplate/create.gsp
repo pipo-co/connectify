@@ -9,11 +9,18 @@
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
 
-<div class="card">
-    <div class="card-header">
-        <g:message code="activity.template" args="['Creation']"/>
-    </div>
-    <div class="card-body">
+<v-container class="my-2">
+    <v-row>
+        <v-col >
+            <p class="headline"><g:message code="activity.template" args="['Creation']"/>:</p>
+        </v-col>
+    </v-row>
+</v-container>
+
+
+
+
+
         <g:form controller="activityTemplate" action="save">
 
         %{--Partial Templating--}%
@@ -35,5 +42,3 @@
                 </v-container>
                 </div>
         </g:form>
-    </div>
-</div>

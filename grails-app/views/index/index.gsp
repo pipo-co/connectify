@@ -5,7 +5,7 @@
     <title>Welcome to Connectify</title>
 </head>
 <body>
-<v-container fluid>
+%{--<v-container fluid>
     <v-row>
         <v-col>
             <v-card raised>
@@ -32,7 +32,7 @@
             </v-card>
         </v-col>
     </v-row>
-</v-container>
+</v-container>--}%
 <g:each in="${activityTList}"  var="pair">
     <v-container fluid>
         <v-row no-gutters>
