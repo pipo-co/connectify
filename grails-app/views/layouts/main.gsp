@@ -217,14 +217,14 @@
                 'Neuquen', 'Jujuy', 'La Pampa'
             ],
             phoneTypes: [
-                'cell', 'home'
+                'cell', 'house'
             ],
             docTypes:[
                 'DNI', 'CI', 'Passport'
             ],
             categories: [
-                { id: 1, name: 'Fitness'},
-                { id: 2, name: 'Cooking'}
+                { value: 1, text: 'Fitness'},
+                { value: 2, text: 'Cooking'}
             ]
         },
 

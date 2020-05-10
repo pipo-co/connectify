@@ -85,5 +85,22 @@
                 </v-text-field>
             </v-col>
         </v-row>
+
+        <v-row>
+            <v-col class="pa-0">
+                <g:hasErrors bean="${activityT}" field="category">
+                    <g:eachError bean="${activityT}" field="category">
+                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                    </g:eachError>
+                </g:hasErrors>
+                <v-select
+                        label="<g:message code="category"/>"
+                        name="category"
+                        value="${fieldValue(bean: activityT, field: 'category')}"
+                        :items="categories"
+                        required
+                ></v-select>
+            </v-col>
+        </v-row>
     </v-container>
 </v-card>

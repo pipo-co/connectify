@@ -48,7 +48,7 @@
                     name="email"
                     type="email"
                     :rules="emailRules"
-                    value="${conectioner?.user.email}"
+                    value="${conectioner?.user?.email}"
                     required
             >
             </v-text-field>
