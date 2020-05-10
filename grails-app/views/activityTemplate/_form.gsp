@@ -88,15 +88,15 @@
 
         <v-row>
             <v-col class="pa-0">
-                <g:hasErrors bean="${activityT}" field="category">
-                    <g:eachError bean="${activityT}" field="category">
+                <g:hasErrors bean="${activityT}" field="categoryId">
+                    <g:eachError bean="${activityT}" field="categoryId">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
                     </g:eachError>
                 </g:hasErrors>
                 <v-select
                         label="<g:message code="category"/>"
-                        name="category"
-                        value="${fieldValue(bean: activityT, field: 'category')}"
+                        name="categoryId"
+                        value="${fieldValue(bean: activityT, field: 'categoryId')}"
                         :items="categories"
                         required
                 ></v-select>
