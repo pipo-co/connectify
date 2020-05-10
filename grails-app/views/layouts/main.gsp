@@ -194,10 +194,12 @@
                 { title: 'Historial', color:'black--text', link:'#'},
                 { title: 'Cerrar sesion', color:'red--text', link:'/authentication/logout'}
             ],
+            show: false,
             cards: [
-                { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-                { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-                { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+                { category:'Fitness', title: 'Crossfit', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+                { category:'Fitness', title: 'Crossfit2', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+                { category:'Fitness', title: 'Crossfit3', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 }
+
             ],
             countries:[
                 'Argentina', 'Chile','Brasil'
