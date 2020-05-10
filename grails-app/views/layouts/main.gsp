@@ -139,7 +139,7 @@
                 </v-card-text>
 
                 <v-card-text class="white--text pt-0">
-                    Somos un equipo de emprendedores que no tienen profesores ya que fueron poseidos por el espiritu italiano de las pastas. Ellos, convertidos en gnocci decidieron nunca mas volver a darnos clases para poder hacerse asi con nuestras ganas de bibir.
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eum, hic labore laborum molestias perferendis placeat reprehenderit sunt voluptates. Deleniti eum magnam mollitia numquam officia possimus repellendus rerum sequi tempore.
                 </v-card-text>
 
                 <v-divider></v-divider>
