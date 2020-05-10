@@ -1,0 +1,89 @@
+package connectify.grailsproject
+
+class ActivityController {
+
+    ActivityService activityService
+    ActivityTemplateService activityTemplateService
+    AuthenticationService authenticationService
+
+    // Solo pueden entrar los conectioners
+    def index(Integer id) {
+
+        def response = activityService.list(id)
+        if(!response.success)
+            redirect(uri: "/")
+        else
+            [activityList: response.activityList, activityTId: id]
+    }
+
+    def create(Integer id){
+        if(!activityTemplateService.isActivityTemplateFromLoggedConectioner(id))
+            redirect(uri: "/")
+        else
+            [activity: flash.redirectParams, activityTId: id]
+    }
+
+    def save(){
+        def response = activityService.save(params)
+        if(!response.valid)
+            redirect(uri: "/")
+        else if(!response.isSuccess){
+            flash.redirectParams = response.model
+            redirect(controller: "activity", action: "create", id: params.activityTId)
+        }else{
+            redirect(controller: "activity", action: "index", id: params.activityTId)
+        }
+    }
+
+    def delete(Integer id){
+        def response = activityService.getById(id)
+        if(!response){
+            redirect(uri: "/")
+        } else {
+            def activityTId = activityService.delete(response)
+            redirect(controller: "activityTemplate", action: "index", id: activityTId)
+        }
+    }
+
+    //Tiene que estar logueado un Consumer
+    def addConsumerToActivity(Long id){
+        Activity activity = activityService.getById(id)
+
+        if(!activity){
+            println("Error - Activity no encontrado")
+            redirect(uri: "/")
+            return
+        }
+
+        Long consumerId = authenticationService.getUser().consumer.id
+
+        def success = activityService.addConsumer(activity, consumerId)
+
+        //Mandar JSON de respuesta
+        if(!success){
+            println("Fallo la anotacion")
+        }
+
+        redirect(uri: "/")
+    }
+
+    def removeConsumerFromActivity(Long id){
+        Activity activity = activityService.getById(id)
+
+        if(!activity){
+            println("Error - Activity no encontrado")
+            redirect(uri: "/")
+            return
+        }
+        Long consumerId = authenticationService.getUser().consumer.id
+
+        def success = activityService.removeConsumer(activity, consumerId)
+
+        if(!success){
+            println("Fallo la anotacion")
+        }
+
+        redirect(uri: "/")
+
+    }
+}

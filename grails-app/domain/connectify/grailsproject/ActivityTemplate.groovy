@@ -9,6 +9,8 @@ class ActivityTemplate {
     Integer maxParticipants
     boolean isActive = true
 
+    static hasMany = [activity: Activity]
+
     static belongsTo = [conectioner: Conectioner]
 
     static constraints = {
@@ -17,5 +19,9 @@ class ActivityTemplate {
         duration blank: false
         address blank: false
         maxParticipants blank: false
+    }
+
+    static mapping = {
+        activity cascade: "all-delete-orphan"
     }
 }

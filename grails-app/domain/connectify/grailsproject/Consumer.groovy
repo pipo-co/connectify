@@ -15,6 +15,9 @@ class   Consumer {
         String phoneType //cell or house
         User user
 
+        static belongsTo = Activity
+        static hasMany = [activities: Activity]
+
         static constraints = {
             lastName blank: false
             user unique: true
