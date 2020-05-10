@@ -4,6 +4,7 @@ class ActivityController {
 
     ActivityService activityService
     ActivityTemplateService activityTemplateService
+    AuthenticationService authenticationService
 
     // Solo pueden entrar los conectioners
     def index(Integer id) {
@@ -42,5 +43,47 @@ class ActivityController {
             def activityTId = activityService.delete(response)
             redirect(controller: "activityTemplate", action: "index", id: activityTId)
         }
+    }
+
+    //Tiene que estar logueado un Consumer
+    def addConsumerToActivity(Long id){
+        Activity activity = activityService.getById(id)
+
+        if(!activity){
+            println("Error - Activity no encontrado")
+            redirect(uri: "/")
+            return
+        }
+
+        Long consumerId = authenticationService.getUser().consumer.id
+
+        def success = activityService.addConsumer(activity, consumerId)
+
+        //Mandar JSON de respuesta
+        if(!success){
+            println("Fallo la anotacion")
+        }
+
+        redirect(uri: "/")
+    }
+
+    def removeConsumerFromActivity(Long id){
+        Activity activity = activityService.getById(id)
+
+        if(!activity){
+            println("Error - Activity no encontrado")
+            redirect(uri: "/")
+            return
+        }
+        Long consumerId = authenticationService.getUser().consumer.id
+
+        def success = activityService.removeConsumer(activity, consumerId)
+
+        if(!success){
+            println("Fallo la anotacion")
+        }
+
+        redirect(uri: "/")
+
     }
 }

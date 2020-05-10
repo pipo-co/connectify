@@ -54,6 +54,61 @@ class ActivityService {
         return activityT.id
     }
 
+    def addConsumer(Activity activity, Long consumerId){
+        //Validar que la actividad no haya ocurrido ya
+
+        Optional<Consumer> optConsumer = activity.consumers.stream()
+                .filter({consumer -> consumer.id == consumerId}).findFirst()
+
+        if(optConsumer.isPresent())
+            return false
+
+        Consumer consumer = Consumer.get(consumerId)
+
+//        if(!consumer)
+//            return false
+
+        consumer.addToActivities(activity)
+        activity.addToConsumers(consumer)
+        activity.participants++
+
+        def response = false
+
+        if(activity.validate()){
+            activity.save(flush: true)
+            if(!activity.hasErrors()){
+                response = true
+            }
+        }
+        return response
+    }
+
+    def removeConsumer(Activity activity, Long consumerId){
+        //Validar que la actividad no haya ocurrido ya
+
+        Optional<Consumer> optConsumer = activity.consumers.stream()
+                .filter({consumer -> consumer.id == consumerId}).findFirst()
+
+        if(!optConsumer.isPresent())
+            return false
+
+        Consumer consumer = optConsumer.get()
+
+        consumer.removeFromActivities(activity)
+        activity.removeFromConsumers(consumer)
+        activity.participants--
+
+        def response = false
+
+        if(activity.validate()){
+            activity.save(flush: true)
+            if(!activity.hasErrors()){
+                response = true
+            }
+        }
+        return response
+    }
+
     def getById(Serializable id){
         return Activity.get(id)
     }
