@@ -7,6 +7,7 @@ class ActivityTemplate {
     Integer duration
     String address
     Integer maxParticipants
+    Category category
     boolean isActive = true
 
     static hasMany = [activity: Activity]
@@ -23,5 +24,6 @@ class ActivityTemplate {
 
     static mapping = {
         activity cascade: "all-delete-orphan"
+        category cascade: 'none'
     }
 }

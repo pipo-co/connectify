@@ -4,7 +4,7 @@ class Category {
 
     String name
 
-    static belongsTo = [activity: Activity]
+    static belongsTo = [activityTemplate: ActivityTemplate]
 
     static constraints = {
         name blank: false
