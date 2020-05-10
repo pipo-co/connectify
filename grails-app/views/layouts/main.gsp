@@ -222,6 +222,10 @@
             docTypes:[
                 'DNI', 'CI', 'Passport'
             ],
+            categories: [
+                { id: 1, name: 'Fitness'},
+                { id: 2, name: 'Cooking'}
+            ]
         },
 
     })

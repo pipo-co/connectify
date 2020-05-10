@@ -23,6 +23,11 @@ class ActivityTemplateController{
 
     def save(){
         def response = activityTemplateService.save(params)
+        if(!response){
+            redirect(uri: "/")
+            return
+        }
+
         if(!response.isSuccess){
             flash.redirectParams = response.model
             redirect(controller: "activityTemplate", action: "create")

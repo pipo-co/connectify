@@ -16,8 +16,15 @@ class ActivityTemplateService {
         if(!conectioner.isAttached())
             conectioner.attach()
 
+        Category category = Category.get(params.category)
+        if(!category)
+            return false
+
+
         ActivityTemplate activityT = new ActivityTemplate(params)
         activityT.conectioner = conectioner
+        activityT.category = category
+
         def response = AppUtil.saveResponse(false, activityT)
         if(activityT.validate()){
             conectioner.addToActivityTemplates(activityT)

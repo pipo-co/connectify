@@ -9,7 +9,6 @@ class Activity {
 
     static hasMany = [consumers: Consumer]
 
-
     static constraints = {
         initDate blank: false
         participants min: 0
