@@ -209,6 +209,10 @@
                 { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
                 { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
                 { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+            ],
+            categories: [
+                { id: 1, name: 'Fitness'},
+                { id: 2, name: 'Cooking'}
             ]
         },
 
