@@ -205,6 +205,11 @@
                 { title:' Perfil', color:'black--text', link:'/consumer/edit'},
                 { title: 'Historial', color:'black--text', link:'#'},
                 { title: 'Cerrar sesion', color:'red--text', link:'/authentication/logout'}
+            ],
+            cards: [
+                { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+                { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
+                { category:'Fitness', title: 'Crossfit', connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
             ]
         },
 
