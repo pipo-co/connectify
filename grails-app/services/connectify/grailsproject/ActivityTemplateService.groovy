@@ -16,7 +16,7 @@ class ActivityTemplateService {
         if(!conectioner.isAttached())
             conectioner.attach()
 
-        Category category = Category.get(params.category)
+        Category category = Category.get(params.categoryId)
         if(!category)
             return false
 
@@ -27,8 +27,8 @@ class ActivityTemplateService {
 
         def response = AppUtil.saveResponse(false, activityT)
         if(activityT.validate()){
+            activityT.save(flush: true)
             conectioner.addToActivityTemplates(activityT)
-            conectioner.save(flush: true)
             if(!conectioner.hasErrors()){
                 response.isSuccess = true
             }
