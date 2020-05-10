@@ -19,9 +19,21 @@
         %{--Partial Templating--}%
             <g:render template="form"/>
             <div class="form-action-panel">
-                <g:submitButton class="btn btn-primary" name="save" value="${g.message(code: "save")}"/>
-                <g:link controller="activityTemplate" action="index" class="btn btn-primary"><g:message code="cancel"/></g:link>
-            </div>
+                <v-container class="ma-1 pa-1" fluid>
+                    <v-row align="center" justify="center" >
+                        <v-col cols="2">
+                            <v-btn color="#59D0B4" class="white--text" type="submit" width="200" name="save" value="${g.message(code: "save")}">
+                                Save
+                            </v-btn>
+                        </v-col>
+                        <v-col cols="2">
+                            <v-btn color="red" class="white--text"  width="200" href="/" >
+                                <g:message code="cancel"/>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-container>
+                </div>
         </g:form>
     </div>
 </div>
