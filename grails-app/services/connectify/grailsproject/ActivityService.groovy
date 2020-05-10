@@ -24,6 +24,7 @@ class ActivityService {
         if(!activityTemplate || !activityTemplateService.isActivityTemplateFromLoggedConectioner(activityTemplate))
             return [valid: false]
 
+        params.initTime = params.initTime + ":00"
         Activity activity = new Activity(params)
         activity.activityTemplate = activityTemplate
         def response = [valid: true, isSuccess: false, model: activity]

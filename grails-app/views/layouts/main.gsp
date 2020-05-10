@@ -215,7 +215,8 @@
                 { value: 1, text: 'Fitness'},
                 { value: 2, text: 'Cooking'}
             ],
-            picker: new Date().toISOString().substr(0, 10)
+            picker: null,
+            timePicker: null,
         },
 
     })
