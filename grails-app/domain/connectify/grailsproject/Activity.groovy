@@ -1,8 +1,12 @@
 package connectify.grailsproject
 
+import java.time.LocalDate
+import java.time.LocalTime
+
 class Activity {
 
-    Date initDate
+    LocalDate initDate
+    LocalTime initTime
     Integer participants = 0
 
     static belongsTo = [activityTemplate: ActivityTemplate]
@@ -11,6 +15,7 @@ class Activity {
 
     static constraints = {
         initDate blank: false
+        initTime blank: false
         participants min: 0
     }
 }

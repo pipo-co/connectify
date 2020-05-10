@@ -110,42 +110,30 @@
 
 <g:layoutBody/>
 
-        <v-footer
-                color="#2E3047"
-                padless
-        >
-        <v-row
-                justify="center"
-                no-gutters
-        >
-            <v-row
-                    justify="center"
-                    no-gutters
-            >
+        <v-footer color="#2E3047" padless>
+        <v-row justify="center" no-gutters>
+            <v-row justify="center" no-gutters>
                 <v-btn
                         v-for="link in links"
                         :key="link"
                         color="white"
                         text
                         rounded
-                        class="my-2"
-                >
+                        class="my-2">
                     {{ link }}
                 </v-btn>
-        </v-row>
+            </v-row>
             <v-card
                     flat
                     tile
                     class="lighten-1 white--text text-center"
-                    color="#2E3047"
-            >
+                    color="#2E3047">
                 <v-card-text>
                     <v-btn
                             v-for="icon in icons"
                             :key="icon"
                             class="mx-4 white--text"
-                            icon
-                    >
+                            icon>
                         <v-icon size="24px">{{ icon }}</v-icon>
                     </v-btn>
                 </v-card-text>
@@ -160,6 +148,7 @@
                     {{ new Date().getFullYear() }} — <strong>Connectify</strong>
                 </v-card-text>
             </v-card>
+        </v-row>
         </v-footer>
 
 
@@ -225,7 +214,9 @@
             categories: [
                 { value: 1, text: 'Fitness'},
                 { value: 2, text: 'Cooking'}
-            ]
+            ],
+            picker: null,
+            timePicker: null,
         },
 
     })
