@@ -87,13 +87,13 @@
             <v-card  class="mx-auto"
                      max-width="400"
                      max-height="300">
-                    <v-container fluid class="pa-0">
-                        <v-img
-                                :src="card.src"
+                <v-container fluid class="pa-0">
+                    <v-img
+                            :src="card.src"
 
-                                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                                height="200px"
-                        >
+                            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                            height="200px"
+                    >
                         <v-row no-gutters align="center" class="pl-1 py-0">
                             <v-col cols="10" class="pa-0">
                                 <v-card-subtitle class="pa-1 white--text">Categoria: {{card.category}}</v-card-subtitle>
@@ -126,23 +126,23 @@
                                 </v-btn>
                             </v-col>
                         </v-row>
-                    </v-container>
-                </v-img>
+                    </v-img>
+                </v-container>
 
-%{--                <v-card-actions>--}%
-%{--                    <v-spacer></v-spacer>--}%
-%{--                    <v-btn icon>--}%
-%{--                        <v-icon>mdi-heart</v-icon>--}%
-%{--                    </v-btn>--}%
+                %{--                <v-card-actions>--}%
+                %{--                    <v-spacer></v-spacer>--}%
+                %{--                    <v-btn icon>--}%
+                %{--                        <v-icon>mdi-heart</v-icon>--}%
+                %{--                    </v-btn>--}%
 
-%{--                    <v-btn icon>--}%
-%{--                        <v-icon>mdi-bookmark</v-icon>--}%
-%{--                    </v-btn>--}%
+                %{--                    <v-btn icon>--}%
+                %{--                        <v-icon>mdi-bookmark</v-icon>--}%
+                %{--                    </v-btn>--}%
 
-%{--                    <v-btn icon>--}%
-%{--                        <v-icon>mdi-share-variant</v-icon>--}%
-%{--                    </v-btn>--}%
-%{--                </v-card-actions>--}%
+                %{--                    <v-btn icon>--}%
+                %{--                        <v-icon>mdi-share-variant</v-icon>--}%
+                %{--                    </v-btn>--}%
+                %{--                </v-card-actions>--}%
             </v-card>
         </v-col>
     </v-row>
@@ -151,16 +151,16 @@
 
 
 <div id="content" role="main">
-        <div id="controllers" role="navigation">
-            <h2>Available Controllers:</h2>
-            <ul>
-                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                    <li class="controller">
-                        <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                    </li>
-                </g:each>
-            </ul>
-        </div>
+    <div id="controllers" role="navigation">
+        <h2>Available Controllers:</h2>
+        <ul>
+            <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+                <li class="controller">
+                    <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
+                </li>
+            </g:each>
+        </ul>
+    </div>
 </div>
 
 </body>
