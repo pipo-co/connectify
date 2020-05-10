@@ -1,66 +1,98 @@
-%{--Username--}%
-<div class="form-group">
-    <label><g:message code="username"/></label>
-    <g:hasErrors bean="${conectioner}" field="user.username">
-        <g:eachError bean="${conectioner}" field="user.username">
-            <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-        </g:eachError>
-    </g:hasErrors>
-%{--    <g:renderErrors bean="${user}" field="username" as="list" />--}%
-    <g:textField name="username" class="form-control" value="${fieldValue(bean: conectioner?.user, field: 'username')}" placeholder="Please Enter Username"/>
-</div>
-
-%{--Name--}%
-<div class="form-group">
-    <label><g:message code="name"/></label>
-    <g:hasErrors bean="${conectioner}" field="user.name">
-        <g:eachError bean="${conectioner}" field="user.name">
-            <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-        </g:eachError>
-    </g:hasErrors>
-    <g:textField name="name" class="form-control" value="${conectioner?.user?.name}" placeholder="Please Last Name"/>
-</div>
-
-%{--Email--}%
-<div class="form-group">
-    <label><g:message code="email.address"/> *</label>
-    <g:hasErrors bean="${conectioner}" field="user.email">
-        <g:eachError bean="${conectioner}" field="user.email">
-            <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-        </g:eachError>
-    </g:hasErrors>
-    <g:field type="email" name="email" class="form-control" value="${conectioner?.user?.email}" placeholder="Please Enter Email"/>
-</div>
-
-%{--Pass--}%
-<g:if test="${!edit}">
-    <div class="form-group">
-        <label><g:message code="password"/> *</label>
-        <g:hasErrors bean="${conectioner}" field="user.password">
-            <g:eachError bean="${conectioner}" field="user.password">
+<v-container>
+    <v-row>
+        <v-col class="pa-0">
+            <g:hasErrors bean="${conectioner}" field="user.username">
+                <g:eachError bean="${conectioner}" field="user.username">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+            <v-text-field
+                    label="<g:message code="username"/>"
+                    name="username"
+                    value="${fieldValue(bean: conectioner?.user, field: 'username')}"
+                    required
+            ></v-text-field>
+        </v-col>
+      </v-row>
+        <v-row>
+            <v-col class="pa-0">
+                <g:hasErrors bean="${conectioner}" field="user.name">
+                <g:eachError bean="${conectioner}" field="user.name">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+                <v-text-field
+                        label="<g:message code="name"/>"
+                        name="name"
+                        value="${conectioner?.user?.name}"
+                        required
+                >
+                </v-text-field>
+            </v-col class="pa-0">
+        </v-row>
+    <v-row>
+    <v-col class="pa-0">
+        <g:hasErrors bean="${conectioner?.user}" field="email">
+            <g:eachError bean="${conectioner?.user}" field="email">
                 <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
             </g:eachError>
         </g:hasErrors>
-        <g:passwordField name="password" class="form-control" value="${conectioner?.user?.password}" placeholder="Please Enter Password"/>
-    </div>
-</g:if>
+        <v-text-field
+                v-model="email"
+                label="<g:message code="email.address"/>"
+                name="email"
+                type="email"
+                :rules="emailRules"
+                value="${conectioner?.user?.email}"
+                required
+        >
+        </v-text-field>
+    </v-col>
+</v-row>
+<v-row>
+    <v-col class="pa-0">
+        <g:if test="${!edit}">
+            <g:hasErrors bean="${conectioner?.user}" field="password">
+                <g:eachError bean="${conectioner?.user}" field="password">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+            <v-text-field
+                    v-model="password"
+                    label="<g:message code="password"/>"
+                    name="password"
+                    type="password"
+                    value="${conectioner?.user?.password}"
+                    hint="At least 8 characters"
+            ></v-text-field>
+        </g:if>
+    </v-col>
+</v-row>
+ <v-row>
+     <v-col class="pa-0">
+         <g:hasErrors bean="${conectioner}" field="cbu">
+             <g:eachError bean="${conectioner}" field="cbu">
+                 <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+             </g:eachError>
+         </g:hasErrors>
+         <v-text-field
+                 label="<g:message code="cbu"/>"
+                 name="avatar"
+                 hint="22 characters"
+                 value="${fieldValue(bean: conectioner, field: 'cbu')}"
+         ></v-text-field>
+     </v-col>
+ </v-row>
 
-%{--CBU--}%
-<div class="form-group">
-    <label><g:message code="cbu"/> *</label>
-    <g:hasErrors bean="${conectioner}" field="cbu">
-        <g:eachError bean="${conectioner}" field="cbu">
-            <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-        </g:eachError>
-    </g:hasErrors>
-    <g:field type="number" name="cbu" class="form-control" value="${fieldValue(bean: conectioner, field: 'cbu')}" placeholder="Please Enter CBU"/>
-</div>
+    <v-row>
+        <v-col class="pa-0">
+            <g:if test="${!edit}">
+                <v-file-input accept="image/*"  name="avatar" label="<g:message code="avatar"/>" prepend-icon="mdi-camera"></v-file-input>
+            </g:if>
+        </v-col>
+    </v-row>
+</v-container>
 
-%{--Avatar--}%
-<div class="form-group">
-    <label><g:message code="avatar"/></label>
-    <g:field name="avatar" class="form-control" type="file" placeholder="Please Upload Avatar"/>
-</div>
 
 %{--Country--}%
 <div class="form-group">

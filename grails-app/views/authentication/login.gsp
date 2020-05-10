@@ -6,24 +6,45 @@
 --%>
 
 
-<meta name="layout" content="public"/>
+<meta name="layout" content="main"/>
+<v-card  class="ma-auto" width="400" height="600" elevation="3">
+    <v-container>
+        <v-row  >
+            <v-col cols="3"><v-spacer></v-spacer></v-col>
+            <v-col >
+                <asset:image src="logo.png" height="180" alt="Grails Logo"/>
+            </v-col>
+        </v-row>
+        <v-row justify="center">
+                <p class="display-1 indigo--text">Sign in</p>
+        </v-row>
+            <g:form controller="authentication" action="doLogin" class="form-signin">
+                <v-row wrap justify="center" >
+                    <v-col cols="12" class="py-0">
+                        <v-text-field
+                                label="<g:message code="username"/>"
+                                name="username"
+                                required
+                        ></v-text-field>
+                    </v-col>
+                    <v-col cols="12" class="py-0">
+                        <v-text-field
+                                v-model="password"
+                                label="<g:message code="password"/>"
+                                name="password"
+                                type="password"
+                        ></v-text-field>
+                    </v-col>
+                    <v-col cols="7">
+                        <v-btn type="submit" name="login" color="#2E3047" class="white--text" value="Login" width="200" rounded>Login
+                        </v-btn>
+                    </v-col>
+                    <v-col cols="8" >
+                        <v-btn color="#2E3047" class="indigo--text" text>Forgot your password?
+                        </v-btn>
+                    </v-col>
+                </v-row>
+            </g:form>
+    </v-container>
 
-<div id="global-wrapper">
-    <div id="content-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-md-4 mx-auto">
-                    <h1 class="text-center login-title">User Login</h1>
-                    <div class="account-wall">
-                        <g:img dir="images" file="grails.svg" class="profile-img"/>
-                        <g:form controller="authentication" action="doLogin" class="form-signin">
-                            <g:textField name="username" class="form-control" placeholder="UserName" required="required" />
-                            <g:passwordField name="password" class="form-control" placeholder="Password" required="required" />
-                            <g:submitButton class="btn btn-lg btn-primary btn-block" name="login" value="Login"/>
-                        </g:form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+</v-card>

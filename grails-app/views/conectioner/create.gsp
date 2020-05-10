@@ -8,20 +8,29 @@
 %{--<%@ page contentType="text/html;charset=UTF-8" %>--}%
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
-
-<div class="card">
-    <div class="card-header">
-        <g:message code="conectioner" args="['Creation']"/>
-    </div>
-    <div class="card-body">
+<v-container class="my-2">
+    <v-row>
+        <v-col cols="3">
+            <p class="headline"><g:message code="conectioner" args="['Creation']"/>:</p>
+        </v-col>
+    </v-row>
+</v-container>
         <g:form controller="conectioner" action="save" enctype="multipart/form-data">
 
         %{--Partial Templating--}%
             <g:render template="form"/>
-            <div class="form-action-panel">
-                <g:submitButton class="btn btn-primary" name="save" value="${g.message(code: "save")}"/>
-                <g:link controller="conectioner" action="index" class="btn btn-primary"><g:message code="cancel"/></g:link>
-            </div>
+            <v-container class="ma-1 pa-1" fluid>
+                <v-row align="center" justify="center" >
+                    <v-col cols="2">
+                        <v-btn color="#2E3047" class="white--text" type="submit" width="200" name="save" value="${g.message(code: "save")}">
+                            Register
+                        </v-btn>
+                    </v-col>
+                    <v-col cols="2">
+                        <v-btn color="red" class="white--text"  width="200" href="/" >
+                            <g:message code="cancel"/>
+                        </v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
         </g:form>
-    </div>
-</div>

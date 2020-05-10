@@ -2,6 +2,10 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
@@ -17,71 +21,146 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark navbar-static-top" role="navigation">
-    <a class="navbar-brand" href="/#">
-        <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-            <img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" style="height: 80px; width: 100px" class="card-img-top"/>
-        </g:if>
-        <g:else>
-            <asset:image src="grails.svg" alt="Grails Logo"/>
-        </g:else>
-    </a>
-    <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-        <g:if test="${session.authorized.user.userType == GlobalConfig.USER_TYPE.CONSUMER}">
-            <p style="color: red">Welcome ${session.authorized.user.name} ${session.authorized.user.consumer.lastName}</p>
-            <g:link controller="consumer" action="details" class="btn btn-secondary" id="${session.authorized.user.consumer.id}">Detail</g:link>
-            <g:link controller="authentication" action="logout" class="btn btn-secondary">logOut</g:link>
-        </g:if>
-        <g:else>
-            <p style="color: red">Welcome ${session.authorized.user.name}</p>
-            <g:link controller="conectioner" action="details" class="btn btn-secondary" id="${session.authorized.user.conectioner.id}">Detail</g:link>
-            <g:link controller="authentication" action="logout" class="btn btn-secondary">logOut</g:link>
-        </g:else>
-    </g:if>
-    <g:else>
-        <p style="color: red">Welcome</p>
-        <g:link controller="authentication" action="login" class="btn btn-secondary">logIn</g:link>
-    </g:else>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<div id="app">
+    <v-app>
+        <div class="navbar mb-5">
+            <v-toolbar fixed app color="#2E3047">
+                <v-container fluid>
+                    <v-row no-gutters align="center">
+                        <v-col cols="5">
+                            <v-list-item dense>
+                                <v-btn class="ma-1 pa-1" href="/" text>
+                                    <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                </v-btn>
+                            </v-list-item>
+                        </v-col>
+                        <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+                            <v-col cols="5">
+                                <v-spacer></v-spacer>
+                            </v-col>
+                             <v-col cols="2" class="pa-1" >
+                                 <v-list-item dense class="ma-1 pa-1">
+                             <v-list-item-avatar>
+                                 <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                             </v-list-item-avatar>
+                             <div class="text-center">
+                                 <v-menu offset-y>
+                                     <template v-slot:activator="{ on }">
+                                         <v-btn
+                                                 color="#59D0B4"
+                                                 dark
+                                                 v-on="on"
+                                                 text
+                                         >
+                                             ${session.authorized.user.name}
+                                             <v-icon small>mdi-chevron-down</v-icon>
 
-    <div class="collapse navbar-collapse" aria-expanded="false" style="height: 0.8px;" id="navbarContent">
-        <ul class="nav navbar-nav ml-auto">
-            <g:pageProperty name="page.nav"/>
-        </ul>
-    </div>
+                                         </v-btn>
+                                     </template>
+                                     <v-list>
+                                         <v-list-item
+                                                 v-for="(item, index) in items"
+                                                 :key="index"
+                                                 @click=""
+                                                 :href="item.link"
+                                         >
+                                             <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
+                                         </v-list-item>
+                                     </v-list>
+                                 </v-menu>
+                             </div>
+                             %{--<v-btn class="ma-2 pa-2" text >
 
-</nav>
+                                <p class="white--text"> </p>
+                             </v-btn>--}%
+                             <v-btn class="ma-1 pa-1" text>
+                                 <v-icon color="white" large>mdi-calendar</v-icon>
+                             </v-btn>
+                             </v-list-item>
+                             </v-col>
+                        </g:if>
+                         <g:else>
+                             <v-col cols="4" >
+                                 <v-spacer></v-spacer>
+                             </v-col>
+                             <v-col>
+                                 <v-list-item dense class="ma-1 pa-1">
+                                     <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
+                                         <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                     </v-btn>
+                                     <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
+                                         <v-toolbar-title class="title white--text">Register</v-toolbar-title>
+                                     </v-btn>
+                                 </v-list-item>
+                             </v-col>
+                         </g:else>
+                    </v-row>
+                </v-container>
+            </v-toolbar>
+        </div>
 
 <g:layoutBody/>
 
-<div class="footer row" role="contentinfo">
-    <div class="col">
-        <a href="http://guides.grails.org" target="_blank">
-            <asset:image src="advancedgrails.svg" alt="Grails Guides" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://guides.grails.org" target="_blank">Grails Guides</a></strong>
-        <p>Building your first Grails app? Looking to add security, or create a Single-Page-App? Check out the <a href="http://guides.grails.org" target="_blank">Grails Guides</a> for step-by-step tutorials.</p>
+        <v-footer
+                color="#2E3047"
+                padless
+        >
+        <v-row
+                justify="center"
+                no-gutters
+        >
+            <v-row
+                    justify="center"
+                    no-gutters
+            >
+                <v-btn
+                        v-for="link in links"
+                        :key="link"
+                        color="white"
+                        text
+                        rounded
+                        class="my-2"
+                >
+                    {{ link }}
+                </v-btn>
+        </v-row>
+            <v-card
+                    flat
+                    tile
+                    class="lighten-1 white--text text-center"
+                    color="#2E3047"
+            >
+                <v-card-text>
+                    <v-btn
+                            v-for="icon in icons"
+                            :key="icon"
+                            class="mx-4 white--text"
+                            icon
+                    >
+                        <v-icon size="24px">{{ icon }}</v-icon>
+                    </v-btn>
+                </v-card-text>
 
-    </div>
-    <div class="col">
-        <a href="http://docs.grails.org" target="_blank">
-            <asset:image src="documentation.svg" alt="Grails Documentation" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="http://docs.grails.org" target="_blank">Documentation</a></strong>
-        <p>Ready to dig in? You can find in-depth documentation for all the features of Grails in the <a href="http://docs.grails.org" target="_blank">User Guide</a>.</p>
+                <v-card-text class="white--text pt-0">
+                    Somos un equipo de emprendedores que no tienen profesores ya que fueron poseidos por el espiritu italiano de las pastas. Ellos, convertidos en gnocci decidieron nunca mas volver a darnos clases para poder hacerse asi con nuestras ganas de bibir.
+                </v-card-text>
 
-    </div>
+                <v-divider></v-divider>
 
-    <div class="col">
-        <a href="https://grails-slack.cfapps.io" target="_blank">
-            <asset:image src="slack.svg" alt="Grails Slack" class="float-left"/>
-        </a>
-        <strong class="centered"><a href="https://grails-slack.cfapps.io" target="_blank">Join the Community</a></strong>
-        <p>Get feedback and share your experience with other Grails developers in the community <a href="https://grails-slack.cfapps.io" target="_blank">Slack channel</a>.</p>
-    </div>
-</div>
+                <v-card-text class="white--text">
+                    {{ new Date().getFullYear() }} — <strong>Connectify</strong>
+                </v-card-text>
+            </v-card>
+        </v-footer>
 
 
 <div id="spinner" class="spinner" style="display:none;">
@@ -90,5 +169,53 @@
 
 <asset:javascript src="application.js"/>
 
+    </v-app>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        vuetify: new Vuetify(),
+        data: {
+            routines: [
+                { name: "Modo Dormir", desc: "Apaga las luces y baja las persianas"},
+                { name: "Modo Cine", desc: "Baja las luces y prende el equipo de musica"},
+                { name: "Regar Frente", desc: "Prende aspersores del frente del hogar"},
+                { name: "Refrescar living", desc: "Bajar persianas living y prender el aire en 24"},
+            ],
+            icons: [
+                'mdi-facebook',
+                'mdi-twitter',
+                'mdi-linkedin',
+                'mdi-instagram',
+            ],
+            links: [
+                'Home',
+                'About Us',
+                'Team',
+                'Services',
+                'Blog',
+                'Contact Us',
+            ],
+            items: [
+                { title:' Perfil', color:'black--text', link:'/consumer/edit'},
+                { title: 'Historial', color:'black--text', link:'#'},
+                { title: 'Cerrar sesion', color:'red--text', link:'/authentication/logout'}
+            ]
+        },
+
+    })
+
+</script>
+
 </body>
 </html>
+<script>
+    import VCol from "vuetify/src/components/VGrid/VCol";
+    export default {
+        components: {VCol}
+    }
+</script>
