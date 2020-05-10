@@ -77,8 +77,8 @@
 </v-container>
 
 
-    <v-container>
-        <v-row dense>
+<v-container>
+    <v-row dense>
         <v-col
                 v-for="card in cards"
                 :key="card.title"
@@ -87,45 +87,41 @@
             <v-card  class="mx-auto"
                      max-width="400"
                      max-height="300">
-                <v-img
-                        :src="card.src"
-
-                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                        height="200px"
-                >
                     <v-container fluid class="pa-0">
+                        <v-img
+                                :src="card.src"
+
+                                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                                height="200px"
+                        >
                         <v-row no-gutters align="center" class="pl-1 py-0">
                             <v-col cols="10" class="pa-0">
                                 <v-card-subtitle class="pa-1 white--text">Categoria: {{card.category}}</v-card-subtitle>
                             </v-col>
-                            <v-col cols="1" class="pa-0">
-                                <v-btn text class="pa-0" >
-                                    <v-icon color="#59D0B4" right>
+                            <v-col cols="2" class="pa-0">
+                                <v-btn icon color="#59D0B4" class="pa-0" >
+                                    <v-icon>
                                         mdi-heart
                                     </v-icon>
                                 </v-btn>
                             </v-col>
                         </v-row>
-                        <v-row no-gutters align="top">
+                        <v-row no-gutters align="start">
                             <v-col cols="10" class="pa-0">
                                 <v-card-title class="pa-0 ml-2 white--text" v-text="card.title"></v-card-title>
                             </v-col>
                         </v-row>
-                        <v-row>
-                            <v-col><v-spacer></v-spacer></v-col>
-                        </v-row>
-                        <v-row>
-                            <v-col><v-spacer></v-spacer></v-col>
-                        </v-row>
-                        <v-row>
-                            <v-col><v-spacer></v-spacer></v-col>
-                        </v-row>
+                        <v-row><v-col><v-spacer></v-spacer></v-col></v-row>
+                        <v-row><v-col><v-spacer></v-spacer></v-col></v-row>
+                        <v-row><v-col><v-spacer></v-spacer></v-col></v-row>
                         <v-row no-gutters align="end" >
-                            <v-col cols="9" class="pa-0">
+                            <v-col cols="8" class="pa-0">
+                                <span class="pa-2 white--text">15/20</span>
+                                <v-icon color="#59D0B4">mdi-account-group</v-icon>
                                 <v-card-title class="pa-0 ml-2 white--text" >Connectioner: {{card.connectioner}}</v-card-title>
                             </v-col>
-                            <v-col cols="2" class="pa-2">
-                                <v-btn rounded class="pa-2 white--text" color="#59D0B4" bottom >
+                            <v-col cols="4" class="pa-2">
+                                <v-btn rounded class="pa-2 indigo--text" color="#59D0B4" bottom >
                                     Subscribe
                                 </v-btn>
                             </v-col>
@@ -133,20 +129,20 @@
                     </v-container>
                 </v-img>
 
-                <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn icon>
-                        <v-icon>mdi-heart</v-icon>
-                    </v-btn>
+%{--                <v-card-actions>--}%
+%{--                    <v-spacer></v-spacer>--}%
+%{--                    <v-btn icon>--}%
+%{--                        <v-icon>mdi-heart</v-icon>--}%
+%{--                    </v-btn>--}%
 
-                    <v-btn icon>
-                        <v-icon>mdi-bookmark</v-icon>
-                    </v-btn>
+%{--                    <v-btn icon>--}%
+%{--                        <v-icon>mdi-bookmark</v-icon>--}%
+%{--                    </v-btn>--}%
 
-                    <v-btn icon>
-                        <v-icon>mdi-share-variant</v-icon>
-                    </v-btn>
-                </v-card-actions>
+%{--                    <v-btn icon>--}%
+%{--                        <v-icon>mdi-share-variant</v-icon>--}%
+%{--                    </v-btn>--}%
+%{--                </v-card-actions>--}%
             </v-card>
         </v-col>
     </v-row>
