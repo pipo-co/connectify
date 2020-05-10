@@ -14,8 +14,10 @@ class ConectionerController {
         def response = conectionerService.getById(id)
         if(!response)
             redirect(controller: "conectioner", action: "index")
-        else
-            [conectioner: response]
+        else{
+            def aux = conectionerService.getPropertiesList(response)
+            [conectioner: response, propertiesList: aux]
+        }
     }
 
     def create(){

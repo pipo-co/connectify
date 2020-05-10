@@ -14,25 +14,33 @@
     </div>
     <div class="card-body">
         <g:if test="${conectioner}">
-            <table class="table">
-                <tr>
-                    <th class="text-right"><g:message code="username"/></th><td class="text-left">${conectioner.user.username}</td>
-                </tr>
-                <tr>
-                    <th class="text-right"><g:message code="name"/></th><td class="text-left">${conectioner.user.name}</td>
-                </tr>
-                <tr>
-                    <th class="text-right"><g:message code="email"/></th><td class="text-left">${conectioner.user.email}</td>
-                </tr>
-                <tr>
-                    <th class="text-right"><g:message code="password"/></th><td class="text-left">${conectioner.user.password}</td>
-                </tr>
-                <tr>
-                    <th class="text-right"><g:message code="cbu"/></th><td class="text-left">${conectioner.cbu}</td>
-                </tr>
+%{--            <table class="table">--}%
+%{--                <tr>--}%
+%{--                    <th class="text-right"><g:message code="username"/></th><td class="text-left">${conectioner.user.username}</td>--}%
+%{--                </tr>--}%
+%{--                <tr>--}%
+%{--                    <th class="text-right"><g:message code="name"/></th><td class="text-left">${conectioner.user.name}</td>--}%
+%{--                </tr>--}%
+%{--                <tr>--}%
+%{--                    <th class="text-right"><g:message code="email"/></th><td class="text-left">${conectioner.user.email}</td>--}%
+%{--                </tr>--}%
+%{--                <tr>--}%
+%{--                    <th class="text-right"><g:message code="password"/></th><td class="text-left">${conectioner.user.password}</td>--}%
+%{--                </tr>--}%
+%{--                <tr>--}%
+%{--                    <th class="text-right"><g:message code="cbu"/></th><td class="text-left">${conectioner.cbu}</td>--}%
+%{--                </tr>--}%
 %{--                <tr>--}%
 %{--                    <th class="text-right"><g:message code="member.type"/></th><td class="text-left">${member.memberType}</td>--}%
 %{--                </tr>--}%
+%{--            </table>--}%
+            <table class="table">
+                <g:each in="${propertiesList}" var="prop">
+                    <tr id="${prop.key}">
+                        <th class="text-right"><g:message code="${prop.key}"/></th>
+                        <td class="text-left">${prop.value}</td>
+                    </tr>
+                </g:each>
             </table>
         </g:if>
         <div class="form-action-panel">

@@ -89,4 +89,21 @@ class ConectionerService {
 
         return response
     }
+
+    def getPropertiesList(Conectioner conectioner){
+        def ans = [username: conectioner.user.username]
+        ans.put('email', conectioner.user.email)
+        ans.put('name', conectioner.user.name)
+        ans.put('CBU', conectioner.cbu)
+        ans.put('country', conectioner.country)
+        ans.put('province', conectioner.province)
+        ans.put('district', conectioner.district)
+        String aux = conectioner.street + " " + conectioner.houseNumber
+        ans.put('address', aux)
+        ans.put('cp', conectioner.cp)
+        ans.put(conectioner.phoneType, conectioner.phoneNumber)
+
+
+        return ans
+    }
 }

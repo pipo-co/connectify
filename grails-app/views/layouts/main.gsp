@@ -29,13 +29,18 @@
     <g:if test="${session.authorized && session.authorized.isLoggedIn}">
         <g:if test="${session.authorized.user.userType == GlobalConfig.USER_TYPE.CONSUMER}">
             <p style="color: red">Welcome ${session.authorized.user.name} ${session.authorized.user.consumer.lastName}</p>
+            <g:link controller="consumer" action="details" class="btn btn-secondary" id="${session.authorized.user.consumer.id}">Detail</g:link>
+            <g:link controller="authentication" action="logout" class="btn btn-secondary">logOut</g:link>
         </g:if>
         <g:else>
             <p style="color: red">Welcome ${session.authorized.user.name}</p>
+            <g:link controller="conectioner" action="details" class="btn btn-secondary" id="${session.authorized.user.conectioner.id}">Detail</g:link>
+            <g:link controller="authentication" action="logout" class="btn btn-secondary">logOut</g:link>
         </g:else>
     </g:if>
     <g:else>
         <p style="color: red">Welcome</p>
+        <g:link controller="authentication" action="login" class="btn btn-secondary">logIn</g:link>
     </g:else>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
