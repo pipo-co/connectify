@@ -104,7 +104,7 @@
                                             class="ma-auto"
                                     >
                                         <g:each var="activity" in="${activityt.activity}">
-                                            <v-chip class="ma-3">${activity.initDate} ${activity.participants}/${activityt.maxParticipants}</v-chip>
+                                            <v-chip class="ma-3">${activity.initDate} ${activity.initTime} ${activity.participants}/${activityt.maxParticipants}</v-chip>
                                         </g:each>
                                     </v-chip-group>
                                 </v-row>

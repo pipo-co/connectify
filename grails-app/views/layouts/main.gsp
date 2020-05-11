@@ -27,7 +27,7 @@
             <v-toolbar fixed app color="#2E3047">
                 <v-container fluid>
                     <v-row no-gutters align="center">
-                        <v-col cols="6">
+                        <v-col cols="6" md="6" sm="8">
                             <v-list-item dense>
                                 <v-btn class="ma-1 pa-1" href="/" text>
                                     <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
@@ -44,10 +44,10 @@
                             </v-list-item>
                         </v-col>
                         <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-                            <v-col cols="4">
+                            <v-col cols="4" md="4" sm="2">
                                 <v-spacer></v-spacer>
                             </v-col>
-                             <v-col cols="2" class="pa-1" >
+                             <v-col cols="2" class="pa-1"  md="2" sm="3">
                                  <v-list-item dense class="ma-1 pa-1">
                              <v-list-item-avatar>
                                  <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
