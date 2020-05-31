@@ -29,6 +29,9 @@
                     <v-row no-gutters align="center">
                         <v-col cols="5" >
                             <v-list-item dense>
+                                <v-avatar>
+                                    <asset:image src="logo.png" height="70" alt="Grails Logo"/>
+                                </v-avatar>
                                 <v-btn class="ma-1 pa-1" href="/" text>
                                     <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                                 </v-btn>
