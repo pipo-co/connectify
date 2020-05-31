@@ -1,5 +1,7 @@
 package connectify.grailsproject
 
+import java.time.LocalDate
+
 class   Consumer {
 
         String lastName
@@ -13,6 +15,7 @@ class   Consumer {
         String cp
         String phoneNumber
         String phoneType //cell or house
+        LocalDate suscribedUntil = null
         User user
 
         static belongsTo = Activity
@@ -31,5 +34,10 @@ class   Consumer {
             cp blank: false, matches: "[1-9][0-9]{0,4}"
             phoneNumber blank: false, matches: "([0-9]{2})?[ .-]?[0-9]{4}[ .-]?[0-9]{4}"
             phoneType blank: false, inList: ["cell", "house"]
+            suscribedUntil nullable: true
+        }
+
+        Boolean isSuscribed(){
+            return suscribedUntil && suscribedUntil.compareTo(LocalDate.now()) >= 0
         }
 }

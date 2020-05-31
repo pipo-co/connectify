@@ -51,7 +51,7 @@ class ActivityController {
 
         if(!activity){
             println("Error - Activity no encontrado")
-            redirect(uri: "/")
+            render "{\"success\":false}"
             return
         }
 
@@ -62,9 +62,10 @@ class ActivityController {
         //Mandar JSON de respuesta
         if(!success){
             println("Fallo la anotacion")
+            render "{\"success\":false}"
         }
 
-        redirect(uri: "/")
+        render "{\"success\":true}"
     }
 
     def removeConsumerFromActivity(Long id){
