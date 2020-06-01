@@ -1,6 +1,7 @@
 package connectify.grailsproject
 
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.LocalTime
 
 class Activity {
@@ -17,5 +18,9 @@ class Activity {
         initDate blank: false
         initTime blank: false
         participants min: 0
+    }
+
+    Boolean isActive(){
+        return initDate.atTime(initTime).isAfter(LocalDateTime.now())
     }
 }

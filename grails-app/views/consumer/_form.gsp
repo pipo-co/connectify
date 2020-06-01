@@ -58,11 +58,11 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
-                    v-model="email"
+%{--                    v-model="email"--}%
                     label="<g:message code="email.address"/>"
                     name="email"
                     type="email"
-                    :rules="emailRules"
+%{--                    :rules="emailRules"--}%
                     value="${consumer?.user?.email}"
                     required
             >
