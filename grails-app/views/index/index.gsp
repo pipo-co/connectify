@@ -33,7 +33,7 @@
         </v-col>
     </v-row>
 </v-container>--}%
-<g:each in="${activityTList}"  var="pair">
+<g:each in="${activityTList}" var="pair">
     <v-container fluid>
         <v-row no-gutters>
             <v-col>
@@ -104,7 +104,7 @@
                                             class="ma-auto"
                                     >
                                         <g:each var="activity" in="${activityt.activity}">
-                                            <v-chip @click="axiosTest(${activity.id})" class="ma-3">${activity.initDate} ${activity.initTime} ${activity.participants}/${activityt.maxParticipants}</v-chip>
+                                            <v-chip @click="takeOnActivity(${activity.id})" class="ma-3">${activity.initDate} ${activity.initTime} ${activity.participants}/${activityt.maxParticipants}</v-chip>
                                         </g:each>
                                     </v-chip-group>
                                 </v-row>

@@ -173,12 +173,6 @@
         el: '#app',
         vuetify: new Vuetify(),
         data: {
-            routines: [
-                { name: "Modo Dormir", desc: "Apaga las luces y baja las persianas"},
-                { name: "Modo Cine", desc: "Baja las luces y prende el equipo de musica"},
-                { name: "Regar Frente", desc: "Prende aspersores del frente del hogar"},
-                { name: "Refrescar living", desc: "Bajar persianas living y prender el aire en 24"},
-            ],
             icons: [
                 'mdi-facebook',
                 'mdi-twitter',
@@ -217,7 +211,7 @@
             picker: null,
             timePicker: null,
             mountedRouteMap: {
-                "/": () => console.log("estoy en index"),
+                "/": function() {console.log("estoy en index")},
                 "/consumer/create": function() {
                     this.getCountries();
                 },
@@ -242,9 +236,15 @@
                     .then(response => this.provinces = response.data)
                     .catch(console.log);
             },
-            axiosTest(consumerId){
-                axios.get('/activity/addConsumerToActivity/' + consumerId.toString())
-                    .then(console.log);
+            takeOnActivity(activityId){
+                axios.get('/activity/addConsumerToActivity/' + activityId.toString())
+                    .then(console.log)
+                    .catch(console.log);
+            },
+            takeOffActivity(activityId){
+                axios.get('/activity/removeConsumerFromActivity/' + activityId.toString())
+                    .then(console.log)
+                    .catch(console.log)
             }
         },
         mounted(){

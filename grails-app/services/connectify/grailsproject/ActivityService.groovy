@@ -42,8 +42,6 @@ class ActivityService {
     def delete(Activity activity){
         ActivityTemplate activityT = activity.getActivityTemplate()
 
-//        if(!conectioner.isAttached())
-//            conectioner.attach()
 
         activityT.removeFromActivity(activity)
         try{
@@ -57,6 +55,8 @@ class ActivityService {
 
     def addConsumer(Activity activity, Long consumerId){
         //Validar que la actividad no haya ocurrido ya
+        if(!activity.isActive())
+            return false
 
         Optional<Consumer> optConsumer = activity.consumers.stream()
                 .filter({consumer -> consumer.id == consumerId}).findFirst()
@@ -66,8 +66,8 @@ class ActivityService {
 
         Consumer consumer = Consumer.get(consumerId)
 
-//        if(!consumer)
-//            return false
+        if(!consumer)
+            return false
 
         consumer.addToActivities(activity)
         activity.addToConsumers(consumer)
@@ -86,6 +86,8 @@ class ActivityService {
 
     def removeConsumer(Activity activity, Long consumerId){
         //Validar que la actividad no haya ocurrido ya
+        if(!activity.isActive())
+            return false
 
         Optional<Consumer> optConsumer = activity.consumers.stream()
                 .filter({consumer -> consumer.id == consumerId}).findFirst()

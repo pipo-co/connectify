@@ -1,5 +1,7 @@
 package connectify.grailsproject
 
+import grails.converters.JSON
+
 class ActivityController {
 
     ActivityService activityService
@@ -51,7 +53,7 @@ class ActivityController {
 
         if(!activity){
             println("Error - Activity no encontrado")
-            render "{\"success\":false}"
+            render ([success: false] as JSON)
             return
         }
 
@@ -59,13 +61,13 @@ class ActivityController {
 
         def success = activityService.addConsumer(activity, consumerId)
 
-        //Mandar JSON de respuesta
         if(!success){
             println("Fallo la anotacion")
-            render "{\"success\":false}"
+            render ([success: false] as JSON)
+            return
         }
 
-        render "{\"success\":true}"
+        render ([success: true] as JSON)
     }
 
     def removeConsumerFromActivity(Long id){
@@ -73,7 +75,7 @@ class ActivityController {
 
         if(!activity){
             println("Error - Activity no encontrado")
-            redirect(uri: "/")
+            render ([success: false] as JSON)
             return
         }
         Long consumerId = authenticationService.getUser().consumer.id
@@ -82,9 +84,9 @@ class ActivityController {
 
         if(!success){
             println("Fallo la anotacion")
+            render ([success: false] as JSON)
+            return
         }
-
-        redirect(uri: "/")
-
+        render ([success: true] as JSON)
     }
 }
