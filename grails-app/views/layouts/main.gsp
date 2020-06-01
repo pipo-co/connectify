@@ -159,10 +159,11 @@
     <g:message code="spinner.alt" default="Loading&hellip;"/>
 </div>
 
-<asset:javascript src="application.js"/>
 
     </v-app>
 </div>
+
+<asset:javascript src="application.js"/>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -204,31 +205,57 @@
                 { category:'Fitness', title: 'Crossfit3', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 }
 
             ],
-            countries:[
-                'Argentina', 'Chile','Brasil'
-            ],
-            provinces: [
-                'Neuquen', 'Jujuy', 'La Pampa'
-            ],
+            countries: null,
+            provinces: null,
             phoneTypes: [
                 'cell', 'house'
             ],
             docTypes:[
                 'DNI', 'CI', 'Passport'
             ],
-            categories: [
-                { value: 1, text: 'Fitness'},
-                { value: 2, text: 'Cooking'}
-            ],
+            categories: null,
             picker: null,
             timePicker: null,
+            mountedRouteMap: {
+                "/": () => console.log("estoy en index"),
+                "/consumer/create": function() {
+                    this.getCountries();
+                },
+                "/activityTemplate/create": function() {
+                    this.getCategories();
+                }
+            }
         },
         methods: {
+            getCategories(){
+              axios.get('/api/getCategories')
+                    .then(response => this.categories = response.data)
+                    .catch(console.log);
+            },
+            getCountries(){
+                axios.get('/api/getCountries')
+                    .then(response => this.countries = response.data)
+                    .catch(console.log);
+            },
+            getProvinces(country){
+                axios.get('/api/getProvinces/' + country)
+                    .then(response => this.provinces = response.data)
+                    .catch(console.log);
+            },
             axiosTest(consumerId){
-                console.log(consumerId);
                 axios.get('/activity/addConsumerToActivity/' + consumerId.toString())
                     .then(console.log);
             }
+        },
+        mounted(){
+            let currentRoute = window.location.pathname;
+            if(currentRoute !== '/'){
+                currentRoute = currentRoute.split('/');
+                currentRoute = '/' + currentRoute[1] + '/' + currentRoute[2];
+            }
+
+            if(this.mountedRouteMap[currentRoute])
+                this.mountedRouteMap[currentRoute].call(this);
         }
     })
 
