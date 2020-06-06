@@ -9,13 +9,13 @@ class ActivityTemplateController{
         [activityTList: response.list, total: response.count]
     }
 
-//    def details(Integer id){
-//        def response = conectionerService.getById(id)
-//        if(!response)
-//            redirect(controller: "conectioner", action: "index")
-//        else
-//            [conectioner: response]
-//    }
+    def details(Integer id){
+        def response = activityTemplateService.getById(id)
+        if(!response)
+            redirect(view: "notFound")
+        else
+            [activityT: response]
+    }
 
     def create(){
         [activityT: flash.redirectParams]
