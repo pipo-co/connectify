@@ -217,6 +217,10 @@
                 },
                 "/activityTemplate/create": function() {
                     this.getCategories();
+                },
+                "/search/index": function() {
+                    this.getCategories();
+                    this.getCountries();
                 }
             }
         },
