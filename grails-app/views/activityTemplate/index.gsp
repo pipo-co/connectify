@@ -10,7 +10,7 @@
 <v-container class="my-2">
     <v-row>
         <v-col cols="8">
-            <p class="headline"> <g:message code="activities" args="['List Of']"/>:</p>
+            <p class="headline"> <g:message code="activity.template" args="['List Of']"/>:</p>
         </v-col>
         <v-col>
             <v-btn color="#2E3047" class="white--text" href="/activityTemplate/create">
@@ -93,76 +93,6 @@
                     </v-card-actions>
                 </v-card>
             </v-col>
-            %{--<v-card elevation="3" class="mx-auto my-1" width="1200">
-                <v-container fluid>
-                    <v-row>
-                        <v-col cols="1">
-                            <v-list>
-                                <v-list-item>
-                                    <v-list-item-title>Name</v-list-item-title>
-                                </v-list-item>
-                                <v-list-item>
-                                    <v-list-item-title>${info?.name}</v-list-item-title>
-                                </v-list-item>
-                            </v-list>
-                        </v-col>
-                        <v-col cols="2">
-                            <v-list>
-                                <v-list-item>
-                                    <v-list-item-title>Description</v-list-item-title>
-                                </v-list-item>
-                                <v-list-item>
-                                    <v-list-item-title>${info?.description}</v-list-item-title>
-                                </v-list-item>
-                            </v-list>
-                        </v-col>
-                        <v-col cols="2">
-                            <v-list>
-                                <v-list-item>
-                                    <v-list-item-title>Duration</v-list-item-title>
-                                </v-list-item>
-                                <v-list-item>
-                                    <v-list-item-title>${info?.duration}</v-list-item-title>
-                                </v-list-item>
-                            </v-list>
-                        </v-col>
-                        <v-col cols="2">
-                            <v-list>
-                                <v-list-item>
-                                    <v-list-item-title>maxParticipants</v-list-item-title>
-                                </v-list-item>
-                                <v-list-item>
-                                    <v-list-item-title>${info?.maxParticipants}</v-list-item-title>
-                                </v-list-item>
-                            </v-list>
-                        </v-col>
-                        <v-col cols="3">
-                            <v-list>
-                                <v-list-item>
-                                    <v-list-item-title>Actions</v-list-item-title>
-                                </v-list-item>
-                                <v-list-item>
-                                    <v-btn  text class="pa-0">
-                                        <g:link controller="activityTemplate" action="details" class="btn btn-secondary" id="${info.id}">Detail</g:link>
-                                    </v-btn>
-                                    <v-btn text class="pa-0">
-                                        <g:link controller="activity" action="create" class="btn btn-secondary" id="${info.id}">Start Activity</g:link>
-                                    </v-btn>
-                                    <v-btn text class="pa-1">
-                                        <g:link controller="activity" action="index" class="btn btn-secondary" id="${info.id}">List Activities</g:link>
-                                    </v-btn>
-                                    <v-btn text class="pa-0">
-                                        <g:link controller="activityTemplate" action="edit" class="btn btn-secondary" id="${info.id}">Edit</g:link>
-                                    </v-btn>
-                                    <v-btn text class="pa-0">
-                                        <g:link controller="activityTemplate" action="delete" id="${info.id}" class="btn btn-secondary delete-confirmation">Delete</g:link>
-                                    </v-btn>
-                                </v-list-item>
-                            </v-list>
-                        </v-col>
-                    </v-row>
-                </v-container>
-            </v-card>--}%
         </g:each>
     </v-row>
 </v-container>
