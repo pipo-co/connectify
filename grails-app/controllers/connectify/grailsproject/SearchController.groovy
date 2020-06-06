@@ -17,8 +17,35 @@ class SearchController {
                 category {id == params.category}
             }
         }
+
+        if(params.name){
+            query = query.where {
+                name ==~ params.name
+            }
+        }
+
+        if(params.connectioner){
+            query = query.where {
+                conectioner { user { name ==~ params.connectioner } }
+            }
+        }
+
+        if(params.country){
+            query = query.where {
+                conectioner { country == params.country }
+            }
+        }
+
+        if(params.province){
+            query = query.where {
+                conectioner { province == params.province }
+            }
+        }
+
         def result = query.list()
-        return result
+
+        render(view: "search/index", model: [category: params.category, name: params.name, connectioner: params.connectioner, country: params.country,
+         province: params.province])
 
     }
 }

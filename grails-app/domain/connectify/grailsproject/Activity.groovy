@@ -23,4 +23,8 @@ class Activity {
     Boolean isActive(){
         return initDate.atTime(initTime).isAfter(LocalDateTime.now())
     }
+
+    Boolean isFull(){
+        return participants < activityTemplate.maxParticipants
+    }
 }
