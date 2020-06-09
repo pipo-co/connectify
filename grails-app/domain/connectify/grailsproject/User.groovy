@@ -26,4 +26,12 @@ class User {
     def beforeInsert(){
         this.password = this.password.encodeAsSHA256()
     }
+
+    Boolean isTypeConsumer(){
+        return userType.equals(GlobalConfig.USER_TYPE.CONSUMER)
+    }
+
+    Boolean isTypeConnectioner(){
+        return userType.equals(GlobalConfig.USER_TYPE.CONNECTIONER)
+    }
 }
