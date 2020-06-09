@@ -33,4 +33,9 @@ class ApiController {
         println(id)
         render CountriesInfo.getProvinces(id) as JSON
     }
+
+    def getConsumerActivities(Long consumerId){
+        Consumer consumer = Consumer.get(consumerId)
+        render consumer.activities.collect({ it.id }) as JSON
+    }
 }
