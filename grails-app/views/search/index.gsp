@@ -91,7 +91,7 @@
 </g:form>
 
 <g:if test="${result}">
-    <g:each in="result" var="activityT">
+    <g:each in="${result}" var="activityT">
         <p>${activityT.name}</p>
     </g:each>
 </g:if>
