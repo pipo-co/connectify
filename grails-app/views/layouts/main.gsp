@@ -199,8 +199,8 @@
                 { category:'Fitness', title: 'Crossfit3', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 }
 
             ],
-            countries: null,
-            provinces: null,
+            countries: ["Argentina"],
+            provinces: ["Buenos Aires"],
             phoneTypes: [
                 'cell', 'house'
             ],
