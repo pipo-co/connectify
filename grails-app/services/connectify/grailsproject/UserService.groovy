@@ -11,7 +11,7 @@ class UserService {
     def mailService
 
     def save(GrailsParameterMap params){
-        User user = new User(params)
+        Users user = new Users(params)
         def response = AppUtil.saveResponse(false, user)
         if(user.validate()){
             user.save(flush: true)
@@ -22,7 +22,7 @@ class UserService {
         return response
     }
 
-    def update(User user, GrailsParameterMap params){
+    def update(Users user, GrailsParameterMap params){
         user.properties = params
         user.confirmCode = null
         def response = AppUtil.saveResponse(false, user)
@@ -36,12 +36,12 @@ class UserService {
     }
 
     def getById(Serializable id){
-        return User.get(id)
+        return Users.get(id)
     }
 
     def list(GrailsParameterMap params){
         //params.max = params.max ?: GlobalConfig.itemsPerPage() Define limit
-        List<User> userList = User.createCriteria().list(params){
+        List<Users> userList = Users.createCriteria().list(params){
             if(params?.colName && params?.colValue){
                 like(params.colName, "%" + params.colValue + "%")
             }
@@ -52,7 +52,7 @@ class UserService {
         return [list: userList, count: userList.size()]
     }
 
-    def delete(User user){
+    def delete(Users user){
         try{
             user.delete(flush: true)
         } catch(Exception e) {
@@ -62,7 +62,7 @@ class UserService {
         return true
     }
 
-    def uploadAvatar(User user, HttpServletRequest request){
+    def uploadAvatar(Users user, HttpServletRequest request){
         if (request.getFile("avatar") && !request.getFile("avatar").filename.equals("")){
             FileUtil.uploadAvatar(user.avatar, request.getFile("avatar"))
         }
@@ -72,11 +72,11 @@ class UserService {
         params.userType = userType
         params.avatar = FileUtil.getAvatarName(params.username, params.avatar.filename) //No se porque tengo que hacer esto, pero funciona
         params.confirmCode = UUID.randomUUID().toString()
-        User user = new User(params)
+        Users user = new Users(params)
         return user
     }
 
-    def freeUserResources(User user){
+    def freeUserResources(Users user){
         deleteAvatar(user.avatar)
     }
 
@@ -90,7 +90,7 @@ class UserService {
         }
     }
 
-    def sendConfirmationEmail(User user){
+    def sendConfirmationEmail(Users user){
         mailService.sendMail {
             to user.email
             subject "New User Confirmation"

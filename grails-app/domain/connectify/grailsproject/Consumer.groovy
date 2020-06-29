@@ -16,7 +16,7 @@ class   Consumer {
         String phoneNumber
         String phoneType //cell or house
         LocalDate suscribedUntil = null
-        User user
+        Users user
 
         static belongsTo = Activity
         static hasMany = [activities: Activity]

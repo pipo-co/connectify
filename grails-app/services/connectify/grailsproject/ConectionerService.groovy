@@ -61,7 +61,7 @@ class ConectionerService {
 
     def list(GrailsParameterMap params){
         //params.max = params.max ?: GlobalConfig.itemsPerPage() //Define limit
-        List<User> userList = User.createCriteria().list(params){
+        List<Users> userList = Users.createCriteria().list(params){
             if(params?.colName && params?.colValue){
                 like(params.colName, "%" + params.colValue + "%")
             }

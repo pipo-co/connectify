@@ -1,6 +1,6 @@
 package connectify.grailsproject
 
-class User {
+class Users {
     String username
     String password
     String email

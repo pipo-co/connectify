@@ -11,7 +11,7 @@ class Conectioner {
     String cp
     String phoneNumber
     String phoneType //cell or house
-    User user
+    Users user
 
     static hasMany = [activityTemplates: ActivityTemplate]
 

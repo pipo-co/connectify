@@ -1,9 +1,9 @@
 package connectify.grailsproject
 
-import grails.testing.web.controllers.ControllerUnitTest
+import grails.testing.services.ServiceUnitTest
 import spock.lang.Specification
 
-class UserControllerSpec extends Specification implements ControllerUnitTest<UserController> {
+class UsersServiceSpec extends Specification implements ServiceUnitTest<UserService>{
 
     def setup() {
     }

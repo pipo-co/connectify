@@ -74,7 +74,7 @@ class UserController {
 
     @Transactional
     def confirm(String id){ // Email Confirmation Code
-        User user = User.findByConfirmCode(id)
+        Users user = Users.findByConfirmCode(id)
 
         //El confirmCode no era de ningun user
         if(!user) {

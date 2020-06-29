@@ -7,14 +7,14 @@ class AuthenticationService {
 
     private static final AUTHORIZED = "authorized"
 
-    def setUserAuthorization(User user){
+    def setUserAuthorization(Users user){
         def authorization = [isLoggedIn: true, user: user]
         AppUtil.getAppSession()[AUTHORIZED] = authorization
     }
 
     def doLogin(String username, String password){
         password = password.encodeAsSHA256()
-        User user = User.findByUsernameAndPassword(username, password)
+        Users user = Users.findByUsernameAndPassword(username, password)
         if(user){
             setUserAuthorization(user)
             return true
@@ -29,7 +29,7 @@ class AuthenticationService {
         return false
     }
 
-    boolean isAuthenticated(User user){
+    boolean isAuthenticated(Users user){
         return isAuthenticated() && AppUtil.getAppSession()[AUTHORIZED].user.id == user.id
     }
 
@@ -41,7 +41,7 @@ class AuthenticationService {
     def refreshLoggedUser(){
         if(isAuthenticated()){
             def authorization = AppUtil.getAppSession()[AUTHORIZED]
-            authorization.user = User.get(authorization.user.id)
+            authorization.user = Users.get(authorization.user.id)
             AppUtil.getAppSession()[AUTHORIZED] = authorization
         }
     }

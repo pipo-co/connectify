@@ -20,7 +20,7 @@ class AppInitializationService {
 
     static private createTestingConectioner(){
         Conectioner conectioner = new Conectioner()
-        conectioner.user = new User()
+        conectioner.user = new Users()
 
         conectioner.user.username = "tobias"
         conectioner.user.password = "tobias"
@@ -46,7 +46,7 @@ class AppInitializationService {
 
     static private createTestingConsumer(){
         Consumer consumer = new Consumer()
-        consumer.user = new User()
+        consumer.user = new Users()
 
         consumer.user.username = "tobiasConsumer"
         consumer.user.password = "tobias"
