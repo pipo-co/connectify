@@ -9,13 +9,12 @@
 <meta name="layout" content="main"/>
 <v-card  class="ma-auto" width="400" height="600" elevation="3">
     <v-container>
-        <v-row  >
-            <v-col cols="3"><v-spacer></v-spacer></v-col>
-            <v-col >
+        <v-row align="center" jutify="center">
+            <v-col cols="12">
                 <asset:image src="logo.png" height="180" alt="Grails Logo"/>
             </v-col>
         </v-row>
-        <v-row justify="center">
+        <v-row align="center" justify="center">
                 <p class="display-1 indigo--text">Sign in</p>
         </v-row>
             <g:form controller="authentication" action="doLogin" class="form-signin">
