@@ -61,4 +61,13 @@ class SearchController {
                                               result: result])
 
     }
+
+    def categoryList(){
+        [categoryList: Category.list()]
+    }
+
+    def categoryDetails(Long id){
+        Category category = Category.get(id)
+        [activityTemplates: ActivityTemplate.findAllByCategory(category)]
+    }
 }
