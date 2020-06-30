@@ -59,7 +59,6 @@ class SearchController {
                                               country: params.country,
                                               province: params.province,
                                               result: result])
-
     }
 
     def categoryList(){
