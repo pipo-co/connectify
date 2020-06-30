@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Buscar</title>
+    <title>Search</title>
     <meta name="layout" content="main"/>
 </head>
 <body>
+
 <g:form controller="search" action="searchResult">
     <v-card width="800" class="ma-auto">
         <v-container >
