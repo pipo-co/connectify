@@ -120,6 +120,9 @@ tasks.withType(Test) {
     systemProperty "webdriver.gecko.driver", System.getProperty('webdriver.gecko.driver')
 }
 
+grails {
+    pathingJar = true
+}
 
 assets {
     minifyJs = true

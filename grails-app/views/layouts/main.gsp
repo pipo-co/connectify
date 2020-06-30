@@ -23,9 +23,9 @@
 
 <div id="app">
     <v-app>
-        <div class="navbar mb-5">
-            <v-toolbar fixed app color="#2E3047">
-                <v-container fluid>
+        <div class="navbar">
+            <v-app-bar elevate-on-scroll fixed app color="#2E3047">
+                <v-container fluid class="py-0">
                     <v-row no-gutters align="center">
                         <v-col cols="5" >
                             <v-list-item dense>
@@ -155,7 +155,7 @@
                         </g:else>
                     </v-row>
                 </v-container>
-            </v-toolbar>
+            </v-app-bar>
         </div>
 
         <g:layoutBody/>
@@ -376,3 +376,18 @@
         components: {VCol}
     }
 </script>
+
+<style>
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #3B4063;
+
+}
+.v-card--shaped {
+    border-radius: 15px !important;
+}
+</style>
