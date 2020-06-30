@@ -71,9 +71,8 @@
             </v-row>
             <v-container class="ma-1 pa-1" fluid >
                 <v-row align="center" justify="center">
-                    <v-col cols="4"></v-col>
                     <v-col>
-                        <v-btn color="#59D0B4" class="white--text ml-5" type="submit" width="200" name="save" value="Buscar">
+                        <v-btn color="#59D0B4" class="white--text" type="submit" width="200" name="save" value="Buscar">
                             Search
                         </v-btn>
                     </v-col>
@@ -83,14 +82,14 @@
     </v-card>
 </g:form>
 
-<g:if test="${result}">
-    <g:if test="${result.size() > 0}">
-        <v-container fluid>
+<g:if test="${result != null}">
+    <v-container fluid>
             <v-row no-gutters>
                 <v-col>
-                    <p class="ml-5 headline">Resultados:</p>
+                    <p class="ml-5 headline">Results:</p>
                 </v-col>
             </v-row>
+    <g:if test="${result.size() > 0}">
             <v-row>
                 <v-carousel
                         height="570"
@@ -159,10 +158,11 @@
     <g:else>
         <v-row>
             <v-col>
-                <p class="headline">Ups... There are no activities of this category yet, try looking for other categories</p>
+                <p class="headline">Ups... There were no results for that search</p>
             </v-col>
         </v-row>
     </g:else>
 </g:if>
+</v-container>
 </body>
 </html>

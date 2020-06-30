@@ -52,7 +52,7 @@ class SearchController {
 
         if(hasSearchParam)
             result = query.list()
-        println(result.size())
+
         render(view: "/search/index", model: [category: params.category,
                                               name: params.name,
                                               connectioner: params.connectioner,
