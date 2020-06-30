@@ -13,11 +13,10 @@
 </head>
 <body>
 <div>
-    <v-card class="ma-auto" width="1000">
         <v-container>
             <v-row>
                 <v-col>
-                    <p class="headline">Categories:</p>
+                    <p class="headline">Category: </p>
                 </v-col>
             </v-row>
             <v-row>
@@ -27,14 +26,14 @@
                         <v-container>
                             <v-row>
                                 <v-col>
-                                <v-avatar color="indigo" size="80">
+                                <v-avatar color="#59D0B4" size="80">
                                     <v-img src="${resource(dir: "category", file: "/${category.indexImgPath()}")}" height="52" width="52" contain></v-img>
                                 </v-avatar>
                             </v-col>
                             </v-row>
                             <v-row>
                                 <v-col>
-                                    <p>${category.name}</p>
+                                    <p class="title">${category.name}</p>
                                 </v-col>
                             </v-row>
                         </v-container>
@@ -43,7 +42,6 @@
                 </g:each>
             </v-row>
         </v-container>
-    </v-card>
 </div>
 
 </body>
