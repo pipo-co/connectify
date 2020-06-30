@@ -19,6 +19,8 @@ class AppInitializationService {
         initCategory("Cooking")
         initCategory("Artistic")
         initCategory("Science")
+        initCategory("Crafts")
+        initCategory("Programming")
     }
 
     private static initCountries(){
