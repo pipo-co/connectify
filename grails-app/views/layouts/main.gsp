@@ -23,142 +23,142 @@
 
 <div id="app">
     <v-app>
-        <div class="navbar">
-            <v-app-bar elevate-on-scroll fixed app color="#2E3047">
-                <v-container fluid class="py-0">
-                    <v-row no-gutters align="center">
-                        <v-col cols="5" >
-                            <v-list-item dense>
-                                <v-avatar>
-                                    <asset:image src="logo.png" height="70" alt="Grails Logo"/>
-                                </v-avatar>
-                                <v-btn class="ma-1 pa-1" href="/" text>
-                                    <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
-                                </v-btn>
+        <v-app-bar elevate-on-scroll fixed app color="#2E3047">
+            <v-container fluid class="py-0">
+                <v-row no-gutters align="center">
+                    <v-col cols="5" >
+                        <v-list-item dense>
+                            <v-avatar>
+                                <asset:image src="logo.png" height="70" alt="Grails Logo"/>
+                            </v-avatar>
+                            <v-btn class="ma-1 pa-1" href="/" text>
+                                <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
+                            </v-btn>
+                            <v-btn class="ma-1 pa-1" text>
+                                <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
+                            </v-btn>
+                            <v-btn class="ma-1 pa-1" text>
+                                <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
+                            </v-btn>
+                            <v-btn class="ma-1 pa-1" text href="/search/index">
+                                <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                            </v-btn>
+                        </v-list-item>
+                    </v-col>
+                    <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
+                        <v-col cols="4">
+                            <v-spacer></v-spacer>
+                        </v-col>
+                        <v-col cols="3" class="pa-1" >
+                            <v-list-item dense class="ma-1 pa-1">
+                                <v-list-item-avatar>
+                                    <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                                </v-list-item-avatar>
+                                <div class="text-center">
+                                    <v-menu offset-y>
+                                        <template v-slot:activator="{ on }">
+                                            <v-btn
+                                                    color="#59D0B4"
+                                                    dark
+                                                    v-on="on"
+                                                    text
+                                            >
+                                                ${session.authorized.user.name}
+                                                <v-icon small>mdi-chevron-down</v-icon>
+
+                                            </v-btn>
+                                        </template>
+                                        <v-list>
+                                            <v-list-item
+                                                    href="/consumer/details/${session.authorized.user.consumer.id}"
+                                            >
+                                                <v-list-item-title class="black--text">Profile</v-list-item-title>
+                                            </v-list-item>
+                                            <v-list-item
+                                                    v-for="(item, index) in itemsConsumer"
+                                                    :key="index"
+                                                    @click=""
+                                                    :href="item.link"
+                                            >
+                                                <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
+                                            </v-list-item>
+                                        </v-list>
+                                    </v-menu>
+                                </div>
                                 <v-btn class="ma-1 pa-1" text>
-                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
-                                </v-btn>
-                                <v-btn class="ma-1 pa-1" text>
-                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
-                                </v-btn>
-                                <v-btn class="ma-1 pa-1" text href="/search/index">
-                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                    <v-icon color="white" large>mdi-calendar</v-icon>
                                 </v-btn>
                             </v-list-item>
                         </v-col>
-                        <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
-                            <v-col cols="4">
-                                <v-spacer></v-spacer>
-                            </v-col>
-                            <v-col cols="3" class="pa-1" >
-                                <v-list-item dense class="ma-1 pa-1">
-                                    <v-list-item-avatar>
-                                        <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
-                                    </v-list-item-avatar>
-                                    <div class="text-center">
-                                        <v-menu offset-y>
-                                            <template v-slot:activator="{ on }">
-                                                <v-btn
-                                                        color="#59D0B4"
-                                                        dark
-                                                        v-on="on"
-                                                        text
-                                                >
-                                                    ${session.authorized.user.name}
-                                                    <v-icon small>mdi-chevron-down</v-icon>
+                    </g:if>
+                    <g:elseif test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConnectioner()}">
+                        <v-col cols="4">
+                            <v-spacer></v-spacer>
+                        </v-col>
+                        <v-col cols="3" class="pa-1" >
+                            <v-list-item dense class="ma-1 pa-1">
+                                <v-list-item-avatar>
+                                    <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                                </v-list-item-avatar>
+                                <div class="text-center">
+                                    <v-menu offset-y>
+                                        <template v-slot:activator="{ on }">
+                                            <v-btn
+                                                    color="#59D0B4"
+                                                    dark
+                                                    v-on="on"
+                                                    text
+                                            >
+                                                ${session.authorized.user.name}
+                                                <v-icon small>mdi-chevron-down</v-icon>
 
-                                                </v-btn>
-                                            </template>
-                                            <v-list>
-                                                <v-list-item
-                                                    href="/consumer/details/${session.authorized.user.consumer.id}"
-                                                    >
-                                                    <v-list-item-title class="black--text">Profile</v-list-item-title>
-                                                </v-list-item>
-                                                <v-list-item
-                                                        v-for="(item, index) in itemsConsumer"
-                                                        :key="index"
-                                                        @click=""
-                                                        :href="item.link"
-                                                >
-                                                    <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
-                                                </v-list-item>
-                                            </v-list>
-                                        </v-menu>
-                                    </div>
-                                    <v-btn class="ma-1 pa-1" text>
-                                        <v-icon color="white" large>mdi-calendar</v-icon>
-                                    </v-btn>
-                                </v-list-item>
-                            </v-col>
-                        </g:if>
-                        <g:elseif test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConnectioner()}">
-                            <v-col cols="4">
-                                <v-spacer></v-spacer>
-                            </v-col>
-                            <v-col cols="3" class="pa-1" >
-                                <v-list-item dense class="ma-1 pa-1">
-                                    <v-list-item-avatar>
-                                        <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
-                                    </v-list-item-avatar>
-                                    <div class="text-center">
-                                        <v-menu offset-y>
-                                            <template v-slot:activator="{ on }">
-                                                <v-btn
-                                                        color="#59D0B4"
-                                                        dark
-                                                        v-on="on"
-                                                        text
-                                                >
-                                                    ${session.authorized.user.name}
-                                                    <v-icon small>mdi-chevron-down</v-icon>
+                                            </v-btn>
+                                        </template>
+                                        <v-list>
+                                            <v-list-item
+                                                    href="/conectioner/details/${session.authorized.user.conectioner.id}"
+                                            >
+                                                <v-list-item-title class="black--text">Profile</v-list-item-title>
+                                            </v-list-item>
+                                            <v-list-item
+                                                    v-for="(item, index) in itemsConnectioner"
+                                                    :key="index"
+                                                    @click=""
+                                                    :href="item.link"
+                                            >
+                                                <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
+                                            </v-list-item>
+                                        </v-list>
+                                    </v-menu>
+                                </div>
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-icon color="white" large>mdi-calendar</v-icon>
+                                </v-btn>
+                            </v-list-item>
+                        </v-col>
+                    </g:elseif>
+                    <g:else>
+                        <v-col cols="4" >
+                            <v-spacer></v-spacer>
+                        </v-col>
+                        <v-col>
+                            <v-list-item dense class="ma-1 pa-1">
+                                <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
+                                    <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
+                                    <v-toolbar-title class="title white--text">Register</v-toolbar-title>
+                                </v-btn>
+                            </v-list-item>
+                        </v-col>
+                    </g:else>
+                </v-row>
+            </v-container>
+        </v-app-bar>
 
-                                                </v-btn>
-                                            </template>
-                                            <v-list>
-                                                <v-list-item
-                                                        href="/conectioner/details/${session.authorized.user.conectioner.id}"
-                                                >
-                                                    <v-list-item-title class="black--text">Profile</v-list-item-title>
-                                                </v-list-item>
-                                                <v-list-item
-                                                        v-for="(item, index) in itemsConnectioner"
-                                                        :key="index"
-                                                        @click=""
-                                                        :href="item.link"
-                                                >
-                                                    <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
-                                                </v-list-item>
-                                            </v-list>
-                                        </v-menu>
-                                    </div>
-                                    <v-btn class="ma-1 pa-1" text>
-                                        <v-icon color="white" large>mdi-calendar</v-icon>
-                                    </v-btn>
-                                </v-list-item>
-                            </v-col>
-                        </g:elseif>
-                        <g:else>
-                            <v-col cols="4" >
-                                <v-spacer></v-spacer>
-                            </v-col>
-                            <v-col>
-                                <v-list-item dense class="ma-1 pa-1">
-                                    <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
-                                        <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
-                                    </v-btn>
-                                    <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
-                                        <v-toolbar-title class="title white--text">Register</v-toolbar-title>
-                                    </v-btn>
-                                </v-list-item>
-                            </v-col>
-                        </g:else>
-                    </v-row>
-                </v-container>
-            </v-app-bar>
-        </div>
-
-        <g:layoutBody/>
+        <v-main>
+            <g:layoutBody/>
+        </v-main>
 
         <v-footer color="#2E3047" padless>
             <v-row justify="center" no-gutters>

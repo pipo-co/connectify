@@ -5,7 +5,7 @@
     <title>Welcome to Connectify</title>
 </head>
 <body>
-<g:if test="${session.authorized && !session.authorized.isLoggedIn}">
+<g:if test="${!(session.authorized && session.authorized.isLoggedIn)}">
     <v-parallax
             dark
             src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
@@ -35,10 +35,56 @@
                 justify="center"
         >
             <v-col cols="4">
+                <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-img>
+                <h2>Registrate</h2>
+                <v-row
+                        align="center"
+                        justify="center"
+                >
+                    <v-col cols="8">
+                        <h4 class="font-weight-light">si te registras sos muy capo tengo que alimentar a una familia xfa</h4>
+                    </v-col>
+                </v-row>
+            </v-col>
 
+            <v-col cols="4">
+                <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-img>
+                <h2>Registrate</h2>
+                <v-row
+                        align="center"
+                        justify="center"
+                >
+                    <v-col cols="8">
+                        <h4 class="font-weight-light">si te registras sos muy capo tengo que alimentar a una familia xfa</h4>
+                    </v-col>
+                </v-row>
+            </v-col>
+
+            <v-col cols="4">
+                <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-img>
+                <h2>Registrate</h2>
+                <v-row
+                        align="center"
+                        justify="center"
+                >
+                    <v-col cols="8">
+                        <h4 class="font-weight-light">si te registras sos muy capo tengo que alimentar a una familia xfa</h4>
+                    </v-col>
+                </v-row>
             </v-col>
         </v-row>
     </v-container>
+    <v-container>
+        <v-row
+                align="center"
+                justify="center"
+        >
+            <v-col cols="6">
+                <h1>Tenes cursos para ofrecer? Este tambien es tu lugar</h1>
+            </v-col>
+        </v-row>
+    </v-container>
+
 </g:if>
 <v-container fluid >
     <v-row>
