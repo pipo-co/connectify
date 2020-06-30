@@ -58,7 +58,7 @@ class ConsumerController {
                 redirect(controller: "consumer", action: "edit")
             } else {
                 authenticationService.refreshLoggedUser()
-                redirect(controller: "consumer", action: "index")
+                redirect(controller: "consumer", action: "details", id: params.id)
             }
         }
     }

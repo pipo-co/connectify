@@ -58,7 +58,7 @@ class ConectionerController {
                 redirect(controller: "conectioner", action: "edit")
             } else {
                 authenticationService.refreshLoggedUser()
-                redirect(controller: "conectioner", action: "index")
+                redirect(controller: "conectioner", action: "details", id: params.id)
             }
         }
     }
