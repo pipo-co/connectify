@@ -6,7 +6,6 @@ import java.util.stream.Collectors
 
 class ApiController {
 
-
     def prueba(Long id){
         Category category = Category.get(id)
         if(category) {
@@ -18,6 +17,7 @@ class ApiController {
     }
 
     def getCategories(){
+
         List<Category> categories = Category.list().stream()
                 .map({ category -> [value: category.id, text: category.name] })
                 .collect(Collectors.toList())
@@ -26,12 +26,19 @@ class ApiController {
     }
 
     def getCountries(){
-        render CountriesInfo.supportedCountries as JSON
+        render Country.list().collect({ it.name }) as JSON
     }
 
     def getProvinces(String id){
-        println(id)
-        render CountriesInfo.getProvinces(id) as JSON
+        Country country = Country.findByName(id)
+
+        if(!country){
+            println("El nombre del pais no es valido")
+            render null as JSON
+            return;
+        }
+
+        render Province.findAllByCountry(country).collect({ it.name }) as JSON
     }
 
     def getConsumerActivities(Long id){

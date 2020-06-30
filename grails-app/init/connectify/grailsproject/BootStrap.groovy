@@ -2,9 +2,10 @@ package connectify.grailsproject
 
 class BootStrap {
 
+    AppInitializationService appInitializationService
 
     def init = { servletContext ->
-        AppInitializationService.initialize()
+        appInitializationService.initialize()
     }
 
     def destroy = {

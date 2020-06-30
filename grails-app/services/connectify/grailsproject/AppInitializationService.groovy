@@ -5,20 +5,51 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class AppInitializationService {
 
-    static initialize(){
-        initCategory("Fitness")
-        initCategory("Cooking")
-        createTestingConectioner()
-        createTestingConsumer()
+    def initialize(){
+        initCategories();
+
+        initCountries()
+
+        //createTestingConectioner()
+        //createTestingConsumer()
     }
 
-    static private initCategory(String name) {
-        Category category = new Category()
-        category.name = name
+    private static initCategories(){
+        initCategory("Fitness")
+        initCategory("Cooking")
+        initCategory("Artistic")
+        initCategory("Science")
+    }
+
+    private static initCountries(){
+        initCountry("Argentina", CountriesInfo.argentinaProvinces)
+
+        initCountry("Chile", CountriesInfo.chileProvinces)
+
+        initCountry("Uruguay", CountriesInfo.uruguayProvinces)
+    }
+
+    private static initCategory(String name) {
+        if(Category.findByName(name) != null)
+            return
+
+        Category category = new Category(name: name)
         category.save()
     }
 
-    static private createTestingConectioner(){
+    private static initCountry(String name, String[] provinces){
+        if(Country.findByName(name) != null)
+            return
+
+        Country country = new Country(name: name)
+
+        for(String province: provinces)
+            country.addToProvinces(new Province(name: province))
+
+        country.save()
+    }
+
+    private static createTestingConectioner(){
         Conectioner conectioner = new Conectioner()
         conectioner.user = new Users()
 
