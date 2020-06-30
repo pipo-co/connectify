@@ -16,7 +16,7 @@
         <v-container>
             <v-row>
                 <v-col>
-                    <p class="headline">Category: </p>
+                    <p class="headline">Categories:</p>
                 </v-col>
             </v-row>
             <v-row>
