@@ -158,6 +158,7 @@
             <v-select
                     label="<g:message code="province"/>"
                     name="province"
+                    :disabled="provinces == null"
                     value="${fieldValue(bean: consumer, field: 'province')}"
                     :items="provinces"
                     required

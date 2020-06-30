@@ -37,6 +37,7 @@ class PaymentController {
             Consumer consumer = consumerService.getById(authenticationService.getUser().consumer.id)
             response.success = paymentService.updateSuscribedDate(consumer, months)
             authenticationService.refreshLoggedUser()
+            redirect(controller: "consumer", action: "details", params: [id:authenticationService.getUser().consumer.id])
         }
         return response
     }

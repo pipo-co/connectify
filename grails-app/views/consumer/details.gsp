@@ -1,3 +1,4 @@
+<%@ page import="java.time.LocalDate" %>
 <%--
   Created by IntelliJ IDEA.
   User: tobias
@@ -18,87 +19,107 @@
                 </v-col>
                 <v-col>
                     <v-btn class="ml-2 my-3" rounded  color="#59D0B4">
-                    Edit <g:message code="avatar"/>
-                </v-btn>
+                        Edit <g:message code="avatar"/>
+                    </v-btn>
                 </v-col>
             </v-row>
         </v-col>
         <v-col>
-                <v-container >
-                    <v-card shaped="true">
-                        <v-row>
-                            <v-col>
-                                <v-list-item>
-                                    <v-list-item-title class="headline"><g:message code="consumer" args="['Details']"/>:</v-list-item-title>
-                                </v-list-item>
-                            </v-col>
-                        </v-row>
-                        <v-row>
-                            <v-col cols="3">
-                                <v-list-item>
-                                    <v-list-item-title ><g:message code="username"/>:  </v-list-item-title>
-                                </v-list-item>
-                            </v-col>
-                            <v-col >
-                                <v-list-item>
-                                    <v-list-item-title class="mx-5">${consumer.user.username}</v-list-item-title>
-                                </v-list-item>
-                                <v-divider></v-divider>
-                            </v-col>
+            <v-container >
+                <v-card shaped="true">
+                    <v-row>
+                        <v-col>
+                            <v-list-item>
+                                <v-list-item-title class="headline"><g:message code="consumer" args="['Details']"/>:</v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="3">
+                            <v-list-item>
+                                <v-list-item-title ><g:message code="username"/>:  </v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                        <v-col >
+                            <v-list-item>
+                                <v-list-item-title class="mx-5">${consumer.user.username}</v-list-item-title>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                        </v-col>
 
-                        </v-row>
-                        <v-row>
-                            <v-col cols="3">
-                                <v-list-item>
-                                    <v-list-item-title ><g:message code="name"/>:  </v-list-item-title>
-                                </v-list-item>
-                            </v-col>
-                            <v-col >
-                                <v-list-item>
-                                    <v-list-item-title class="mx-5">${consumer.user.name}</v-list-item-title>
-                                </v-list-item>
-                                <v-divider></v-divider>
-                            </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="3">
+                            <v-list-item>
+                                <v-list-item-title ><g:message code="name"/>:  </v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                        <v-col >
+                            <v-list-item>
+                                <v-list-item-title class="mx-5">${consumer.user.name}</v-list-item-title>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                        </v-col>
 
-                        </v-row>
-                        <v-row>
-                            <v-col cols="3">
-                                <v-list-item>
-                                    <v-list-item-title ><g:message code="last.name"/>:  </v-list-item-title>
-                                </v-list-item>
-                            </v-col>
-                            <v-col >
-                                <v-list-item>
-                                    <v-list-item-title class="mx-5">${consumer.lastName}</v-list-item-title>
-                                </v-list-item>
-                                <v-divider></v-divider>
-                            </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="3">
+                            <v-list-item>
+                                <v-list-item-title ><g:message code="last.name"/>:  </v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                        <v-col >
+                            <v-list-item>
+                                <v-list-item-title class="mx-5">${consumer.lastName}</v-list-item-title>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                        </v-col>
 
-                        </v-row>
-                        <v-row>
-                            <v-col cols="3">
-                                <v-list-item>
-                                    <v-list-item-title ><g:message code="email"/>:  </v-list-item-title>
-                                </v-list-item>
-                            </v-col>
-                            <v-col >
-                                <v-list-item>
-                                    <v-list-item-title class="mx-5">${consumer.user.email}</v-list-item-title>
-                                </v-list-item>
-                                <v-divider></v-divider>
-                            </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="3">
+                            <v-list-item>
+                                <v-list-item-title ><g:message code="email"/>:  </v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                        <v-col >
+                            <v-list-item>
+                                <v-list-item-title class="mx-5">${consumer.user.email}</v-list-item-title>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="3">
+                            <v-list-item>
+                                <v-list-item-title ><g:message code="suscription"/>:  </v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                        <v-col >
+                            <g:if test="${!consumer.isSuscribed()}">
+                                <v-list-item-title>No hay una suscripcion vigente.
+                                    <v-btn rounded class="ml-4"  color="#59D0B4" href="${createLink(controller: 'payment', action: 'index')}">
+                                        Renovar
+                                    </v-btn>
+                                </v-list-item-title>
 
-                        </v-row>
-                        <v-row>
-                            <v-col cols="1"><v-spacer></v-spacer></v-col>
-                            <v-col>
-                                <v-btn rounded class="ml-4"  color="#59D0B4" href="/consumer/edit/${session.authorized.user.consumer.id}">
-                                    Edit Profile
-                                </v-btn>
-                            </v-col>
-                        </v-row>
-                    </v-card>
-                </v-container>
+                            </g:if>
+                            <g:else>
+                                <v-list-item-title>${consumer.suscribedUntil}</v-list-item-title>
+                            </g:else>
+                            <v-divider></v-divider>
+                        </v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col cols="1"><v-spacer></v-spacer></v-col>
+                        <v-col>
+                            <v-btn rounded class="ml-4"  color="#59D0B4" href="/consumer/edit/${session.authorized.user.consumer.id}">
+                                Edit Profile
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                </v-card>
+            </v-container>
         </v-col>
     </v-row>
 </v-container>
