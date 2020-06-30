@@ -288,6 +288,7 @@
                 "/search/searchResult": function() {
                     this.getCategories();
                     this.getCountries();
+                    this.getProvinces("${country}");
                 }
             },
             currentChip: null,
