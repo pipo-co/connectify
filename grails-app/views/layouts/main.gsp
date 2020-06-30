@@ -209,8 +209,8 @@
                 { category:'Fitness', title: 'Crossfit3', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 }
 
             ],
-            countries: ["Argentina"],
-            provinces: ["Buenos Aires"],
+            countries: null,
+            provinces: null,
             phoneTypes: [
                 'cell', 'house'
             ],
@@ -234,11 +234,15 @@
                 "/search/index": function() {
                     this.getCategories();
                     this.getCountries();
+                },
+                "/search/searchResult": function() {
+                    this.getCategories();
+                    this.getCountries();
                 }
             },
-            currentChip:null,
-            currentParticipants:null,
-            subscribedActivities:null,
+            currentChip: null,
+            currentParticipants: null,
+            subscribedActivities: null,
         },
         methods: {
             getCategories(){
@@ -285,10 +289,7 @@
         },
         computed:{
             isSubscribed() {
-                if (this.subscribedActivities != null && this.subscribedActivities.includes(parseInt(this.currentChip, 10)))
-                    return true;
-                else
-                    return false;
+                return !!(this.subscribedActivities != null && this.subscribedActivities.includes(parseInt(this.currentChip, 10)));
             }
         },
         mounted(){
