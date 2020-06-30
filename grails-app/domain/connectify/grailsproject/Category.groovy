@@ -16,7 +16,7 @@ class Category {
     }
 
     public String indexImgPath(){
-        return imgBasePath() + "/index.jpg"
+        return imgBasePath() + "/index.png"
     }
 
     public String randStockImgPath(){
