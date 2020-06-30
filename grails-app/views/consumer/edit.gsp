@@ -32,7 +32,7 @@
                     </v-btn>
                 </v-col>
                 <v-col cols="2">
-                    <v-btn color="red" class="white--text"  width="200" href="/" >
+                    <v-btn color="red" class="white--text"  width="200" href="${createLink(controller: 'consumer', action: 'details', params: [id: consumer.id])}" >
                         <g:message code="cancel"/>
                     </v-btn>
                 </v-col>
