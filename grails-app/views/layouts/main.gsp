@@ -50,114 +50,114 @@
                             <v-col cols="4">
                                 <v-spacer></v-spacer>
                             </v-col>
-                             <v-col cols="3" class="pa-1" >
-                                 <v-list-item dense class="ma-1 pa-1">
-                             <v-list-item-avatar>
-                                 <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
-                             </v-list-item-avatar>
-                             <div class="text-center">
-                                 <v-menu offset-y>
-                                     <template v-slot:activator="{ on }">
-                                         <v-btn
-                                                 color="#59D0B4"
-                                                 dark
-                                                 v-on="on"
-                                                 text
-                                         >
-                                             ${session.authorized.user.name}
-                                             <v-icon small>mdi-chevron-down</v-icon>
+                            <v-col cols="3" class="pa-1" >
+                                <v-list-item dense class="ma-1 pa-1">
+                                    <v-list-item-avatar>
+                                        <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                                    </v-list-item-avatar>
+                                    <div class="text-center">
+                                        <v-menu offset-y>
+                                            <template v-slot:activator="{ on }">
+                                                <v-btn
+                                                        color="#59D0B4"
+                                                        dark
+                                                        v-on="on"
+                                                        text
+                                                >
+                                                    ${session.authorized.user.name}
+                                                    <v-icon small>mdi-chevron-down</v-icon>
 
-                                         </v-btn>
-                                     </template>
-                                     <v-list>
-                                         <v-list-item
-                                                 v-for="(item, index) in items"
-                                                 :key="index"
-                                                 @click=""
-                                                 :href="item.link"
-                                         >
-                                             <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
-                                         </v-list-item>
-                                     </v-list>
-                                 </v-menu>
-                             </div>
-                             %{--<v-btn class="ma-2 pa-2" text >
+                                                </v-btn>
+                                            </template>
+                                            <v-list>
+                                                <v-list-item
+                                                        v-for="(item, index) in items"
+                                                        :key="index"
+                                                        @click=""
+                                                        :href="item.link"
+                                                >
+                                                    <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-menu>
+                                    </div>
+                                    %{--<v-btn class="ma-2 pa-2" text >
 
-                                <p class="white--text"> </p>
-                             </v-btn>--}%
-                             <v-btn class="ma-1 pa-1" text>
-                                 <v-icon color="white" large>mdi-calendar</v-icon>
-                             </v-btn>
-                             </v-list-item>
-                             </v-col>
+                                       <p class="white--text"> </p>
+                                    </v-btn>--}%
+                                    <v-btn class="ma-1 pa-1" text>
+                                        <v-icon color="white" large>mdi-calendar</v-icon>
+                                    </v-btn>
+                                </v-list-item>
+                            </v-col>
                         </g:if>
-                         <g:else>
-                             <v-col cols="4" >
-                                 <v-spacer></v-spacer>
-                             </v-col>
-                             <v-col>
-                                 <v-list-item dense class="ma-1 pa-1">
-                                     <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
-                                         <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
-                                     </v-btn>
-                                     <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
-                                         <v-toolbar-title class="title white--text">Register</v-toolbar-title>
-                                     </v-btn>
-                                 </v-list-item>
-                             </v-col>
-                         </g:else>
+                        <g:else>
+                            <v-col cols="4" >
+                                <v-spacer></v-spacer>
+                            </v-col>
+                            <v-col>
+                                <v-list-item dense class="ma-1 pa-1">
+                                    <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
+                                        <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                    </v-btn>
+                                    <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
+                                        <v-toolbar-title class="title white--text">Register</v-toolbar-title>
+                                    </v-btn>
+                                </v-list-item>
+                            </v-col>
+                        </g:else>
                     </v-row>
                 </v-container>
             </v-toolbar>
         </div>
 
-<g:layoutBody/>
+        <g:layoutBody/>
 
         <v-footer color="#2E3047" padless>
-        <v-row justify="center" no-gutters>
             <v-row justify="center" no-gutters>
-                <v-btn
-                        v-for="link in links"
-                        :key="link"
-                        color="white"
-                        text
-                        rounded
-                        class="my-2">
-                    {{ link }}
-                </v-btn>
-            </v-row>
-            <v-card
-                    flat
-                    tile
-                    class="lighten-1 white--text text-center"
-                    color="#2E3047">
-                <v-card-text>
+                <v-row justify="center" no-gutters>
                     <v-btn
-                            v-for="icon in icons"
-                            :key="icon"
-                            class="mx-4 white--text"
-                            icon>
-                        <v-icon size="24px">{{ icon }}</v-icon>
+                            v-for="link in links"
+                            :key="link"
+                            color="white"
+                            text
+                            rounded
+                            class="my-2">
+                        {{ link }}
                     </v-btn>
-                </v-card-text>
+                </v-row>
+                <v-card
+                        flat
+                        tile
+                        class="lighten-1 white--text text-center"
+                        color="#2E3047">
+                    <v-card-text>
+                        <v-btn
+                                v-for="icon in icons"
+                                :key="icon"
+                                class="mx-4 white--text"
+                                icon>
+                            <v-icon size="24px">{{ icon }}</v-icon>
+                        </v-btn>
+                    </v-card-text>
 
-                <v-card-text class="white--text pt-0">
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eum, hic labore laborum molestias perferendis placeat reprehenderit sunt voluptates. Deleniti eum magnam mollitia numquam officia possimus repellendus rerum sequi tempore.
-                </v-card-text>
+                    <v-card-text class="white--text pt-0">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eum, hic labore laborum molestias perferendis placeat reprehenderit sunt voluptates. Deleniti eum magnam mollitia numquam officia possimus repellendus rerum sequi tempore.
+                    </v-card-text>
 
-                <v-divider></v-divider>
+                    <v-divider></v-divider>
 
-                <v-card-text class="white--text">
-                    {{ new Date().getFullYear() }} — <strong>Connectify</strong>
-                </v-card-text>
-            </v-card>
-        </v-row>
+                    <v-card-text class="white--text">
+                        {{ new Date().getFullYear() }} — <strong>Connectify</strong>
+                    </v-card-text>
+                </v-card>
+            </v-row>
         </v-footer>
 
 
-<div id="spinner" class="spinner" style="display:none;">
-    <g:message code="spinner.alt" default="Loading&hellip;"/>
-</div>
+        <div id="spinner" class="spinner" style="display:none;">
+            <g:message code="spinner.alt" default="Loading&hellip;"/>
+        </div>
 
 
     </v-app>
@@ -186,6 +186,16 @@
                 'Services',
                 'Blog',
                 'Contact Us',
+            ],
+            headersActivityTemplate: [
+
+                {text: 'Name', value: 'name'},
+                {text:'Description', value: 'description' },
+                {text:'Duration', value: 'duration'},
+                {text:'Max', value: 'max'},
+                {text:'Participants', value:'participants'},
+                {text:'Action', value: 'actions'},
+
             ],
             items: [
                 { title:' Perfil', color:'black--text', link:'/consumer/edit'},
@@ -218,15 +228,21 @@
                 "/activityTemplate/create": function() {
                     this.getCategories();
                 },
+                "/activityTemplate/details": function(){
+                    this.getUserActivities();
+                },
                 "/search/index": function() {
                     this.getCategories();
                     this.getCountries();
                 }
-            }
+            },
+            currentChip:null,
+            currentParticipants:null,
+            subscribedActivities:null,
         },
         methods: {
             getCategories(){
-              axios.get('/api/getCategories')
+                axios.get('/api/getCategories')
                     .then(response => this.categories = response.data)
                     .catch(console.log);
             },
@@ -242,13 +258,37 @@
             },
             takeOnActivity(activityId){
                 axios.get('/activity/addConsumerToActivity/' + activityId.toString())
-                    .then(console.log)
+                    .then(()=> {
+                        this.currentParticipants++;
+                        this.getUserActivities();
+                    })
                     .catch(console.log);
             },
             takeOffActivity(activityId){
                 axios.get('/activity/removeConsumerFromActivity/' + activityId.toString())
-                    .then(console.log)
+                    .then(()=> {
+                        this.currentParticipants--;
+                        this.getUserActivities();
+                    })
                     .catch(console.log)
+            },
+            setCurrentParticipants(participants){
+                this.currentParticipants = participants;
+            },
+            getUserActivities(){
+                <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+                axios.get('/api/getConsumerActivities/' + ${session.authorized.user.consumer.id})
+                    .then(response => this.subscribedActivities = response.data)
+                    .catch(console.log);
+                </g:if>
+            }
+        },
+        computed:{
+            isSubscribed() {
+                if (this.subscribedActivities != null && this.subscribedActivities.includes(parseInt(this.currentChip, 10)))
+                    return true;
+                else
+                    return false;
             }
         },
         mounted(){

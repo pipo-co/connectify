@@ -84,32 +84,11 @@
                                                         <p class="ml-5" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolore eius facilis inventore laboriosam mollitia officiis porro, qui, quia quod, repellendus tempore temporibus vel! Beatae doloremque id obcaecati porro quas.${activityt.description}</p>
                                                     </v-col>
                                                 </v-row>
-                                                <v-divider></v-divider>
-                                                <v-row align="center">
-                                                    <v-col class="pa-0" >
-                                                        <p class="subtitle-1 ml-5 my-0 py-1">Address: ${activityt.address}</p>
-                                                    </v-col>
-                                                </v-row>
-                                                <v-row align="center">
-                                                    <v-col class="pa-0" >
-                                                        <p class="headline ml-5 my-0">Availability:</p>
-                                                    </v-col>
-                                                </v-row>
-                                                <v-row align="center" wrap class="py-0">
-                                                    <v-chip-group
-                                                            v-model="selection"
-                                                            active-class="teal accent-2"
-                                                            class="ma-auto"
-                                                    >
-                                                        <g:each var="activity" in="${activityt.activity}">
-                                                            <v-chip @click="takeOnActivity(${activity.id})" class="ma-3">${activity.initDate} ${activity.initTime} ${activity.participants}/${activityt.maxParticipants}</v-chip>
-                                                        </g:each>
-                                                    </v-chip-group>
-                                                </v-row>
-                                                <v-row class="pa-0 ma-0">
-                                                    <v-col class="pa-0 ma-0">
-                                                        <v-btn text color="#59D0B4">
-                                                            Sign up
+                                                <v-row class="ma-0 pa-0">
+                                                    <v-col cols="8"></v-col>
+                                                    <v-col class=" ma-0">
+                                                        <v-btn rounded color="#59D0B4" href="activityTemplate/details/${activityt.id}">
+                                                            more
                                                         </v-btn>
                                                     </v-col>
                                                 </v-row>

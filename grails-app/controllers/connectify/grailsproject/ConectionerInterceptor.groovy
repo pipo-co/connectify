@@ -3,7 +3,7 @@ package connectify.grailsproject
 
 class ConectionerInterceptor {
 
-    AuthenticationService authenticationService
+   /* AuthenticationService authenticationService
 
     ConectionerInterceptor(){
         match(controller: "activityTemplate")
@@ -15,6 +15,6 @@ class ConectionerInterceptor {
             return false
         }
         return true
-    }
+    }*/
 
 }
