@@ -26,7 +26,7 @@ class   Consumer {
             user unique: true
             docType blank: false, inList: ['DNI', 'CI','Passport']
             document blank: false, matches: "[1-9][0-9]{7}"
-            country blank: false, inList: ['Argentina', 'Chile','Brasil']
+            country blank: false, inList: CountriesInfo.supportedCountries.toList()
             province blank: false
             district blank: false
             street blank: false
