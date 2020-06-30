@@ -92,7 +92,7 @@
                         <v-row>
                             <v-col cols="1"><v-spacer></v-spacer></v-col>
                             <v-col>
-                                <v-btn rounded class="ml-4"  color="#59D0B4" href="/consumer/edit">
+                                <v-btn rounded class="ml-4"  color="#59D0B4" href="/consumer/edit/${session.authorized.user.consumer.id}">
                                     Edit Profile
                                 </v-btn>
                             </v-col>
