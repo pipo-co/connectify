@@ -5,7 +5,42 @@
     <title>Welcome to Connectify</title>
 </head>
 <body>
-<v-container fluid>
+<g:if test="${session.authorized && !session.authorized.isLoggedIn}">
+    <v-parallax
+            dark
+            src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    >
+        <v-row
+                align="center"
+                justify="center"
+        >
+            <v-col class="text-center" cols="12">
+                <h1 class="display-1 mb-4">Una nueva forma de realizar cursos.</h1>
+                <h4 class="subheading font-weight-thin mb-4">Registrate ya para conocer todos los beneficios de ser un miembo de Connectify.</h4>
+                <v-btn rounded color="#59D0B4" class="py-5" href="/consumer/create">REGISTRATE</v-btn>
+            </v-col>
+        </v-row>
+    </v-parallax>
+    <v-container>
+        <v-row
+                align="center"
+                justify="center"
+        >
+            <v-col cols="12">
+                <h1>Cómo funciona</h1>
+            </v-col>
+        </v-row>
+        <v-row
+                align="center"
+                justify="center"
+        >
+            <v-col cols="4">
+
+            </v-col>
+        </v-row>
+    </v-container>
+</g:if>
+<v-container fluid >
     <v-row>
         <v-col>
             <v-carousel
