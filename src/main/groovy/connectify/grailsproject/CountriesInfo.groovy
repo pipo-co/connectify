@@ -2,17 +2,6 @@ package connectify.grailsproject
 
 class CountriesInfo {
 
-    static getProvinces(String country){
-        switch(country){
-            case supportedCountries[0]:
-                return argentinaProvinces
-            case supportedCountries[1]:
-                return chileProvinces
-            case supportedCountries[2]:
-                return uruguayProvinces
-        }
-    }
-
     public static final String[] supportedCountries = [
             "Argentina", "Chile", "Uruguay"
     ]
