@@ -46,7 +46,7 @@
                                 </v-btn>
                             </v-list-item>
                         </v-col>
-                        <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+                        <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
                             <v-col cols="4">
                                 <v-spacer></v-spacer>
                             </v-col>
@@ -71,7 +71,12 @@
                                             </template>
                                             <v-list>
                                                 <v-list-item
-                                                        v-for="(item, index) in items"
+                                                    href="/consumer/details/${session.authorized.user.consumer.id}"
+                                                    >
+                                                    <v-list-item-title class="black--text">Profile</v-list-item-title>
+                                                </v-list-item>
+                                                <v-list-item
+                                                        v-for="(item, index) in itemsConsumer"
                                                         :key="index"
                                                         @click=""
                                                         :href="item.link"
@@ -81,16 +86,58 @@
                                             </v-list>
                                         </v-menu>
                                     </div>
-                                    %{--<v-btn class="ma-2 pa-2" text >
-
-                                       <p class="white--text"> </p>
-                                    </v-btn>--}%
                                     <v-btn class="ma-1 pa-1" text>
                                         <v-icon color="white" large>mdi-calendar</v-icon>
                                     </v-btn>
                                 </v-list-item>
                             </v-col>
                         </g:if>
+                        <g:elseif test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConnectioner()}">
+                            <v-col cols="4">
+                                <v-spacer></v-spacer>
+                            </v-col>
+                            <v-col cols="3" class="pa-1" >
+                                <v-list-item dense class="ma-1 pa-1">
+                                    <v-list-item-avatar>
+                                        <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                                    </v-list-item-avatar>
+                                    <div class="text-center">
+                                        <v-menu offset-y>
+                                            <template v-slot:activator="{ on }">
+                                                <v-btn
+                                                        color="#59D0B4"
+                                                        dark
+                                                        v-on="on"
+                                                        text
+                                                >
+                                                    ${session.authorized.user.name}
+                                                    <v-icon small>mdi-chevron-down</v-icon>
+
+                                                </v-btn>
+                                            </template>
+                                            <v-list>
+                                                <v-list-item
+                                                        href="/conectioner/details/${session.authorized.user.conectioner.id}"
+                                                >
+                                                    <v-list-item-title class="black--text">Profile</v-list-item-title>
+                                                </v-list-item>
+                                                <v-list-item
+                                                        v-for="(item, index) in itemsConnectioner"
+                                                        :key="index"
+                                                        @click=""
+                                                        :href="item.link"
+                                                >
+                                                    <v-list-item-title :class="item.color">{{ item.title }}</v-list-item-title>
+                                                </v-list-item>
+                                            </v-list>
+                                        </v-menu>
+                                    </div>
+                                    <v-btn class="ma-1 pa-1" text>
+                                        <v-icon color="white" large>mdi-calendar</v-icon>
+                                    </v-btn>
+                                </v-list-item>
+                            </v-col>
+                        </g:elseif>
                         <g:else>
                             <v-col cols="4" >
                                 <v-spacer></v-spacer>
@@ -197,10 +244,13 @@
                 {text:'Action', value: 'actions'},
 
             ],
-            items: [
-                { title:' Perfil', color:'black--text', link:'/consumer/edit'},
+            itemsConsumer: [
                 { title: 'Historial', color:'black--text', link:'#'},
-                { title: 'Cerrar sesion', color:'red--text', link:'/authentication/logout'}
+                { title: 'Log out', color:'red--text', link:'/authentication/logout'}
+            ],
+            itemsConnectioner: [
+                { title: 'Activities', color:'black--text', link:'/activityTemplate/index'},
+                { title: 'Log out', color:'red--text', link:'/authentication/logout'}
             ],
             show: false,
             cards: [
