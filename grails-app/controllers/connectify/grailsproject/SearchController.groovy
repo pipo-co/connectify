@@ -10,41 +10,41 @@ class SearchController {
 
     def searchResult(){
 
-        Boolean hasSearchParam = 0
+        Boolean hasSearchParam = false
         def result = null
 
         DetachedCriteria<ActivityTemplate> query = new DetachedCriteria<>(ActivityTemplate.class, "activityTemplate")
 
         if(params.category){
-            hasSearchParam = 1
+            hasSearchParam = true
             query = query.where {
                 category {id == params.category}
             }
         }
 
         if(params.name){
-            hasSearchParam = 1
+            hasSearchParam = true
             query = query.where {
                 name ==~ params.name
             }
         }
 
         if(params.connectioner){
-            hasSearchParam = 1
+            hasSearchParam = true
             query = query.where {
                 conectioner { user { name ==~ params.connectioner } }
             }
         }
 
         if(params.country){
-            hasSearchParam = 1
+            hasSearchParam = true
             query = query.where {
                 conectioner { country == params.country }
             }
         }
 
         if(params.province){
-            hasSearchParam = 1
+            hasSearchParam = true
             query = query.where {
                 conectioner { province == params.province }
             }
