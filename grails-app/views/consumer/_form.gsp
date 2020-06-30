@@ -142,7 +142,7 @@
                     name="country"
                     value="${fieldValue(bean: consumer, field: 'country')}"
                     :items="countries"
-                    @input="getProvinces($event)"
+                    @change="getProvinces($event)"
                     required
             ></v-select>
         </v-col>

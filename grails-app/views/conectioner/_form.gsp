@@ -114,7 +114,7 @@
                         name="country"
                         value="${fieldValue(bean: conectioner, field: 'country')}"
                         :items="countries"
-                        @input="getProvinces($event)"
+                        @change="getProvinces($event)"
                         required
                 ></v-select>
             </v-col>
@@ -130,6 +130,7 @@
                 <v-select
                         label="<g:message code="province"/>"
                         name="province"
+                        :disabled="provinces == null"
                         value="${fieldValue(bean: conectioner, field: 'province')}"
                         :items="provinces"
                         required

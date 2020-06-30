@@ -277,12 +277,14 @@
                 },
                 "/consumer/edit": function() {
                     this.getCountries();
+                    this.getProvinces("${fieldValue(bean: consumer, field: 'country')}")
                 },
                 "/conectioner/create": function() {
                     this.getCountries();
                 },
                 "/conectioner/edit": function() {
                     this.getCountries();
+                    this.getProvinces("${fieldValue(bean: conectioner, field: 'country')}")
                 },
                 "/activityTemplate/create": function() {
                     this.getCategories();
