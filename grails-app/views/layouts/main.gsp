@@ -274,6 +274,8 @@
                 "/": function() {console.log("estoy en index")},
                 "/consumer/create": function() {
                     this.getCountries();
+                    if("${fieldValue(bean: consumer, field: 'country')}" !== "")
+                        this.getProvinces("${fieldValue(bean: consumer, field: 'country')}");
                 },
                 "/consumer/edit": function() {
                     this.getCountries();
@@ -281,6 +283,8 @@
                 },
                 "/conectioner/create": function() {
                     this.getCountries();
+                    if("${fieldValue(bean: conectioner, field: 'country')}" !== "")
+                        this.getProvinces("${fieldValue(bean: conectioner, field: 'country')}");
                 },
                 "/conectioner/edit": function() {
                     this.getCountries();
