@@ -41,7 +41,7 @@
                                 <v-btn class="ma-1 pa-1" text>
                                     <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
                                 </v-btn>
-                                <v-btn class="ma-1 pa-1" text>
+                                <v-btn class="ma-1 pa-1" text href="/search/index">
                                     <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
                                 </v-btn>
                             </v-list-item>
