@@ -31,7 +31,7 @@ class ConsumerService {
         def changeAvatar = false
         String oldAvatar
 
-        if(params.avatar.filename.equals(""))
+        if(params.avatar == null || params.avatar.filename.equals(""))
             params.avatar = consumer.user.avatar
         else {
             changeAvatar = true

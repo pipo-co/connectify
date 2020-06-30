@@ -18,7 +18,7 @@ class Conectioner {
     static constraints = {
         cbu blank: false, matches: "[0-9]{22}"
         user unique: true
-        country blank: false, inList: ['Argentina', 'Chile','Brasil']
+        country blank: false, inList: CountriesInfo.supportedCountries.toList()
         province blank: false
         district blank: false
         street blank: false

@@ -1,4 +1,4 @@
-<%@ page import="connectify.grailsproject.GlobalConfig" %>
+<%@ page import="connectify.grailsproject.CountriesInfo; connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -209,8 +209,8 @@
                 { category:'Fitness', title: 'Crossfit3', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 }
 
             ],
-            countries: ["Argentina"],
-            provinces: ["Buenos Aires"],
+            countries: null,
+            provinces: null,
             phoneTypes: [
                 'cell', 'house'
             ],
@@ -223,6 +223,15 @@
             mountedRouteMap: {
                 "/": function() {console.log("estoy en index")},
                 "/consumer/create": function() {
+                    this.getCountries();
+                },
+                "/consumer/edit": function() {
+                    this.getCountries();
+                },
+                "/conectioner/create": function() {
+                    this.getCountries();
+                },
+                "/conectioner/edit": function() {
                     this.getCountries();
                 },
                 "/activityTemplate/create": function() {
