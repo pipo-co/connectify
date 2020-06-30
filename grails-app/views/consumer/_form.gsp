@@ -28,12 +28,14 @@
             <v-text-field
                     label="<g:message code="name"/>"
                     name="name"
-                    value="${consumer?.user?.name}"
+                    value="${fieldValue(bean: consumer?.user, field: 'name')}"
                     required
             >
             </v-text-field>
         </v-col>
-        <v-col cols="1"><v-spacer></v-spacer></v-col>
+        <v-col cols="1">
+            <v-spacer/>
+        </v-col>
         <v-col class="pa-0 ml-3" >
             <g:hasErrors bean="${consumer}" field="lastName">
                 <g:eachError bean="${consumer}" field="lastName">
@@ -41,10 +43,8 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
-                    v-model="password"
                     label="<g:message code="last.name"/>"
                     name="lastName"
-
                     value="${fieldValue(bean: consumer, field: 'lastName')}"
             ></v-text-field>
         </v-col>
@@ -58,12 +58,11 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
-%{--                    v-model="email"--}%
                     label="<g:message code="email.address"/>"
                     name="email"
                     type="email"
-%{--                    :rules="emailRules"--}%
-                    value="${consumer?.user?.email}"
+                    :rules="emailRules"
+                    value="${fieldValue(bean: consumer?.user, field: 'email')}"
                     required
             >
             </v-text-field>
@@ -79,7 +78,6 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
-                        v-model="password"
                         label="<g:message code="password"/>"
                         name="password"
                         type="password"
@@ -144,7 +142,7 @@
                     name="country"
                     value="${fieldValue(bean: consumer, field: 'country')}"
                     :items="countries"
-                    @change="getProvinces($event)"
+                    @input="getProvinces($event)"
                     required
             ></v-select>
         </v-col>

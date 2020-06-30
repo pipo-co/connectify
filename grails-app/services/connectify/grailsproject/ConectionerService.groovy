@@ -31,7 +31,7 @@ class ConectionerService {
         def changeAvatar = false
         String oldAvatar
 
-        if(params.avatar.filename.equals(""))
+        if(params.avatar == null || params.avatar.filename.equals(""))
             params.avatar = conectioner.user.avatar
         else {
             changeAvatar = true

@@ -1,4 +1,4 @@
-<%@ page import="connectify.grailsproject.GlobalConfig" %>
+<%@ page import="connectify.grailsproject.CountriesInfo; connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -275,6 +275,15 @@
                 "/consumer/create": function() {
                     this.getCountries();
                 },
+                "/consumer/edit": function() {
+                    this.getCountries();
+                },
+                "/conectioner/create": function() {
+                    this.getCountries();
+                },
+                "/conectioner/edit": function() {
+                    this.getCountries();
+                },
                 "/activityTemplate/create": function() {
                     this.getCategories();
                 },
@@ -288,6 +297,7 @@
                 "/search/searchResult": function() {
                     this.getCategories();
                     this.getCountries();
+                    this.getProvinces("${country}");
                 }
             },
             currentChip: null,
