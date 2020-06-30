@@ -67,6 +67,8 @@ class SearchController {
 
     def categoryDetails(Long id){
         Category category = Category.get(id)
+        println(category)
+        println(ActivityTemplate.findAllByCategory(category))
         [category: category, activityTemplates: ActivityTemplate.findAllByCategory(category)]
     }
 }
