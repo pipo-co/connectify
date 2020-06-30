@@ -299,7 +299,8 @@
                 "/search/searchResult": function() {
                     this.getCategories();
                     this.getCountries();
-                    this.getProvinces("${country}");
+                    if("${country}" !== "")
+                        this.getProvinces("${country}");
                 },
                 "/search/categoryList": function(){
 

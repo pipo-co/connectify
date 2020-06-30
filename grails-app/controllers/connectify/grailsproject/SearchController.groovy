@@ -52,7 +52,7 @@ class SearchController {
 
         if(hasSearchParam)
             result = query.list()
-
+        println(result.size())
         render(view: "/search/index", model: [category: params.category,
                                               name: params.name,
                                               connectioner: params.connectioner,
@@ -67,8 +67,6 @@ class SearchController {
 
     def categoryDetails(Long id){
         Category category = Category.get(id)
-        println(category)
-        println(ActivityTemplate.findAllByCategory(category))
         [category: category, activityTemplates: ActivityTemplate.findAllByCategory(category)]
     }
 }
