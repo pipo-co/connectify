@@ -122,7 +122,7 @@
         </v-row>
         <v-row>
             <v-carousel
-                    height="570"
+                    height="500"
                     hide-delimiters
                     show-arrows-on-hover>
                 <v-carousel-item :key="j" v-for="j in ${((pair.getbValue().size() - 1)/3) + 1}">
@@ -138,17 +138,10 @@
                                                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                                     height="160px"
                                             >
-                                                <v-row no-gutters align="center" class="pl-1 py-0">
-                                                    <v-col cols="10" class="pa-0">
-                                                        <v-card-subtitle class="pa-0 white--text">Categoria: ${activityt.category.name}</v-card-subtitle>
+                                                <v-row no-gutters align="center" class="pl-2 py-0">
+                                                    <v-col class="pa-0">
+                                                        <v-card-title class="pa-0 subtitle-1 white--text">Categoria: ${activityt.category.name}</v-card-title>
                                                         <v-card-title class="pa-0  white--text"> ${activityt.name}</v-card-title>
-                                                    </v-col>
-                                                    <v-col cols="2" class="pa-0">
-                                                        <v-btn icon color="#59D0B4" class="pa-0" >
-                                                            <v-icon>
-                                                                mdi-heart
-                                                            </v-icon>
-                                                        </v-btn>
                                                     </v-col>
                                                 </v-row>
                                             </v-img>
@@ -157,12 +150,12 @@
                                             <v-container fluid class="pa-1">
                                                 <v-row align="center">
                                                     <v-col cols="9" class="pa-1">
-                                                        <v-card-title class="cyan--text ml-3 pa-2"  >By: ${activityt.conectioner.user.name}</v-card-title>
+                                                        <v-card-title class="white--text ml-3 pa-2"  >By: ${activityt.conectioner.user.name}</v-card-title>
                                                     </v-col>
                                                 </v-row>
-                                                <v-row align="center">
-                                                    <v-col class="pa-1" >
-                                                        <p class="ml-5" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolore eius facilis inventore laboriosam mollitia officiis porro, qui, quia quod, repellendus tempore temporibus vel! Beatae doloremque id obcaecati porro quas.${activityt.description}</p>
+                                                <v-row align="center" class="ma-0 pa-0">
+                                                    <v-col class="pa-0" >
+                                                        <p class="my-0 mx-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolore eius facilis inventore laboriosam mollitia officiis porro, qui, quia quod, repellendus tempore temporibus vel! Beatae doloremque id obcaecati porro quas.${activityt.description}</p>
                                                     </v-col>
                                                 </v-row>
                                                 <v-row class="ma-0 pa-0">

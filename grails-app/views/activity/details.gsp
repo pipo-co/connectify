@@ -30,9 +30,6 @@
                 <tr>
                     <th class="text-right"><g:message code="cbu"/></th><td class="text-left">${conectioner.cbu}</td>
                 </tr>
-%{--                <tr>--}%
-%{--                    <th class="text-right"><g:message code="member.type"/></th><td class="text-left">${member.memberType}</td>--}%
-%{--                </tr>--}%
             </table>
         </g:if>
         <div class="form-action-panel">

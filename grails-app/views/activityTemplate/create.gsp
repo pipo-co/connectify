@@ -12,7 +12,7 @@
 <v-container class="my-2">
     <v-row>
         <v-col >
-            <p class="headline"><g:message code="activity.template" args="['Creation']"/>:</p>
+            <p class="headline">Create a new activity:</p>
         </v-col>
     </v-row>
 </v-container>

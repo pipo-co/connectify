@@ -20,8 +20,10 @@
 </head>
 
 <body>
-
-<div id="app">
+<div v-show="show" class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+<div v-show="!show" id="app">
     <v-app>
         <v-app-bar elevate-on-scroll fixed app color="#2E3047">
             <v-container fluid class="py-0">
@@ -92,10 +94,10 @@
                         </v-col>
                     </g:if>
                     <g:elseif test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConnectioner()}">
-                        <v-col cols="4">
+                        <v-col cols="5">
                             <v-spacer></v-spacer>
                         </v-col>
-                        <v-col cols="3" class="pa-1" >
+                        <v-col cols="2" class="pa-1" >
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-list-item-avatar>
                                     <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
@@ -111,7 +113,6 @@
                                             >
                                                 ${session.authorized.user.name}
                                                 <v-icon small>mdi-chevron-down</v-icon>
-
                                             </v-btn>
                                         </template>
                                         <v-list>
@@ -131,9 +132,6 @@
                                         </v-list>
                                     </v-menu>
                                 </div>
-                                <v-btn class="ma-1 pa-1" text>
-                                    <v-icon color="white" large>mdi-calendar</v-icon>
-                                </v-btn>
                             </v-list-item>
                         </v-col>
                     </g:elseif>
@@ -156,9 +154,11 @@
             </v-container>
         </v-app-bar>
 
+
         <v-main>
             <g:layoutBody/>
         </v-main>
+
 
         <v-footer color="#2E3047" padless>
             <v-row justify="center" no-gutters>
@@ -214,7 +214,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     new Vue({
         el: '#app',
@@ -252,7 +252,7 @@
                 { title: 'Activities', color:'black--text', link:'/activityTemplate/index'},
                 { title: 'Log out', color:'red--text', link:'/authentication/logout'}
             ],
-            show: false,
+            show: true,
             cards: [
                 { category:'Fitness', title: 'Crossfit', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
                 { category:'Fitness', title: 'Crossfit2', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
@@ -267,6 +267,7 @@
             docTypes:[
                 'DNI', 'CI', 'Passport'
             ],
+            show:true,
             categories: null,
             picker: null,
             timePicker: null,
@@ -315,46 +316,52 @@
             subscribedActivities: null,
         },
         methods: {
-            getCategories(){
+            getCategories() {
                 axios.get('/api/getCategories')
                     .then(response => this.categories = response.data)
                     .catch(console.log);
             },
-            getCountries(){
+            getCountries() {
                 axios.get('/api/getCountries')
                     .then(response => this.countries = response.data)
                     .catch(console.log);
             },
-            getProvinces(country){
+            getProvinces(country) {
                 axios.get('/api/getProvinces/' + country)
                     .then(response => this.provinces = response.data)
                     .catch(console.log);
             },
-            takeOnActivity(activityId){
+            takeOnActivity(activityId) {
                 axios.get('/activity/addConsumerToActivity/' + activityId.toString())
-                    .then(()=> {
+                    .then(() => {
                         this.currentParticipants++;
                         this.getUserActivities();
                     })
                     .catch(console.log);
             },
-            takeOffActivity(activityId){
+            takeOffActivity(activityId) {
                 axios.get('/activity/removeConsumerFromActivity/' + activityId.toString())
-                    .then(()=> {
+                    .then(() => {
                         this.currentParticipants--;
                         this.getUserActivities();
                     })
                     .catch(console.log)
             },
-            setCurrentParticipants(participants){
+            setCurrentParticipants(participants) {
                 this.currentParticipants = participants;
             },
-            getUserActivities(){
+            getUserActivities() {
                 <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
                 axios.get('/api/getConsumerActivities/' + ${session.authorized.user.consumer.id})
                     .then(response => this.subscribedActivities = response.data)
                     .catch(console.log);
                 </g:if>
+            },
+            showToggle() {
+                setTimeout(() => {
+                    this.show = false
+                    $(".loader-wrapper").fadeOut("slow");
+                }, 1500);
             }
         },
         computed:{
@@ -363,6 +370,7 @@
             }
         },
         mounted(){
+            this.showToggle();
             let currentRoute = window.location.pathname;
             if(currentRoute !== '/'){
                 currentRoute = currentRoute.split('/');
@@ -397,5 +405,85 @@
 }
 .v-card--shaped {
     border-radius: 15px !important;
+}
+body, html {
+    height: 100%;
+    text-align: center;
+}
+
+body {
+    background-color: #242F3F;
+}
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border: 4px solid #Fff;
+    animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
 }
 </style>
