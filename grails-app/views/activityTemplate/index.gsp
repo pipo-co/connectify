@@ -8,11 +8,12 @@
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
 <v-container class="my-2">
-    <v-row>
-        <v-col cols="8">
-            <p class="headline"> <g:message code="activity.template" args="['List Of']"/>:</p>
+    <v-row justify="start">
+        <v-col cols="1">
+            <p class="headline"> Activities:</p>
         </v-col>
-        <v-col>
+        <v-spacer></v-spacer>
+        <v-col cols="3">
             <v-btn color="#2E3047" class="white--text" href="/activityTemplate/create">
                 <g:message code="create"/> new activity template
             </v-btn>
@@ -33,13 +34,6 @@
                             <v-row no-gutters align="center" class="pl-1 py-0">
                                 <v-col cols="10" class="pa-0">
                                     <v-card-title class="pa-0  white--text"> ${info?.name}</v-card-title>
-                                </v-col>
-                                <v-col cols="2" class="pa-0">
-                                    <v-btn icon color="#59D0B4" class="pa-0" >
-                                        <v-icon>
-                                            mdi-heart
-                                        </v-icon>
-                                    </v-btn>
                                 </v-col>
                             </v-row>
                         </v-img>
