@@ -31,7 +31,7 @@ function getActivityInitDate(activity){
 }
 
 function eventDateToDate(date){
-    return new Date(date.year, date.month, date.day, date.hour, date.minute);
+    return new Date(date.year, date.month - 1, date.day, date.hour, date.minute);
 }
 
 window.updateRange = updateRange;
