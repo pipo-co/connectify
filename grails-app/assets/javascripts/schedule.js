@@ -3,8 +3,9 @@
 //         [,hor_num,min_num,seg_num,mils_num])
 
 function updateRange({start, end}, activities){
-    let startDate = eventDateToDate(start);
-    let endDate = eventDateToDate(end);
+    let startDate = eventDateToDate(start,0,0);
+    let endDate = eventDateToDate(end,23,59);
+    console.log("UpdateRange", start, end);
 
     return activities.filter( activity => {
         let initDate = getActivityInitDate(activity);
@@ -35,8 +36,8 @@ function getActivityInitDate(activity){
         time.hour, time.minute);
 }
 
-function eventDateToDate(date){
-    return new Date(date.year, date.month - 1, date.day, date.hour, date.minute);
+function eventDateToDate(date, hours, minutes){
+    return new Date(date.year, date.month - 1, date.day, hours, minutes);
 }
 
 window.updateRange = updateRange;
