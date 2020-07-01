@@ -75,4 +75,8 @@ class ConsumerController {
                 redirect(controller: "consumer", action: "index")
         }
     }
+
+    def schedule(){
+
+    }
 }
