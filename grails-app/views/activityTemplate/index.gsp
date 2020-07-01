@@ -63,7 +63,7 @@
                                         <v-list-item>
                                             <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'create', id: info.id)}" >
                                                 Start Activity
-%{--                                                <g:link controller="activity" action="create" class="btn btn-secondary" id="${info.id}"></g:link>--}%
+                                                %{--                                                <g:link controller="activity" action="create" class="btn btn-secondary" id="${info.id}"></g:link>--}%
                                             </v-btn>
                                             <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'index', id: info.id)}">
                                                 List Activities
@@ -75,7 +75,7 @@
                                             </v-btn>
                                             <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'edit', id: info.id)}">
                                                 Edit
-                                                </v-btn>
+                                            </v-btn>
                                             <v-btn color="red" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'delete', id: info.id)}">
                                                 Delete
                                             </v-btn>
@@ -90,4 +90,3 @@
         </g:each>
     </v-row>
 </v-container>
-</div>
