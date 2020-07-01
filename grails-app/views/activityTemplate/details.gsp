@@ -52,10 +52,10 @@
                                 </v-chip-group>
                             </v-row>
                             <v-row no-gutters align="center" justify="end">
-                                <v-col cols="2">
+                                <v-col cols="2" class="px-0">
                                     <v-card-subtitle class="white--text" v-show="currentParticipants != null"> {{currentParticipants + isSubscribed}}/${activityT.maxParticipants}</v-card-subtitle>
                                 </v-col>
-                                <v-col cols="3" class="px-2">
+                                <v-col cols="3" class="px-0">
                                     <v-btn rounded color="#59D0B4" v-show="!isSubscribed"  :disabled="currentChip == null || currentParticipants >= ${activityT.maxParticipants}" @click="takeOnActivity(currentChip)">
                                         Subscribe
                                     </v-btn>

@@ -145,15 +145,8 @@
                                                 >
                                                     <v-row no-gutters align="center" class="pl-1 py-0">
                                                         <v-col cols="10" class="pa-0">
-                                                            <v-card-subtitle class="pa-0 white--text">Categoria: ${activityt.category.name}</v-card-subtitle>
+                                                            <v-card-title class="pa-0 subtitle-1 white--text">Categoria: ${activityt.category.name}</v-card-title>
                                                             <v-card-title class="pa-0  white--text"> ${activityt.name}</v-card-title>
-                                                        </v-col>
-                                                        <v-col cols="2" class="pa-0">
-                                                            <v-btn icon color="#59D0B4" class="pa-0" >
-                                                                <v-icon>
-                                                                    mdi-heart
-                                                                </v-icon>
-                                                            </v-btn>
                                                         </v-col>
                                                     </v-row>
                                                 </v-img>
