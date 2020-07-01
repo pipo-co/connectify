@@ -40,23 +40,22 @@
                                 <p class="title ml-5 py-1 white--text">Availability:</p>
                             </v-col>
                         </v-row>
-                        <v-row align="center">
-                            <v-chip-group
-                                    v-model="currentChip"
-                                    active-class="teal accent-2"
-                                    class="ma-auto"
-                            >
-                                <g:each var="activity" in="${activityT.activity}">
-                                    <v-chip value="${activity.id}" @click="setCurrentParticipants(${activity.participants})" class="ma-3">${activity.initDate} ${activity.initTime}</v-chip>
-                                </g:each>
-                            </v-chip-group>
-                        </v-row>
                         <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+                            <v-row align="center">
+                                <v-chip-group
+                                        active-class="teal accent-2"
+                                        class="ma-auto"
+                                >
+                                    <g:each var="activity" in="${activityT.activity}">
+                                        <v-chip @click="setCurrentParticipants(${activity.isConsumerSigned(session.authorized.user.consumer.id)? activity.participants - 1 : activity.participants}, ${activity.id})" class="ma-3">${activity.initDate} ${activity.initTime}</v-chip>
+                                    </g:each>
+                                </v-chip-group>
+                            </v-row>
                             <v-row no-gutters align="center" justify="end">
-                                <v-col cols="2">
-                                    <v-card-subtitle class="white--text" v-show="currentParticipants != null">{{currentParticipants}}/${activityT.maxParticipants}</v-card-subtitle>
+                                <v-col cols="2" class="px-0">
+                                    <v-card-subtitle class="white--text" v-show="currentParticipants != null"> {{currentParticipants + isSubscribed}}/${activityT.maxParticipants}</v-card-subtitle>
                                 </v-col>
-                                <v-col cols="3" class="px-2">
+                                <v-col cols="3" class="px-0">
                                     <v-btn rounded color="#59D0B4" v-show="!isSubscribed"  :disabled="currentChip == null || currentParticipants >= ${activityT.maxParticipants}" @click="takeOnActivity(currentChip)">
                                         Subscribe
                                     </v-btn>

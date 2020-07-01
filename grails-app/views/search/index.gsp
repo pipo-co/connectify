@@ -14,26 +14,16 @@
 <body>
 
 <g:form controller="search" action="searchResult">
-    <v-card width="800" class="ma-auto my-5">
+    <v-card color="#1d1e33" shaped width="800" class="ma-auto my-5">
         <v-container >
             <v-row>
                 <v-col cols="1"></v-col>
                 <v-col class="pa-0" cols="4">
-                    <v-text-field
-                            label="Name of the Activity"
-                            name="name"
-                            value="${name}"
-                    >
-                    </v-text-field>
+                    <v-text-field dark label="Name of the Activity" name="name" value="${name}"></v-text-field>
                 </v-col>
                 <v-col cols="2"></v-col>
                 <v-col class="pa-0" cols="4">
-                    <v-text-field
-                            label="Name of the Connectioner"
-                            name="connectioner"
-                            value="${connectioner}"
-                    >
-                    </v-text-field>
+                    <v-text-field dark label="Name of the Connectioner" name="connectioner" value="${connectioner}"></v-text-field>
                 </v-col>
                 <v-col cols="1"></v-col>
             </v-row>
@@ -41,6 +31,7 @@
                 <v-col cols="1"></v-col>
                 <v-col class="pa-0">
                     <v-select
+                            dark
                             label="<g:message code="category"/>"
                             name="category"
                             value="${category}"
@@ -51,6 +42,7 @@
                 <v-col cols="1"></v-col>
                 <v-col class="pa-0">
                     <v-select
+                            dark
                             label="<g:message code="country"/>"
                             name="country"
                             value="${country}"
@@ -61,6 +53,7 @@
                 <v-col cols="1"></v-col>
                 <v-col class="pa-0">
                     <v-select
+                            dark
                             label="<g:message code="province"/>"
                             name="province"
                             value="${province}"
