@@ -14,7 +14,7 @@
 <body>
 
 <g:form controller="search" action="searchResult">
-    <v-card width="800" class="ma-auto">
+    <v-card width="800" class="ma-auto my-5">
         <v-container >
             <v-row>
                 <v-col cols="1"></v-col>
