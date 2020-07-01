@@ -379,7 +379,7 @@
                 setTimeout(() => {
                     this.show = false
                     $(".loader-wrapper").fadeOut("slow");
-                }, 1500);
+                }, 2000);
             }
         },
         computed:{
