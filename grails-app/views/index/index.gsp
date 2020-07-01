@@ -192,8 +192,6 @@
     </g:each>
 </g:else>
 
-
-
 <div id="content" role="main">
     <div id="controllers" role="navigation">
         <h2>Available Controllers:</h2>

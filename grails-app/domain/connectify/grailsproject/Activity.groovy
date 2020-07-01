@@ -27,4 +27,8 @@ class Activity {
     Boolean isFull(){
         return participants < activityTemplate.maxParticipants
     }
+
+    Boolean isConsumerSigned(Long consumerId){
+        return consumers.any({ it.id.equals(consumerId)})
+    }
 }
