@@ -1,4 +1,3 @@
-<%@ page import="connectify.grailsproject.CountriesInfo; connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -85,7 +84,7 @@
                                         </v-list>
                                     </v-menu>
                                 </div>
-                                <v-btn class="ma-1 pa-1" text>
+                                <v-btn href="/consumer/schedule" class="ma-1 pa-1" text>
                                     <v-icon color="white" large>mdi-calendar</v-icon>
                                 </v-btn>
                             </v-list-item>
@@ -131,9 +130,9 @@
                                         </v-list>
                                     </v-menu>
                                 </div>
-                                <v-btn class="ma-1 pa-1" text>
-                                    <v-icon color="white" large>mdi-calendar</v-icon>
-                                </v-btn>
+%{--                                <v-btn class="ma-1 pa-1" text>--}%
+%{--                                    <v-icon color="white" large>mdi-calendar</v-icon>--}%
+%{--                                </v-btn>--}%
                             </v-list-item>
                         </v-col>
                     </g:elseif>
@@ -220,6 +219,7 @@
         el: '#app',
         vuetify: new Vuetify(),
         data: {
+            window: window,
             icons: [
                 'mdi-facebook',
                 'mdi-twitter',
@@ -270,8 +270,11 @@
             categories: null,
             picker: null,
             timePicker: null,
+            events: [],
             mountedRouteMap: {
-                "/": function() {console.log("estoy en index")},
+                "/": function() {
+                    console.log("estoy en index");
+                },
                 "/consumer/create": function() {
                     this.getCountries();
                     if("${fieldValue(bean: consumer, field: 'country')}" !== "")
@@ -280,6 +283,9 @@
                 "/consumer/edit": function() {
                     this.getCountries();
                     this.getProvinces("${fieldValue(bean: consumer, field: 'country')}")
+                },
+                "/consumer/schedule": function() {
+                    this.getUserActivities();
                 },
                 "/conectioner/create": function() {
                     this.getCountries();
@@ -294,7 +300,7 @@
                     this.getCategories();
                 },
                 "/activityTemplate/details": function(){
-                    this.getUserActivities();
+                    this.getUserActivitiesId();
                 },
                 "/search/index": function() {
                     this.getCategories();
@@ -334,7 +340,7 @@
                 axios.get('/activity/addConsumerToActivity/' + activityId.toString())
                     .then(()=> {
                         this.currentParticipants++;
-                        this.getUserActivities();
+                        this.getUserActivitiesId();
                     })
                     .catch(console.log);
             },
@@ -342,17 +348,27 @@
                 axios.get('/activity/removeConsumerFromActivity/' + activityId.toString())
                     .then(()=> {
                         this.currentParticipants--;
-                        this.getUserActivities();
+                        this.getUserActivitiesId();
                     })
                     .catch(console.log)
             },
             setCurrentParticipants(participants){
                 this.currentParticipants = participants;
             },
+            getUserActivitiesId(){
+                <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+                axios.get('/api/getConsumerActivitiesId/' + ${session.authorized.user.consumer.id})
+                    .then(response => this.subscribedActivities = response.data)
+                    .catch(console.log);
+                </g:if>
+            },
             getUserActivities(){
                 <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
                 axios.get('/api/getConsumerActivities/' + ${session.authorized.user.consumer.id})
-                    .then(response => this.subscribedActivities = response.data)
+                    .then(response => {
+                        this.subscribedActivities = response.data;
+                        console.log(this.subscribedActivities);
+                    })
                     .catch(console.log);
                 </g:if>
             }

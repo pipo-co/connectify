@@ -43,6 +43,22 @@ class ApiController {
 
     def getConsumerActivities(Long id){
         Consumer consumer = Consumer.get(id)
-        render consumer.activities.collect({ it.id }) as JSON
+        render consumer.activities.findAll({ it.isActive()} ).collect({
+            [id: it.id,
+             name: it.activityTemplate.name,
+             date: it.initDate,
+             time:it.initTime,
+             participants: it.participants,
+             duration: it.activityTemplate.duration,
+             templateId: it.activityTemplate.id
+            ]
+        }) as JSON
     }
+
+    def getConsumerActivitiesId(Long id){
+        Consumer consumer = Consumer.get(id)
+        render consumer.activities.findAll({ it.isActive() }).collect({ it.id }) as JSON
+    }
+
+
 }
