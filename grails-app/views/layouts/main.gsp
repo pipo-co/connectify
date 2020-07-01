@@ -272,6 +272,7 @@
             timePicker: null,
             events: [],
             focus: '',
+            calendarType: 'month',
             mountedRouteMap: {
                 "/": function() {
                     console.log("estoy en index");
