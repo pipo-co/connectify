@@ -271,6 +271,7 @@
             picker: null,
             timePicker: null,
             events: [],
+            focus: '',
             mountedRouteMap: {
                 "/": function() {
                     console.log("estoy en index");
