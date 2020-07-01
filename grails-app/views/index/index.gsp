@@ -185,9 +185,7 @@
                                 </g:each>
                             </v-row>
                         </v-container>
-
                     </v-carousel-item>
-
                 </v-carousel>
             </v-row>
         </v-container>

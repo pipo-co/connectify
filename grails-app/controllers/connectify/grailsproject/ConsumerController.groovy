@@ -63,7 +63,6 @@ class ConsumerController {
         }
     }
 
-
     def delete(Integer id){
         def response = consumerService.getById(id)
         if(!response){

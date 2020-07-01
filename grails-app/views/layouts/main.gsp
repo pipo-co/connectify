@@ -37,7 +37,7 @@
                             <v-btn class="ma-1 pa-1" text>
                                 <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
                             </v-btn>
-                            <v-btn class="ma-1 pa-1" text>
+                            <v-btn class="ma-1 pa-1" text href="/search/categoryList">
                                 <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
                             </v-btn>
                             <v-btn class="ma-1 pa-1" text href="/search/index">
@@ -52,7 +52,7 @@
                         <v-col cols="3" class="pa-1" >
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-list-item-avatar>
-                                    <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                                    <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="50" width="50" class="card-img-top" contain></v-img>
                                 </v-list-item-avatar>
                                 <div class="text-center">
                                     <v-menu offset-y>
@@ -274,6 +274,8 @@
                 "/": function() {console.log("estoy en index")},
                 "/consumer/create": function() {
                     this.getCountries();
+                    if("${fieldValue(bean: consumer, field: 'country')}" !== "")
+                        this.getProvinces("${fieldValue(bean: consumer, field: 'country')}");
                 },
                 "/consumer/edit": function() {
                     this.getCountries();
@@ -281,6 +283,8 @@
                 },
                 "/conectioner/create": function() {
                     this.getCountries();
+                    if("${fieldValue(bean: conectioner, field: 'country')}" !== "")
+                        this.getProvinces("${fieldValue(bean: conectioner, field: 'country')}");
                 },
                 "/conectioner/edit": function() {
                     this.getCountries();
@@ -299,7 +303,11 @@
                 "/search/searchResult": function() {
                     this.getCategories();
                     this.getCountries();
-                    this.getProvinces("${country}");
+                    if("${country}" !== "")
+                        this.getProvinces("${country}");
+                },
+                "/search/categoryList": function(){
+
                 }
             },
             currentChip: null,

@@ -9,8 +9,8 @@
 <meta name="layout" content="main"/>
 <v-card  class="ma-auto" width="400" height="600" elevation="3">
     <v-container>
-        <v-row align="center" jutify="center">
-            <v-col cols="12">
+        <v-row justify="center" >
+            <v-col >
                 <asset:image src="logo.png" height="180" alt="Grails Logo"/>
             </v-col>
         </v-row>
