@@ -26,23 +26,37 @@
         </v-col>
         <v-col>
             <v-container >
-                <v-card shaped>
+                <v-card shaped color="#1d1e33">
                     <v-row>
                         <v-col>
                             <v-list-item>
-                                <v-list-item-title class="headline"><g:message code="consumer" args="['Details']"/>:</v-list-item-title>
+                                <v-list-item-title class="headline white--text"><g:message code="consumer" args="['Details']"/>:</v-list-item-title>
                             </v-list-item>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="username"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="username"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${consumer.user.username}</v-list-item-title>
+                                <v-list-item-title class="mx-5 white--text">${consumer.user.username}</v-list-item-title>
+                            </v-list-item>
+                            <v-divider></v-divider>
+                        </v-col>
+                    </v-row>
+
+                    <v-row>
+                        <v-col cols="3">
+                            <v-list-item>
+                                <v-list-item-title class="white--text" ><g:message code="name"/>:  </v-list-item-title>
+                            </v-list-item>
+                        </v-col>
+                        <v-col >
+                            <v-list-item>
+                                <v-list-item-title class="white--text mx-5">${consumer.user.name}</v-list-item-title>
                             </v-list-item>
                             <v-divider></v-divider>
                         </v-col>
@@ -51,12 +65,12 @@
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="name"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="last.name"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${consumer.user.name}</v-list-item-title>
+                                <v-list-item-title class="white--text mx-5">${consumer.lastName}</v-list-item-title>
                             </v-list-item>
                             <v-divider></v-divider>
                         </v-col>
@@ -65,26 +79,12 @@
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="last.name"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="email"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${consumer.lastName}</v-list-item-title>
-                            </v-list-item>
-                            <v-divider></v-divider>
-                        </v-col>
-
-                    </v-row>
-                    <v-row>
-                        <v-col cols="3">
-                            <v-list-item>
-                                <v-list-item-title ><g:message code="email"/>:  </v-list-item-title>
-                            </v-list-item>
-                        </v-col>
-                        <v-col >
-                            <v-list-item>
-                                <v-list-item-title class="mx-5">${consumer.user.email}</v-list-item-title>
+                                <v-list-item-title class="white--text mx-5">${consumer.user.email}</v-list-item-title>
                             </v-list-item>
                             <v-divider></v-divider>
                         </v-col>
@@ -92,14 +92,14 @@
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="suscription"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="suscription"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <g:if test="${!consumer.isSuscribed()}">
-                                <v-list-item-title>No hay una suscripcion vigente.
+                                <v-list-item-title class="white--text">There is no current subscription.
                                     <v-btn rounded class="ml-4"  color="#59D0B4" href="${createLink(controller: 'payment', action: 'index')}">
-                                        Renovar
+                                        Pay
                                     </v-btn>
                                 </v-list-item-title>
 
