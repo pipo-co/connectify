@@ -56,7 +56,7 @@
                         :events="events"
                         event-color="red"
                         type="month"
-%{--                        @click:event="showEvent"--}%
+                        @click:event="window.goToActivity($event)"
 %{--                        @click:more="viewDay"--}%
 %{--                        @click:date="viewDay"--}%
                         @change="events = window.updateRange($event, subscribedActivities)"

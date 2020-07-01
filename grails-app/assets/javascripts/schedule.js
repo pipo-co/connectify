@@ -12,14 +12,19 @@ function updateRange({start, end}, activities){
     }).map(getActivityEvent);
 }
 
+function goToActivity({ event }){
+    window.location.assign("/activityTemplate/details/" + event.activityId);
+}
+
 function getActivityEvent(activity){
     let duration = activity.duration;
     let name = activity.name;
+    let templateId = activity.templateId;
 
     let start = getActivityInitDate(activity);
     let end = new Date(start.valueOf()).setMinutes(start.getMinutes() + duration);
 
-    return {name: name, start: start, end: end};
+    return {name: name, start: start, end: end, timed: true, activityId: templateId};
 }
 
 function getActivityInitDate(activity){
@@ -35,3 +40,4 @@ function eventDateToDate(date){
 }
 
 window.updateRange = updateRange;
+window.goToActivity = goToActivity;
