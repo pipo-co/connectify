@@ -1,3 +1,4 @@
+<%@ page import="connectify.grailsproject.CountriesInfo; connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -117,8 +118,7 @@
                                         <v-list>
                                             <v-list-item
                                                     href="/conectioner/details/${session.authorized.user.conectioner.id}"
-                                            >
-                                                <v-list-item-title class="black--text">Profile</v-list-item-title>
+                                            ><v-list-item-title class="black--text">Profile</v-list-item-title>
                                             </v-list-item>
                                             <v-list-item
                                                     v-for="(item, index) in itemsConnectioner"
@@ -131,9 +131,6 @@
                                         </v-list>
                                     </v-menu>
                                 </div>
-%{--                                <v-btn class="ma-1 pa-1" text>--}%
-%{--                                    <v-icon color="white" large>mdi-calendar</v-icon>--}%
-%{--                                </v-btn>--}%
                             </v-list-item>
                         </v-col>
                     </g:elseif>
@@ -255,7 +252,6 @@
                 { title: 'Activities', color:'black--text', link:'/activityTemplate/index'},
                 { title: 'Log out', color:'red--text', link:'/authentication/logout'}
             ],
-            show: true,
             cards: [
                 { category:'Fitness', title: 'Crossfit', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
                 { category:'Fitness', title: 'Crossfit2', show: false, max: '10', suscribed:'7',hour:"17:30", connectioner: 'Big', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
@@ -270,6 +266,7 @@
             docTypes:[
                 'DNI', 'CI', 'Passport'
             ],
+            show:true,
             categories: null,
             picker: null,
             timePicker: null,
@@ -342,7 +339,7 @@
             takeOnActivity(activityId) {
                 axios.get('/activity/addConsumerToActivity/' + activityId.toString())
                     .then(() => {
-                        this.currentParticipants++;
+                        //this.currentParticipants++;
                         this.getUserActivitiesId();
                     })
                     .catch(console.log);
@@ -350,13 +347,15 @@
             takeOffActivity(activityId) {
                 axios.get('/activity/removeConsumerFromActivity/' + activityId.toString())
                     .then(() => {
-                        this.currentParticipants--;
+                        //this.currentParticipants--;
                         this.getUserActivitiesId();
                     })
                     .catch(console.log)
             },
-            setCurrentParticipants(participants) {
+            setCurrentParticipants(participants, chip) {
                 this.currentParticipants = participants;
+                this.currentChip = chip;
+                console.log(this.currentChip);
             },
             getUserActivitiesId(){
                 <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
@@ -385,7 +384,7 @@
         computed:{
             isSubscribed() {
                 return !!(this.subscribedActivities != null && this.subscribedActivities.includes(parseInt(this.currentChip, 10)));
-            }
+            },
         },
         mounted(){
             this.showToggle();
