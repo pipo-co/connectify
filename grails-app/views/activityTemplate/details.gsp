@@ -12,15 +12,16 @@
         <v-container fluid class="pa-1">
             <v-row no-gutters align="center" class="pl-1 py-0">
                 <v-col class="pa-0">
-                    <v-card-subtitle class="subtitle-1 pa-0">By: ${activityT.conectioner.user.name} </v-card-subtitle>
+                    <v-card-subtitle class="subtitle-1 pa-0">By: ${activityT.conectioner.user.name}</v-card-subtitle>
                 </v-col>
             </v-row>
             <v-row no-gutters align="center" >
-                <v-card-title class=" headline pa-2 mx-auto" >${activityT.name}</v-card-title>
+                <v-card-title class="headline pa-2 mx-auto" >${activityT.name}</v-card-title>
             </v-row>
             <v-row align="center">
                 <v-col >
-                    <p class="ml-3" >${activityT.description} Duration: ${activityT.duration} </p>
+                    <p>${activityT.description}</p>
+                    <p>Duration: ${activityT.duration}</p>
                 </v-col>
             </v-row>
             <v-row align="center" >
@@ -31,7 +32,7 @@
             <v-divider></v-divider>
             <v-row>
                 <v-col class="pa-1">
-                    <p class="title ml-5 py-1">Availability</p>
+                    <p class="title ml-5 py-1">Availability:</p>
                 </v-col>
             </v-row>
             <v-row align="center">
