@@ -13,35 +13,35 @@
 </head>
 <body>
 <div>
-        <v-container>
-            <v-row>
-                <v-col>
-                    <p class="headline">Categories:</p>
-                </v-col>
-            </v-row>
-            <v-row>
-                <g:each var="category" in="${categoryList}">
-                    <v-col cols="2">
-                        <v-card href="/search/categoryDetails/${category.id}">
+    <v-container>
+        <v-row>
+            <v-col>
+                <p class="headline">Categories:</p>
+            </v-col>
+        </v-row>
+        <v-row>
+            <g:each var="category" in="${categoryList}">
+                <v-col cols="2">
+                    <v-card color="#1d1e33" href="/search/categoryDetails/${category.id}">
                         <v-container>
                             <v-row>
                                 <v-col>
-                                <v-avatar color="#59D0B4" size="80">
-                                    <v-img src="${resource(dir: "category", file: "/${category.indexImgPath()}")}" height="52" width="52" contain></v-img>
-                                </v-avatar>
-                            </v-col>
+                                    <v-avatar color="#59D0B4" size="80">
+                                        <v-img src="${resource(dir: "category", file: "/${category.indexImgPath()}")}" height="52" width="52" contain></v-img>
+                                    </v-avatar>
+                                </v-col>
                             </v-row>
                             <v-row>
                                 <v-col>
-                                    <p class="title">${category.name}</p>
+                                    <p class="white--text title">${category.name}</p>
                                 </v-col>
                             </v-row>
                         </v-container>
-                        </v-card>
-                    </v-col>
-                </g:each>
-            </v-row>
-        </v-container>
+                    </v-card>
+                </v-col>
+            </g:each>
+        </v-row>
+    </v-container>
 </div>
 
 </body>

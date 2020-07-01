@@ -14,7 +14,7 @@
                 <asset:image src="logo.png" height="180" alt="Grails Logo"/>
             </v-col>
         </v-row>
-        <v-row justify="center">
+        <v-row align="center" justify="center">
                 <p class="display-1 indigo--text">Sign in</p>
         </v-row>
             <g:form controller="authentication" action="doLogin" class="form-signin">

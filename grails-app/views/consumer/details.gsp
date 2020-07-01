@@ -26,7 +26,7 @@
         </v-col>
         <v-col>
             <v-container >
-                <v-card shaped="true">
+                <v-card shaped>
                     <v-row>
                         <v-col>
                             <v-list-item>
