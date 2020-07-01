@@ -17,15 +17,22 @@ function goToActivity({ event }){
     window.location.assign("/activityTemplate/details/" + event.activityId);
 }
 
+function getEventColor(event){
+    return event.color;
+}
+
 function getActivityEvent(activity){
+    const colors = ["#957dad","#c893b1","#f9bbba","#fccdba","#ffffba","#baffc9","#bae1ff","#84b4c8","#d7e7a9"];
+
     let duration = activity.duration;
     let name = activity.name;
     let templateId = activity.templateId;
+    let color = colors[templateId % colors.length];
 
     let start = getActivityInitDate(activity);
     let end = new Date(start.valueOf()).setMinutes(start.getMinutes() + duration);
 
-    return {name: name, start: start, end: end, timed: true, activityId: templateId};
+    return {name: name, start: start, end: end, color: color, timed: true, activityId: templateId};
 }
 
 function getActivityInitDate(activity){
@@ -42,3 +49,4 @@ function eventDateToDate(date, hours, minutes){
 
 window.updateRange = updateRange;
 window.goToActivity = goToActivity;
+window.getEventColor = getEventColor;
