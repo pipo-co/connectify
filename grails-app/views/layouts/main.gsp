@@ -395,7 +395,7 @@
     background-color: #3B4063;
 
 }
-.v-card--shaped {
+.v-sheet--shaped {
     border-radius: 15px !important;
 }
 </style>
