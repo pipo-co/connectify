@@ -1,4 +1,4 @@
-<v-card width="800" class="ma-auto">
+<v-card color="#1d1e33" width="800" class="ma-auto">
     <v-container>
         %{-- Name--}%
         <v-row align="center">
@@ -10,6 +10,7 @@
                 </g:hasErrors>
                 <v-row justify="center">
                     <v-date-picker
+                            dark
                             v-model="picker"
                             year-icon="mdi-calendar-blank"
                             prev-icon="mdi-skip-previous"
@@ -24,7 +25,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-row justify="space-around">
-                    <v-time-picker v-model="timePicker" format="24hr"></v-time-picker>
+                    <v-time-picker dark v-model="timePicker" format="24hr"></v-time-picker>
 
             </v-row>
 
