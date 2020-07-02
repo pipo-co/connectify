@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Categories</title>
+    <title>Map</title>
     <meta name="layout" content="main"/>
     %{--<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />--}%
@@ -20,7 +20,6 @@
             integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
             crossorigin=""></script>
     <asset:javascript src="map.js"/>
-
 </head>
 
 <body>
@@ -29,6 +28,3 @@
 </div>
 </body>
 </html>
-<style>
-
-</style>
