@@ -1,4 +1,4 @@
-<v-card width="800" class="ma-auto">
+<v-card color="#1d1e33" width="800" class="ma-auto">
     <v-container>
         %{-- Name--}%
         <v-row >
@@ -9,6 +9,7 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
+                        dark
                         label="<g:message code="name"/>"
                         name="name"
                         value="${fieldValue(bean: activityT, field: 'name')}"
@@ -26,6 +27,7 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
+                        dark
                         label="<g:message code="description"/>"
                         name="description"
                         value="${fieldValue(bean: activityT, field: 'description')}"
@@ -43,6 +45,7 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
+                        dark
                         label="<g:message code="duration"/>"
                         name="duration"
                         value="${fieldValue(bean: activityT, field: 'duration')}"
@@ -70,6 +73,8 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
+                        dark
+                        class="indigo--text"
                         id="address"
                         label="<g:message code="address"/>"
                         name="address"
@@ -90,6 +95,7 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
+                        dark
                         label="<g:message code="max.participants"/>"
                         name="maxParticipants"
                         value="${fieldValue(bean: activityT, field: 'maxParticipants')}"
@@ -107,6 +113,7 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-select
+                        dark
                         label="<g:message code="category"/>"
                         name="categoryId"
                         value="${fieldValue(bean: activityT, field: 'categoryId')}"
