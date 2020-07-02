@@ -1,4 +1,4 @@
-<v-card width="800" class="ma-auto">
+<v-card color="#1d1e33" width="800" class="ma-auto">
 <v-container >
     %{-- Username   --}%
     <v-row >
@@ -9,6 +9,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="username"/>"
                     name="username"
                     value="${fieldValue(bean: consumer?.user, field: 'username')}"
@@ -26,6 +27,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="name"/>"
                     name="name"
                     value="${fieldValue(bean: consumer?.user, field: 'name')}"
@@ -34,7 +36,7 @@
             </v-text-field>
         </v-col>
         <v-col cols="1">
-            <v-spacer/>
+            <v-spacer></v-spacer>
         </v-col>
         <v-col class="pa-0 ml-3" >
             <g:hasErrors bean="${consumer}" field="lastName">
@@ -43,6 +45,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="last.name"/>"
                     name="lastName"
                     value="${fieldValue(bean: consumer, field: 'lastName')}"
@@ -58,6 +61,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="email.address"/>"
                     name="email"
                     type="email"
@@ -78,6 +82,7 @@
                     </g:eachError>
                 </g:hasErrors>
                 <v-text-field
+                        dark
                         label="<g:message code="password"/>"
                         name="password"
                         type="password"
@@ -104,6 +109,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-select
+                    dark
                     label="<g:message code="doc.type"/>"
                     name="docType"
                     value="${fieldValue(bean: consumer, field: 'docType')}"
@@ -121,6 +127,7 @@
             </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="document"/>"
                     name="document"
                     value="${fieldValue(bean: consumer, field: 'document')}"
@@ -138,6 +145,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-select
+                    dark
                     label="<g:message code="country"/>"
                     name="country"
                     value="${fieldValue(bean: consumer, field: 'country')}"
@@ -156,6 +164,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-select
+                    dark
                     label="<g:message code="province"/>"
                     name="province"
                     :disabled="provinces == null"
@@ -174,6 +183,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="district"/>"
                     name="district"
                     value="${fieldValue(bean: consumer, field: 'district')}"
@@ -191,6 +201,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="street"/>"
                     name="street"
                     value="${fieldValue(bean: consumer, field: 'street')}"
@@ -208,6 +219,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="house.number"/>"
                     name="houseNumber"
                     type="number"
@@ -226,6 +238,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="cp"/>"
                     name="cp"
                     type="number"
@@ -244,6 +257,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-text-field
+                    dark
                     label="<g:message code="phone.number"/>"
                     name="phoneNumber"
                     type="number"
@@ -262,6 +276,7 @@
                 </g:eachError>
             </g:hasErrors>
             <v-select
+                    dark
                     label="<g:message code="phone.type"/>"
                     name="phoneType"
                     value="${fieldValue(bean: consumer, field: 'phoneType')}"
