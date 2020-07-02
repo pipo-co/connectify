@@ -135,8 +135,7 @@
                             <v-row>
                                 <g:each in="${pair.getbValue()}" var="activityt" status="i">
                                     <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) *3">
-                                        <v-card  class="mx-auto"
-                                                 max-width="400">
+                                        <v-card color="#1d1e33" class="mx-auto" max-width="400">
                                             <v-container fluid class="pa-0">
                                                 <v-img
                                                         src="https://cdn.vuetifyjs.com/images/cards/house.jpg"

@@ -1,4 +1,3 @@
-<%@ page import="connectify.grailsproject.CountriesInfo; connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -6,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
@@ -37,15 +35,17 @@
                             <v-btn class="ma-1 pa-1" href="/" text>
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                             </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/map/index">
-                                <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
-                            </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/search/categoryList">
-                                <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
-                            </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/search/index">
-                                <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
-                            </v-btn>
+                            <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text href="/search/categoryList">
+                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text href="/search/index">
+                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                </v-btn>
+                            </g:if>
                         </v-list-item>
                     </v-col>
                     <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
@@ -62,7 +62,6 @@
                                         <template v-slot:activator="{ on }">
                                             <v-btn
                                                     color="#59D0B4"
-                                                    dark
                                                     v-on="on"
                                                     text
                                             >
@@ -108,7 +107,6 @@
                                         <template v-slot:activator="{ on }">
                                             <v-btn
                                                     color="#59D0B4"
-                                                    dark
                                                     v-on="on"
                                                     text
                                             >
@@ -142,7 +140,7 @@
                         <v-col>
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
-                                    <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                    <v-toolbar-title class="title white--text">Log in</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
                                     <v-toolbar-title class="title white--text">Register</v-toolbar-title>
@@ -215,8 +213,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
 <script>
     new Vue({
         el: '#app',
@@ -425,7 +421,6 @@
     background-color: #3B4063;
 
 }
-
 .v-sheet--shaped {
     border-radius: 15px !important;
 }
@@ -509,5 +504,4 @@ body {
         height: 0%;
     }
 }
-
 </style>
