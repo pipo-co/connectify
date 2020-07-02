@@ -316,7 +316,6 @@
                 "/search/categoryList": function(){
                 },
                 "/map/index": function(){
-                    console.log("map");
                     this.prepareMapMarkers();
                 }
             },
