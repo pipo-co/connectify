@@ -143,7 +143,7 @@
                         <v-col>
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
-                                    <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                    <v-toolbar-title class="title white--text">Log in</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
                                     <v-toolbar-title class="title white--text">Register</v-toolbar-title>
