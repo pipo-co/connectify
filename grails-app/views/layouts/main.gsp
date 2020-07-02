@@ -314,7 +314,10 @@
                         this.getProvinces("${country}");
                 },
                 "/search/categoryList": function(){
-
+                },
+                "/map/index": function(){
+                    console.log("map");
+                    this.prepareMapMarkers();
                 }
             },
             currentChip: null,
@@ -339,18 +342,12 @@
             },
             takeOnActivity(activityId) {
                 axios.get('/activity/addConsumerToActivity/' + activityId.toString())
-                    .then(() => {
-                        //this.currentParticipants++;
-                        this.getUserActivitiesId();
-                    })
+                    .then(() => this.getUserActivitiesId())
                     .catch(console.log);
             },
             takeOffActivity(activityId) {
                 axios.get('/activity/removeConsumerFromActivity/' + activityId.toString())
-                    .then(() => {
-                        //this.currentParticipants--;
-                        this.getUserActivitiesId();
-                    })
+                    .then(() => this.getUserActivitiesId())
                     .catch(console.log)
             },
             setCurrentParticipants(participants, chip) {
@@ -374,6 +371,11 @@
                     })
                     .catch(console.log);
                 </g:if>
+            },
+            prepareMapMarkers() {
+                axios.get('/api/getActiveActivityTemplates')
+                    .then(response => window.loadMarkers(response.data))
+                    .catch(console.log);
             },
             showToggle() {
                 setTimeout(() => {

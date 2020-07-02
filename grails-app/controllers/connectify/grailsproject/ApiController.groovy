@@ -60,5 +60,7 @@ class ApiController {
         render consumer.activities.findAll({ it.isActive() }).collect({ it.id }) as JSON
     }
 
-
+    def getActiveActivityTemplates(){
+        render ActivityTemplate.findAll() as JSON
+    }
 }

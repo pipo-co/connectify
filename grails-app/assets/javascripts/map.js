@@ -20,3 +20,9 @@ window.onload = function(){
         mymap.invalidateSize();
     }, 2000);
 }
+
+function loadMarkers(activities){
+    console.log(activities);
+}
+
+window.loadMarkers = loadMarkers;

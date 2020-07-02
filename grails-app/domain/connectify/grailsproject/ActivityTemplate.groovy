@@ -30,4 +30,8 @@ class ActivityTemplate {
         activity cascade: "all-delete-orphan"
         category cascade: 'none'
     }
+
+    Boolean hasActiveActivity(){
+        return activity.any({ it.isActive() && !it.isFull() })
+    }
 }
