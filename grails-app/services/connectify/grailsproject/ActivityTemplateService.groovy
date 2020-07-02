@@ -20,6 +20,10 @@ class ActivityTemplateService {
         if(!category)
             return false
 
+        // Grails parsed it differently depending on the browser!!!
+        // Doing this I always parse it to double.
+        params.longitude = Double.parseDouble(params.longitude)
+        params.latitude = Double.parseDouble(params.latitude)
 
         ActivityTemplate activityT = new ActivityTemplate(params)
         activityT.conectioner = conectioner
