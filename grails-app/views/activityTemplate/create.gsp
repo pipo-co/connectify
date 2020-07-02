@@ -30,7 +30,7 @@
         <v-container class="ma-1 pa-1" fluid>
             <v-row align="center" justify="center" >
                 <v-col cols="2">
-                    <v-btn color="#59D0B4" class="white--text" type="submit" width="200" name="save" value="${g.message(code: "save")}">
+                    <v-btn color="#59D0B4" type="submit" width="200" name="save" value="${g.message(code: "save")}">
                         Save
                     </v-btn>
                 </v-col>
