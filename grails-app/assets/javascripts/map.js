@@ -11,7 +11,7 @@ function loadMarkers(activities){
     activities.forEach(element =>{
         console.log(element.longitude);
         console.log(element.longitude + 1);
-        let marker = L.marker([element.latitude/10000, element.longitude/10000]).addTo(mymap);
+        let marker = L.marker([element.latitude, element.longitude]).addTo(mymap);
         marker.bindPopup(`<a href="/activityTemplate/details/${element.id}">${element.name}</a>`).openPopup();
     })
 }
