@@ -1,4 +1,3 @@
-<%@ page import="connectify.grailsproject.CountriesInfo; connectify.grailsproject.GlobalConfig" %>
 <!doctype html>
 <html lang="en" class="no-js">
 <head>

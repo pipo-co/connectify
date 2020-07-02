@@ -10,7 +10,7 @@
 <head>
     <title>Schedule</title>
     <meta name="layout" content="main"/>
-    <asset:javascript src="schedule.js" id="tobias" />
+    <asset:javascript src="schedule.js" />
 </head>
 
 <body>
@@ -50,7 +50,7 @@
                             event-text-color="black"
                             :event-color="window.getEventColor"
                             :type="calendarType"
-                            @click:event="window.goToActivity($event)"
+                            @click:event="window.goToActivity"
                             @click:date="({date}) => { this.focus = date; this.calendarType = 'day';}"
                             @click:more="({date}) => { this.focus = date; this.calendarType = 'day';}"
                             @change="events = window.updateRange($event, subscribedActivities)"
@@ -63,7 +63,6 @@
 <div v-else>
     <p>Loading...</p>
 </div>
-
 </body>
 
 </html>
