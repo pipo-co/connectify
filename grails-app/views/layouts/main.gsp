@@ -35,15 +35,17 @@
                             <v-btn class="ma-1 pa-1" href="/" text>
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                             </v-btn>
-                            <v-btn class="ma-1 pa-1" text>
-                                <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
-                            </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/search/categoryList">
-                                <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
-                            </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/search/index">
-                                <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
-                            </v-btn>
+                            <g:if test="${session.authorized && session.authorized.isLoggedIn}">
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text href="/search/categoryList">
+                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text href="/search/index">
+                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                </v-btn>
+                            </g:if>
                         </v-list-item>
                     </v-col>
                     <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
@@ -60,7 +62,6 @@
                                         <template v-slot:activator="{ on }">
                                             <v-btn
                                                     color="#59D0B4"
-                                                    dark
                                                     v-on="on"
                                                     text
                                             >
@@ -106,7 +107,6 @@
                                         <template v-slot:activator="{ on }">
                                             <v-btn
                                                     color="#59D0B4"
-                                                    dark
                                                     v-on="on"
                                                     text
                                             >
@@ -140,7 +140,7 @@
                         <v-col>
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/login" right>
-                                    <v-toolbar-title class="title white--text">Sign in</v-toolbar-title>
+                                    <v-toolbar-title class="title white--text">Log in</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-2 pa-2"   color="#59D0B4" href="/consumer/create" right>
                                     <v-toolbar-title class="title white--text">Register</v-toolbar-title>
@@ -379,7 +379,7 @@
                 setTimeout(() => {
                     this.show = false
                     $(".loader-wrapper").fadeOut("slow");
-                }, 1500);
+                }, 2000);
             }
         },
         computed:{
