@@ -25,65 +25,65 @@
         </v-col>
         <v-col>
             <v-container >
-                <v-card shaped="true">
+                <v-card shaped color="#1d1e33">
                     <v-row>
                         <v-col>
                             <v-list-item>
-                                <v-list-item-title class="headline"><g:message code="conectioner" args="['Details']"/>:</v-list-item-title>
+                                <v-list-item-title class="white--text headline"><g:message code="conectioner" args="['Details']"/>:</v-list-item-title>
                             </v-list-item>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="username"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="username"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${conectioner.user.username}</v-list-item-title>
+                                <v-list-item-title class="white--text mx-5">${conectioner.user.username}</v-list-item-title>
                             </v-list-item>
-                            <v-divider></v-divider>
+                            <v-divider dark></v-divider>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="name"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="name"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${conectioner.user.name}</v-list-item-title>
+                                <v-list-item-title class="white--text mx-5">${conectioner.user.name}</v-list-item-title>
                             </v-list-item>
-                            <v-divider></v-divider>
+                            <v-divider dark></v-divider>
                         </v-col>
                     </v-row>
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="cbu"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="cbu"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${conectioner.cbu}</v-list-item-title>
+                                <v-list-item-title class="white--text mx-5">${conectioner.cbu}</v-list-item-title>
                             </v-list-item>
-                            <v-divider></v-divider>
+                            <v-divider dark></v-divider>
                         </v-col>
 
                     </v-row>
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title ><g:message code="email"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="email"/>:  </v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
                             <v-list-item>
-                                <v-list-item-title class="mx-5">${conectioner.user.email}</v-list-item-title>
+                                <v-list-item-title class="white--text mx-5">${conectioner.user.email}</v-list-item-title>
                             </v-list-item>
-                            <v-divider></v-divider>
+                            <v-divider dark></v-divider>
                         </v-col>
 
                     </v-row>

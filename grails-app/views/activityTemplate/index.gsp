@@ -14,7 +14,7 @@
         </v-col>
         <v-spacer></v-spacer>
         <v-col cols="3">
-            <v-btn color="#2E3047" class="white--text" href="/activityTemplate/create">
+            <v-btn color="#59D0B4" href="/activityTemplate/create">
                 <g:message code="create"/> new activity template
             </v-btn>
         </v-col>
@@ -22,9 +22,7 @@
     <v-row wrap>
         <g:each in="${activityTList}" var="info">
             <v-col>
-                <v-card  class="mx-auto"
-                         max-width="400"
-                >
+                <v-card color="#1d1e33" class="mx-auto" max-width="400">
                     <v-container fluid class="pa-0">
                         <v-img
                                 src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
@@ -42,23 +40,23 @@
                         <v-container fluid class="pa-1">
                             <v-row align="center">
                                 <v-col class="pa-1" >
-                                    <p class="ml-5" >Description: ${info?.description}</p>
+                                    <p class="ml-5 white--text" >Description: ${info?.description}</p>
                                 </v-col>
                             </v-row>
-                            <v-divider></v-divider>
+                            <v-divider dark></v-divider>
                             <v-row align="center">
                                 <v-col class="pa-0" >
-                                    <p class="subtitle-1 ml-5 my-0 py-1">Max Participants: ${info?.maxParticipants}</p>
+                                    <p class="subtitle-1 white--text ml-5 my-0 py-1">Max Participants: ${info?.maxParticipants}</p>
                                 </v-col>
                                 <v-col class="pa-0" >
-                                    <p class="subtitle-1 ml-5 my-0 py-1">Duration: ${info?.duration}</p>
+                                    <p class="subtitle-1 white--text ml-5 my-0 py-1">Duration: ${info?.duration}</p>
                                 </v-col>
                             </v-row>
-                            <v-row wrap>
+                            <v-row>
                                 <v-col>
-                                    <v-list>
+                                    <v-list color="#1d1e33">
                                         <v-list-item>
-                                            <v-list-item-title>Actions</v-list-item-title>
+                                            <v-list-item-title class="white--text">Actions</v-list-item-title>
                                         </v-list-item>
                                         <v-list-item>
                                             <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'create', id: info.id)}" >

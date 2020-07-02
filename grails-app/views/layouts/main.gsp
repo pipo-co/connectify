@@ -36,7 +36,7 @@
                             <v-btn class="ma-1 pa-1" href="/" text>
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                             </v-btn>
-                            <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
+                            <g:if test="${session.authorized && session.authorized.isLoggedIn}">
                                 <v-btn class="ma-1 pa-1" text>
                                     <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
                                 </v-btn>
@@ -63,7 +63,6 @@
                                         <template v-slot:activator="{ on }">
                                             <v-btn
                                                     color="#59D0B4"
-                                                    dark
                                                     v-on="on"
                                                     text
                                             >
@@ -109,7 +108,6 @@
                                         <template v-slot:activator="{ on }">
                                             <v-btn
                                                     color="#59D0B4"
-                                                    dark
                                                     v-on="on"
                                                     text
                                             >
