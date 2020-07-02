@@ -8,13 +8,13 @@ window.onload = function(){
 function loadMarkers(activities){
     if(mymap === undefined)
         initializeMap();
+
     activities.forEach(element =>{
-        console.log(element.longitude);
-        console.log(element.longitude + 1);
         let marker = L.marker([element.latitude, element.longitude]).addTo(mymap);
         marker.bindPopup(`<a href="/activityTemplate/details/${element.id}">${element.name}</a>`).openPopup();
-    })
+    });
 }
+
 function initializeMap() {
     mymap = L.map('mapid').setView([-34.603722, -58.381592], 13);
 
