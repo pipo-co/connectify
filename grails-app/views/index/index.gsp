@@ -159,7 +159,7 @@
                                                     </v-row>
                                                     <v-row align="center">
                                                         <v-col class="pa-1" >
-                                                            <p class="ml-5" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolore eius facilis inventore laboriosam mollitia officiis porro, qui, quia quod, repellendus tempore temporibus vel! Beatae doloremque id obcaecati porro quas.${activityt.description}</p>
+                                                            <p class="ml-5" >${activityt.description}</p>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row class="ma-0 pa-0">

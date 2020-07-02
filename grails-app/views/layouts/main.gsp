@@ -36,7 +36,7 @@
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                             </v-btn>
                             <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-                                <v-btn class="ma-1 pa-1" text>
+                                <v-btn class="ma-1 pa-1" href="/map/index" text>
                                     <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
                                 </v-btn>
                                 <v-btn class="ma-1 pa-1" text href="/search/categoryList">

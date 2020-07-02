@@ -23,8 +23,6 @@
 </head>
 
 <body>
-<div style="width: 500px; height: 500px; margin: auto;">
     <div id='mapid'></div>
-</div>
 </body>
 </html>
