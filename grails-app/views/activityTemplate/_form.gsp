@@ -59,7 +59,18 @@
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
                     </g:eachError>
                 </g:hasErrors>
+                <g:hasErrors bean="${activityT}" field="latitude">
+                    <g:eachError bean="${activityT}" field="latitude">
+                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                    </g:eachError>
+                </g:hasErrors>
+                <g:hasErrors bean="${activityT}" field="longitude">
+                    <g:eachError bean="${activityT}" field="longitude">
+                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                    </g:eachError>
+                </g:hasErrors>
                 <v-text-field
+                        id="address"
                         label="<g:message code="address"/>"
                         name="address"
                         value="${fieldValue(bean: activityT, field: 'address')}"
@@ -68,6 +79,8 @@
                 </v-text-field>
             </v-col>
         </v-row>
+        <g:hiddenField id="lat" name="latitude" value="${fieldValue(bean: activityT, field: 'latitude')}"/>
+        <g:hiddenField id="long" name="longitude" value="${fieldValue(bean: activityT, field: 'longitude')}"/>
         %{-- Max Participants--}%
         <v-row>
             <v-col class="pa-0">
