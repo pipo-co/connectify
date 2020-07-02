@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
@@ -215,14 +215,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
-<script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZmF1czI1MSIsImEiOiJja2M0c3hvc20wYjFnMzJ0NjY0aWRmYTBoIn0.V9qAOAnMha5Fx1GBNqDWcg';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11'
-    });
-</script>
+
+
 <script>
     new Vue({
         el: '#app',
@@ -431,6 +425,7 @@
     background-color: #3B4063;
 
 }
+
 .v-sheet--shaped {
     border-radius: 15px !important;
 }
@@ -514,4 +509,5 @@ body {
         height: 0%;
     }
 }
+
 </style>
