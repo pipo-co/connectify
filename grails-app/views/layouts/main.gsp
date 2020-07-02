@@ -36,15 +36,17 @@
                             <v-btn class="ma-1 pa-1" href="/" text>
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                             </v-btn>
-                            <v-btn class="ma-1 pa-1" text>
-                                <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
-                            </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/search/categoryList">
-                                <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
-                            </v-btn>
-                            <v-btn class="ma-1 pa-1" text href="/search/index">
-                                <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
-                            </v-btn>
+                            <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
+                                <v-btn class="ma-1 pa-1" text>
+                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text href="/search/categoryList">
+                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
+                                </v-btn>
+                                <v-btn class="ma-1 pa-1" text href="/search/index">
+                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                                </v-btn>
+                            </g:if>
                         </v-list-item>
                     </v-col>
                     <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
