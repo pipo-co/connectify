@@ -2,7 +2,7 @@ package connectify.grailsproject
 
 import java.time.LocalDate
 
-class   Consumer {
+class Consumer {
 
         String lastName
         String docType

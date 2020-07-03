@@ -35,7 +35,7 @@ class ApiController {
         if(!country){
             println("El nombre del pais no es valido")
             render null as JSON
-            return;
+            return
         }
 
         render Province.findAllByCountry(country).collect({ it.name }) as JSON
@@ -73,5 +73,11 @@ class ApiController {
              category: it.category.name
             ]
         }) as JSON
+    }
+
+    def getCountryCoordinates(String id){
+        Country country = Country.findByName(id)
+        def ans = [latitude: country.latitude, longitude: country.longitude]
+        render ans as JSON
     }
 }
