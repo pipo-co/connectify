@@ -7,30 +7,31 @@
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+    <asset:stylesheet src="main.css"/>
+
+    <g:layoutHead/>
+
     <title>
         <g:layoutTitle default="Connectify"/>
     </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
-
-    <asset:stylesheet src="application.css"/>
-
-    <g:layoutHead/>
 </head>
 
 <body>
-<div v-show="show" class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-</div>
-<div v-show="!show" id="app">
-    <v-app>
+
+<div id="app">
+    <div v-if="!show" class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    <v-app v-if="show" id="main-div">
         <v-app-bar elevate-on-scroll fixed app color="#2E3047">
             <v-container fluid class="py-0">
                 <v-row no-gutters align="center">
                     <v-col cols="5" >
                         <v-list-item dense>
                             <v-avatar>
-                                <asset:image src="logo.png" height="70" alt="Grails Logo"/>
+                                <asset:image src="logo.png" height="70" alt="Connectify Logo"/>
                             </v-avatar>
                             <v-btn class="ma-1 pa-1" href="/" text>
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
@@ -208,11 +209,12 @@
     </v-app>
 </div>
 
-<asset:javascript src="application.js"/>
+%{--<asset:javascript src="application.js"/>--}%
 <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
     new Vue({
         el: '#app',
@@ -234,7 +236,6 @@
                 'Contact Us',
             ],
             headersActivityTemplate: [
-
                 {text: 'Name', value: 'name'},
                 {text:'Description', value: 'description' },
                 {text:'Duration', value: 'duration'},
@@ -265,7 +266,7 @@
             docTypes:[
                 'DNI', 'CI', 'Passport'
             ],
-            show:true,
+            show: false,
             categories: null,
             picker: null,
             timePicker: null,
@@ -376,20 +377,16 @@
                     .then(response => window.loadMarkers(response.data))
                     .catch(console.log);
             },
-            showToggle() {
-                setTimeout(() => {
-                    this.show = false
-                    $(".loader-wrapper").fadeOut("slow");
-                }, 2000);
-            }
         },
         computed:{
             isSubscribed() {
                 return !!(this.subscribedActivities != null && this.subscribedActivities.includes(parseInt(this.currentChip, 10)));
             },
         },
+        created(){
+            this.show = true;
+        },
         mounted(){
-            this.showToggle();
             let currentRoute = window.location.pathname;
             if(currentRoute !== '/'){
                 currentRoute = currentRoute.split('/');
@@ -400,109 +397,14 @@
                 this.mountedRouteMap[currentRoute].call(this);
         }
     })
-
 </script>
 
 </body>
 </html>
+
 <script>
     import VCol from "vuetify/src/components/VGrid/VCol";
     export default {
         components: {VCol}
     }
 </script>
-
-<style>
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #FFFFFF;
-    background-color: #3B4063;
-
-}
-.v-sheet--shaped {
-    border-radius: 15px !important;
-}
-body, html {
-    height: 100%;
-    text-align: center;
-}
-
-body {
-    background-color: #242F3F;
-}
-.loader-wrapper {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #1E1E1E;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.loader {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    position: relative;
-    border: 4px solid #Fff;
-    animation: loader 2s infinite ease;
-}
-
-.loader-inner {
-    vertical-align: top;
-    display: inline-block;
-    width: 100%;
-    background-color: #fff;
-    animation: loader-inner 2s infinite ease-in;
-}
-
-@keyframes loader {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(180deg);
-    }
-
-    50% {
-        transform: rotate(180deg);
-    }
-
-    75% {
-        transform: rotate(360deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes loader-inner {
-    0% {
-        height: 0%;
-    }
-
-    25% {
-        height: 0%;
-    }
-
-    50% {
-        height: 100%;
-    }
-
-    75% {
-        height: 100%;
-    }
-
-    100% {
-        height: 0%;
-    }
-}
-</style>
