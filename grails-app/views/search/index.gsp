@@ -85,10 +85,10 @@
     <g:if test="${result.size() > 0}">
             <v-row>
                 <v-carousel
-                        height="500"
+                        height="450"
                         hide-delimiters
                         show-arrows-on-hover>
-                    <v-carousel-item :key="j" v-for="j in ${((result.size() - 1)/3) + 1}">
+                    <v-carousel-item :key="j" v-for="j in ${(int)((result.size() - 1)/3) + 1}">
                         <v-container fluid>
                             <v-row>
                                 <g:each in="${result}" var="activityt" status="i">
@@ -118,7 +118,7 @@
                                                     </v-row>
                                                     <v-row align="center" class="ma-0 pa-0">
                                                         <v-col class="pa-0" >
-                                                            <p class="my-0 mx-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolore eius facilis inventore laboriosam mollitia officiis porro, qui, quia quod, repellendus tempore temporibus vel! Beatae doloremque id obcaecati porro quas.${activityt.description}</p>
+                                                            <p class="my-0 mx-1">${activityt.description}</p>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row class="ma-0 pa-0">

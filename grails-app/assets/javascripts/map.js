@@ -17,8 +17,8 @@ function loadMarkers(activities){
 function initializeMap() {
     mymap = L.map('mapid').setView([-34.603722, -58.381592], 15);
     const person = L.icon({
-        iconUrl: 'https://img.icons8.com/ultraviolet/40/000000/marker.png',
-        iconSize: [38, 38], // size of the icon
+        iconUrl: 'https://img.icons8.com/plasticine/100/000000/marker.png',
+        iconSize: [48, 48], // size of the icon
     });
 
     let layer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
