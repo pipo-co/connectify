@@ -1,4 +1,5 @@
 <script>
+    console.log("holisss");
     new Vue({
         el: '#app',
         vuetify: new Vuetify(),
@@ -27,7 +28,7 @@
                 {text:'Action', value: 'actions'},
             ],
             itemsConsumer: [
-                { title: 'Historial', color:'black--text', link:'#'},
+                { title: 'Calendar', color:'black--text', link:'/consumer/schedule'},
                 { title: 'Log out', color:'red--text', link:'/authentication/logout'}
             ],
             itemsConnectioner: [
