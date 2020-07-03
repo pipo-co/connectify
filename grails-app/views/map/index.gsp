@@ -23,6 +23,6 @@
 </head>
 
 <body>
-    <div id='mapid'></div>
+     <div id='mapid'></div>
 </body>
 </html>

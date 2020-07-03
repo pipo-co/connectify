@@ -127,10 +127,10 @@
             </v-row>
             <v-row>
                 <v-carousel
-                        height="570"
+                        height="450"
                         hide-delimiters
                         show-arrows-on-hover>
-                    <v-carousel-item :key="j" v-for="j in 4">
+                    <v-carousel-item :key="j" v-for="j in ${((activityTList.size() - 1)/3) + 1}">
                         <v-container fluid>
                             <v-row>
                                 <g:each in="${pair.getbValue()}" var="activityt" status="i">
@@ -138,9 +138,9 @@
                                         <v-card color="#1d1e33" class="mx-auto" max-width="400">
                                             <v-container fluid class="pa-0">
                                                 <v-img
-                                                        src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
+                                                        src="${resource(dir: "category", file: "/${activityt.category.randStockImgPath()}")}"
                                                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                                                        height="160px"
+                                                        height="150px"
                                                 >
                                                     <v-row no-gutters align="center" class="pl-1 py-0">
                                                         <v-col cols="10" class="pa-0">

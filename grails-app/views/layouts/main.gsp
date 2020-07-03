@@ -50,10 +50,10 @@
                         </v-list-item>
                     </v-col>
                     <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
-                        <v-col cols="4">
+                        <v-col cols="5">
                             <v-spacer></v-spacer>
                         </v-col>
-                        <v-col cols="3" class="pa-1" >
+                        <v-col cols="2" class="pa-1" >
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-list-item-avatar>
                                     <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="50" width="50" class="card-img-top" contain></v-img>
@@ -88,9 +88,6 @@
                                         </v-list>
                                     </v-menu>
                                 </div>
-                                <v-btn href="/consumer/schedule" class="ma-1 pa-1" text>
-                                    <v-icon color="white" large>mdi-calendar</v-icon>
-                                </v-btn>
                             </v-list-item>
                         </v-col>
                     </g:if>
@@ -244,7 +241,7 @@
                 {text:'Action', value: 'actions'},
             ],
             itemsConsumer: [
-                { title: 'Historial', color:'black--text', link:'#'},
+                { title: 'Calendar', color:'black--text', link:'/consumer/schedule'},
                 { title: 'Log out', color:'red--text', link:'/authentication/logout'}
             ],
             itemsConnectioner: [

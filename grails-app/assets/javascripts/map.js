@@ -16,8 +16,12 @@ function loadMarkers(activities){
 
 function initializeMap() {
     mymap = L.map('mapid').setView([-34.603722, -58.381592], 15);
+    const person = L.icon({
+        iconUrl: 'https://img.icons8.com/ultraviolet/40/000000/marker.png',
+        iconSize: [38, 38], // size of the icon
+    });
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+    let layer = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox/streets-v11',
@@ -26,14 +30,11 @@ function initializeMap() {
         accessToken: 'pk.eyJ1IjoiZmF1czI1MSIsImEiOiJja2M0c3hvc20wYjFnMzJ0NjY0aWRmYTBoIn0.V9qAOAnMha5Fx1GBNqDWcg'
     }).addTo(mymap);
 
+    mymap.invalidateSize();
 
-    setTimeout(() => {
-        mymap.invalidateSize();
-    }, 2000);
-
-    mymap.locate({setView: true,  watch: true}) /* This will return map so you can do chaining */
+    mymap.locate({setView: true}) /* This will return map so you can do chaining */
         .on('locationfound', function(e){
-            const marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here, check for activities around you');
+            const marker = L.marker([e.latitude, e.longitude], {icon: person}).bindPopup('Your are here, check for activities around you');
             marker.bindTooltip('Your are here');
             const circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
                 weight: 1,
