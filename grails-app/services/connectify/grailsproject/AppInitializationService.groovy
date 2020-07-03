@@ -24,11 +24,11 @@ class AppInitializationService {
     }
 
     private static initCountries(){
-        initCountry("Argentina", CountriesInfo.argentinaProvinces)
+        initCountry("Argentina", CountriesInfo.argentinaProvinces, -38.4192, -63.5989)
 
-        initCountry("Chile", CountriesInfo.chileProvinces)
+        initCountry("Chile", CountriesInfo.chileProvinces, -36.7390, -71.0574)
 
-        initCountry("Uruguay", CountriesInfo.uruguayProvinces)
+        initCountry("Uruguay", CountriesInfo.uruguayProvinces, -32.5583, -55.8116)
     }
 
     private static initCategory(String name) {
@@ -39,11 +39,11 @@ class AppInitializationService {
         category.save()
     }
 
-    private static initCountry(String name, String[] provinces){
+    private static initCountry(String name, String[] provinces, Double latitude, Double longitude){
         if(Country.findByName(name) != null)
             return
 
-        Country country = new Country(name: name)
+        Country country = new Country(name: name, latitude: latitude, longitude: longitude)
 
         for(String province: provinces)
             country.addToProvinces(new Province(name: province))
