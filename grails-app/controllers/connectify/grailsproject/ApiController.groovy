@@ -61,6 +61,17 @@ class ApiController {
     }
 
     def getActiveActivityTemplates(){
-        render ActivityTemplate.findAll().findAll({ it.hasActiveActivity() }) as JSON
+        render ActivityTemplate.findAll().findAll({ it.hasActiveActivity() }).collect({
+            [id: it.id,
+             name: it.name,
+             description: it.description,
+             duration: it.duration,
+             address: it.address,
+             latitude: it.latitude,
+             longitude: it.longitude,
+             maxParticipants: it.maxParticipants,
+             category: it.category.name
+            ]
+        }) as JSON
     }
 }
