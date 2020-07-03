@@ -130,7 +130,7 @@
                         height="450"
                         hide-delimiters
                         show-arrows-on-hover>
-                    <v-carousel-item :key="j" v-for="j in ${((activityTList.size() - 1)/3) + 1}">
+                    <v-carousel-item :key="j" v-for="j in ${(int)((activityTList.size() - 1 )/3) + 1}">
                         <v-container fluid>
                             <v-row>
                                 <g:each in="${pair.getbValue()}" var="activityt" status="i">

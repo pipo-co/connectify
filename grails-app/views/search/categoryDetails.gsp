@@ -13,19 +13,20 @@
 </head>
 <body>
 <div>
-    <v-container>
+    <v-container fluid>
         <v-row>
             <v-col>
                 <p class="headline">Category: ${category.name}</p>
             </v-col>
         </v-row>
         <g:if test="${activityTemplates.size() != 0}">
-        <v-row>
+        <v-row >
             <v-carousel
-                    height="500"
+                    height="450"
                     hide-delimiters
                     show-arrows-on-hover>
-                <v-carousel-item :key="j" v-for="j in ${((activityTemplates.size() - 1)/3) + 1} ">
+
+                <v-carousel-item :key="j" v-for="j in ${(int)((activityTemplates.size() - 1 )/3) + 1} ">
                     <v-container fluid>
                         <v-row>
                             <g:each var="activityt" in="${activityTemplates}" status="i">
@@ -55,7 +56,7 @@
                                                 </v-row>
                                                 <v-row align="center" class="ma-0 pa-0">
                                                     <v-col class="pa-0" >
-                                                        <p class="my-0 mx-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus dolore eius facilis inventore laboriosam mollitia officiis porro, qui, quia quod, repellendus tempore temporibus vel! Beatae doloremque id obcaecati porro quas.${activityt.description}</p>
+                                                        <p class="my-0 mx-1">${activityt.description}</p>
                                                     </v-col>
                                                 </v-row>
                                                 <v-row class="ma-0 pa-0">
