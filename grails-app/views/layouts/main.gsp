@@ -242,7 +242,6 @@
                 {text:'Max', value: 'max'},
                 {text:'Participants', value:'participants'},
                 {text:'Action', value: 'actions'},
-
             ],
             itemsConsumer: [
                 { title: 'Historial', color:'black--text', link:'#'},
@@ -273,6 +272,9 @@
             events: [],
             focus: '',
             calendarType: 'month',
+            currentChip: null,
+            currentParticipants: null,
+            subscribedActivities: null,
             mountedRouteMap: {
                 "/": function() {
                     console.log("estoy en index");
@@ -320,9 +322,6 @@
                     this.prepareMapMarkers();
                 }
             },
-            currentChip: null,
-            currentParticipants: null,
-            subscribedActivities: null,
         },
         methods: {
             getCategories() {
