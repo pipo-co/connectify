@@ -374,7 +374,10 @@
             },
             prepareMapMarkers() {
                 axios.get('/api/getActiveActivityTemplates')
-                    .then(response => window.loadMarkers(response.data))
+                    .then(response => {
+                        window.initializeMap();
+                        window.loadMarkers(response.data);
+                    })
                     .catch(console.log);
             },
         },
