@@ -31,7 +31,7 @@ function initializeMap() {
         mymap.invalidateSize();
     }, 2000);
 
-    mymap.locate({setView: true,  watch: true}) /* This will return map so you can do chaining */
+    mymap.locate({setView: true}) /* This will return map so you can do chaining */
         .on('locationfound', function(e){
             const marker = L.marker([e.latitude, e.longitude]).bindPopup('Your are here, check for activities around you');
             marker.bindTooltip('Your are here');
