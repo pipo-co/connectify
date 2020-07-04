@@ -22,7 +22,7 @@
         <v-row>
             <g:each var="category" in="${categoryList}">
                 <v-col cols="2">
-                    <v-card color="#1d1e33" href="/search/categoryDetails/${category.id}">
+                    <v-card color="#1d1e33" href="/search/categoryDetails/${category.id}" height="500">
                         <v-container>
                             <v-row>
                                 <v-col>

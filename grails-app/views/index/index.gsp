@@ -13,9 +13,9 @@
                 justify="center"
         >
             <v-col class="text-center" cols="12">
-                <h1 class="display-1 mb-4">Una nueva forma de realizar cursos.</h1>
-                <h4 class="subheading font-weight-thin mb-4">Registrate ya para conocer todos los beneficios de ser un miembo de Connectify.</h4>
-                <v-btn rounded color="#59D0B4" class="py-5" href="/consumer/create">REGISTRATE</v-btn>
+                <h1 class="display-1 mb-4">A new way of enjoying your free time.</h1>
+                <h4 class="subheading font-weight-thin mb-4">Become part of our community and enjoy numerous and varied activities near you. Starts at $100/month  </h4>
+                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register">Become a member</v-btn>
             </v-col>
         </v-row>
     </v-parallax>
@@ -24,8 +24,8 @@
                 align="center"
                 justify="center"
         >
-            <v-col cols="12">
-                <h1>Cómo funciona</h1>
+            <v-col>
+                <h1 class="font-weight-light">How it works?</h1>
             </v-col>
         </v-row>
         <v-row
@@ -33,42 +33,47 @@
                 justify="center"
         >
             <v-col cols="4">
-                <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-img>
-                <h2>Registrate</h2>
-                <v-row
-                        align="center"
-                        justify="center"
-                >
-                    <v-col cols="8">
-                        <h4 class="font-weight-light">si te registras sos muy capo tengo que alimentar a una familia xfa</h4>
-                    </v-col>
-                </v-row>
+                <v-card color="#1d1e33" width="350">
+                    <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="160px"></v-img>
+                    <h2 class="font-weight-light white--text">Register</h2>
+                    <v-row
+                            align="center"
+                            justify="center"
+                    >
+                        <v-col cols="10">
+                            <h4 class="font-weight-light white--text">First, you need to became a member. Creating an account in Connectify in a few steps. </h4>
+                        </v-col>
+                    </v-row>
+                </v-card>
             </v-col>
 
             <v-col cols="4">
-                <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-img>
-                <h2>Registrate</h2>
-                <v-row
-                        align="center"
-                        justify="center"
-                >
-                    <v-col cols="8">
-                        <h4 class="font-weight-light">si te registras sos muy capo tengo que alimentar a una familia xfa</h4>
-                    </v-col>
-                </v-row>
+                <v-card color="#1d1e33"  width="350">
+                    <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="160px"></v-img>
+                    <h2 class="font-weight-light white--text">Subscribe</h2>
+                    <v-row
+                            align="center"
+                            justify="center"
+                    >
+                        <v-col cols="10">
+                            <h4 class="font-weight-light white--text">You have plenty of options to pay our subscription. Choose the plan that suits you best.</h4>
+                        </v-col>
+                    </v-row>
+                </v-card>
             </v-col>
-
             <v-col cols="4">
-                <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"></v-img>
-                <h2>Registrate</h2>
-                <v-row
-                        align="center"
-                        justify="center"
-                >
-                    <v-col cols="8">
-                        <h4 class="font-weight-light">si te registras sos muy capo tengo que alimentar a una familia xfa</h4>
-                    </v-col>
-                </v-row>
+                <v-card color="#1d1e33"  width="350">
+                    <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="160px"></v-img>
+                    <h2 class="font-weight-light white--text">Participate</h2>
+                    <v-row
+                            align="center"
+                            justify="center"
+                    >
+                        <v-col cols="10">
+                            <h4 class="font-weight-light white--text">Once you become a member you can enjoy all the activities provided in our site with no limits or restrictions</h4>
+                        </v-col>
+                    </v-row>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
@@ -77,18 +82,17 @@
                 align="center"
                 justify="center"
         >
-            <v-col cols="6">
-                <h1>¿Tenes cursos para ofrecer? Este tambien es tu lugar</h1>
-                <h4 class="font-weight-light">Si te interesa formar parte de Connectify y brindar cursos a la comunidad:</h4>
+            <v-col>
+                <h1 class="font-weight-light">Do you have an activity that needs more participants?</h1>
+                <h4 class="font-weight-light">If you are interested in helping us to grow our community and work with us </h4>
             </v-col>
         </v-row>
         <v-row>
             <v-col>
-                <v-btn rounded color="#59D0B4" href="conectioner/create">Registrate como Connectioner</v-btn>
+                <v-btn rounded color="#59D0B4" href="conectioner/create">Register as a Connectioner</v-btn>
             </v-col>
         </v-row>
     </v-container>
-
 </g:if>
 <g:else>
     <v-container fluid >
