@@ -104,8 +104,8 @@
                             dark
                             accept="image/*"
                             name="avatar"
-                            label="<g:message code="avatar"/>" p
-                            repend-icon="mdi-camera">
+                            label="<g:message code="avatar"/>"
+                            prepend-icon="mdi-camera">
                     </v-file-input>
                 </g:if>
             </v-col>

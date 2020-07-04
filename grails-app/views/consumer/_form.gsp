@@ -114,7 +114,14 @@
         <v-row align="baseline">
             <v-col class="py-0">
                 <g:if test="${!edit}">
-                    <v-file-input accept="image/*" dark name="avatar" label="<g:message code="avatar"/>" prepend-icon="mdi-camera"></v-file-input>
+                    <v-file-input
+                            accept="image/*"
+                            dark
+                            name="avatar"
+                            label="<g:message code="avatar"/>"
+                            prepend-icon="mdi-camera"
+                            >
+                    </v-file-input>
                 </g:if>
             </v-col>
         </v-row>
@@ -214,22 +221,22 @@
         %{-- Street & House Number & PC   --}%
         <v-row align="baseline">
             <v-col cols="12" class="py-0">
-            <g:hasErrors bean="${consumer}" field="street">
-                <g:eachError bean="${consumer}" field="street">
-                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
-                </g:eachError>
-            </g:hasErrors>
-            <g:hasErrors bean="${consumer}" field="houseNumber">
-                <g:eachError bean="${consumer}" field="houseNumber">
-                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
-                </g:eachError>
-            </g:hasErrors>
-            <g:hasErrors bean="${consumer}" field="cp">
-                <g:eachError bean="${consumer}" field="cp">
-                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
-                </g:eachError>
-            </g:hasErrors>
-        </v-col>
+                <g:hasErrors bean="${consumer}" field="street">
+                    <g:eachError bean="${consumer}" field="street">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="houseNumber">
+                    <g:eachError bean="${consumer}" field="houseNumber">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="cp">
+                    <g:eachError bean="${consumer}" field="cp">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+            </v-col>
             <v-col class="py-0">
                 <v-text-field
                         dark
