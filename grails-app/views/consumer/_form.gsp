@@ -1,13 +1,15 @@
 <v-card color="#1d1e33" width="800" class="ma-auto">
     <v-container>
         %{-- Username   --}%
-        <v-row >
-            <v-col class="py-0">
+        <v-row align="baseline" >
+            <v-col cols="12" class="py-0">
                 <g:hasErrors bean="${consumer}" field="user.username">
                     <g:eachError bean="${consumer}" field="user.username">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+            </v-col>
+            <v-col class="py-0">
                 <v-text-field
                         dark
                         label="<g:message code="username"/>"
@@ -19,13 +21,20 @@
             </v-col>
         </v-row>
         %{-- Name and Lastname   --}%
-        <v-row>
-            <v-col class="py-0">
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
                 <g:hasErrors bean="${consumer}" field="user.name">
                     <g:eachError bean="${consumer}" field="user.name">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="lastName">
+                <g:eachError bean="${consumer}" field="lastName">
+                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                </g:eachError>
+            </g:hasErrors>
+            </v-col>
+            <v-col class="py-0">
                 <v-text-field
                         dark
                         label="<g:message code="name"/>"
@@ -36,27 +45,25 @@
                 </v-text-field>
             </v-col>
             <v-col class="py-0">
-                <g:hasErrors bean="${consumer}" field="lastName">
-                    <g:eachError bean="${consumer}" field="lastName">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
                 <v-text-field
                         dark
                         label="<g:message code="last.name"/>"
                         name="lastName"
                         value="${fieldValue(bean: consumer, field: 'lastName')}"
+                        required
                 ></v-text-field>
             </v-col>
         </v-row>
         %{-- Email   --}%
-        <v-row>
-            <v-col class="py-0">
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
                 <g:hasErrors bean="${consumer}" field="user.email">
                     <g:eachError bean="${consumer}" field="user.email">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+            </v-col>
+            <v-col class="py-0">
                 <v-text-field
                         dark
                         label="<g:message code="email.address"/>"
@@ -66,19 +73,20 @@
                         value="${fieldValue(bean: consumer?.user, field: 'email')}"
                         required
                 >
-%{--                    --}%
                 </v-text-field>
             </v-col>
         </v-row>
         %{-- Password   --}%
-        <v-row>
-            <v-col class="py-0">
-                <g:if test="${!edit}">
+        <g:if test="${!edit}">
+            <v-row align="baseline">
+                <v-col cols="12" class="py-0">
                     <g:hasErrors bean="${consumer}" field="user.password">
                         <g:eachError bean="${consumer}" field="user.password">
-                            <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                            <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                         </g:eachError>
                     </g:hasErrors>
+                </v-col>
+                <v-col class="py-0">
                     <v-text-field
                             dark
                             label="<g:message code="password"/>"
@@ -88,6 +96,7 @@
                             :messages="passwordMessage"
                             value="${consumer?.user?.password}"
                             loading
+                            required
                     >
                         <template v-slot:progress>
                             <v-progress-linear
@@ -98,11 +107,11 @@
                             ></v-progress-linear>
                         </template>
                     </v-text-field>
-                </g:if>
-            </v-col>
-        </v-row>
+                </v-col>
+            </v-row>
+        </g:if>
         %{-- Avatar   --}%
-        <v-row>
+        <v-row align="baseline">
             <v-col class="py-0">
                 <g:if test="${!edit}">
                     <v-file-input accept="image/*" dark name="avatar" label="<g:message code="avatar"/>" prepend-icon="mdi-camera"></v-file-input>
@@ -110,13 +119,20 @@
             </v-col>
         </v-row>
         %{-- Doc Type and Number  --}%
-        <v-row>
-            <v-col class="py-0" cols="4">
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
                 <g:hasErrors bean="${consumer}" field="docType">
                     <g:eachError bean="${consumer}" field="docType">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="document">
+                    <g:eachError bean="${consumer}" field="document">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+            </v-col>
+            <v-col class="py-0" cols="4">
                 <v-select
                         dark
                         label="<g:message code="doc.type"/>"
@@ -126,13 +142,7 @@
                         required
                 ></v-select>
             </v-col>
-
             <v-col class="py-0">
-                <g:hasErrors bean="${consumer}" field="document">
-                    <g:eachError bean="${consumer}" field="document">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
                 <v-text-field
                         dark
                         label="<g:message code="document"/>"
@@ -143,14 +153,21 @@
                 </v-text-field>
             </v-col>
         </v-row>
-        %{-- Country   --}%
-        <v-row>
-            <v-col class="py-0">
+        %{-- Country & Province  --}%
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
                 <g:hasErrors bean="${consumer}" field="country">
                     <g:eachError bean="${consumer}" field="country">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="province">
+                    <g:eachError bean="${consumer}" field="province">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+            </v-col>
+            <v-col class="py-0">
                 <v-select
                         dark
                         label="<g:message code="country"/>"
@@ -162,34 +179,28 @@
                 ></v-select>
             </v-col>
             <v-col class="py-0">
-            <g:hasErrors bean="${consumer}" field="province">
-                <g:eachError bean="${consumer}" field="province">
-                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                </g:eachError>
-            </g:hasErrors>
-            <v-select
-                    dark
-                    label="<g:message code="province"/>"
-                    name="province"
-                    :disabled="provinces == null"
-                    value="${fieldValue(bean: consumer, field: 'province')}"
-                    :items="provinces"
-                    required
-            ></v-select>
+                <v-select
+                        dark
+                        label="<g:message code="province"/>"
+                        name="province"
+                        :disabled="provinces == null"
+                        value="${fieldValue(bean: consumer, field: 'province')}"
+                        :items="provinces"
+                        required
+                ></v-select>
         </v-col>
         </v-row>
-        %{-- Province   --}%
-        <v-row>
-
-        </v-row>
         %{-- District   --}%
-        <v-row>
-            <v-col class="py-0">
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
                 <g:hasErrors bean="${consumer}" field="district">
                     <g:eachError bean="${consumer}" field="district">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+            </v-col>
+            <v-col class="py-0">
+
                 <v-text-field
                         dark
                         label="<g:message code="district"/>"
@@ -200,14 +211,26 @@
                 </v-text-field>
             </v-col>
         </v-row>
-        %{-- Street   --}%
-        <v-row>
+        %{-- Street & House Number & PC   --}%
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
+            <g:hasErrors bean="${consumer}" field="street">
+                <g:eachError bean="${consumer}" field="street">
+                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                </g:eachError>
+            </g:hasErrors>
+            <g:hasErrors bean="${consumer}" field="houseNumber">
+                <g:eachError bean="${consumer}" field="houseNumber">
+                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                </g:eachError>
+            </g:hasErrors>
+            <g:hasErrors bean="${consumer}" field="cp">
+                <g:eachError bean="${consumer}" field="cp">
+                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                </g:eachError>
+            </g:hasErrors>
+        </v-col>
             <v-col class="py-0">
-                <g:hasErrors bean="${consumer}" field="street">
-                    <g:eachError bean="${consumer}" field="street">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
                 <v-text-field
                         dark
                         label="<g:message code="street"/>"
@@ -218,69 +241,53 @@
                 </v-text-field>
             </v-col>
             <v-col class="py-0" cols="3">
-            <g:hasErrors bean="${consumer}" field="houseNumber">
-                <g:eachError bean="${consumer}" field="houseNumber">
-                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                </g:eachError>
-            </g:hasErrors>
-            <v-text-field
-                    dark
-                    label="<g:message code="house.number"/>"
-                    name="houseNumber"
-                    type="number"
-                    value="${fieldValue(bean: consumer, field: 'houseNumber')}"
-                    required
-            >
-            </v-text-field>
-        </v-col>
+                <v-text-field
+                        dark
+                        label="<g:message code="house.number"/>"
+                        name="houseNumber"
+                        type="number"
+                        value="${fieldValue(bean: consumer, field: 'houseNumber')}"
+                        required
+                >
+                </v-text-field>
+            </v-col>
             <v-col class="py-0" cols="2">
-            <g:hasErrors bean="${consumer}" field="cp">
-                <g:eachError bean="${consumer}" field="cp">
-                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                </g:eachError>
-            </g:hasErrors>
-            <v-text-field
-                    dark
-                    label="<g:message code="cp"/>"
-                    name="cp"
-                    type="number"
-                    value="${fieldValue(bean: consumer, field: 'cp')}"
-                    required
-            >
-            </v-text-field>
+                <v-text-field
+                        dark
+                        label="<g:message code="cp"/>"
+                        name="cp"
+                        type="number"
+                        value="${fieldValue(bean: consumer, field: 'cp')}"
+                        required
+                >
+                </v-text-field>
         </v-col>
         </v-row>
-        %{-- HouseNumber   --}%
-        <v-row>
-
-        </v-row>
-        %{-- Cp   --}%
-        <v-row>
-
-        </v-row>
-        %{-- Phone number   --}%
-        <v-row>
-            <v-col class="py-0" cols="4">
-            <g:hasErrors bean="${consumer}" field="phoneType">
-                <g:eachError bean="${consumer}" field="phoneType">
-                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                </g:eachError>
-            </g:hasErrors>
-            <v-select
-                    dark
-                    label="<g:message code="phone.type"/>"
-                    name="phoneType"
-                    value="${fieldValue(bean: consumer, field: 'phoneType')}"
-                    :items="phoneTypes"
-                    required
-            ></v-select>
-        </v-col>
-            <v-col class="py-0">
-                <g:hasErrors bean="${consumer}" field="phoneNumber">
-                    <g:eachError bean="${consumer}" field="phoneNumber">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+        %{-- Phone number & type   --}%
+        <v-row align="baseline">
+            <v-col cols="12" class="py-0">
+                <g:hasErrors bean="${consumer}" field="phoneType">
+                    <g:eachError bean="${consumer}" field="phoneType">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="phoneNumber">
+                    <g:eachError bean="${consumer}" field="phoneNumber">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+            </v-col>
+            <v-col class="py-0" cols="4">
+                <v-select
+                        dark
+                        label="<g:message code="phone.type"/>"
+                        name="phoneType"
+                        value="${fieldValue(bean: consumer, field: 'phoneType')}"
+                        :items="phoneTypes"
+                        required
+                ></v-select>
+            </v-col>
+            <v-col class="py-0">
                 <v-text-field
                         dark
                         label="<g:message code="phone.number"/>"
@@ -292,10 +299,5 @@
                 </v-text-field>
             </v-col>
         </v-row>
-        %{-- PhoneType   --}%
-        <v-row>
-
-        </v-row>
-
     </v-container>
 </v-card>
