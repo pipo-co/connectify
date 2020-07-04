@@ -20,7 +20,7 @@
         </v-row>
         %{-- Name and Lastname   --}%
         <v-row>
-            <v-col  cols="5" class="py-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${consumer}" field="user.name">
                     <g:eachError bean="${consumer}" field="user.name">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -35,10 +35,7 @@
                 >
                 </v-text-field>
             </v-col>
-            <v-col cols="2">
-                <v-spacer></v-spacer>
-            </v-col>
-            <v-col cols="5" class="py-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${consumer}" field="lastName">
                     <g:eachError bean="${consumer}" field="lastName">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -65,11 +62,11 @@
                         label="<g:message code="email.address"/>"
                         name="email"
                         type="email"
-
+                        :rules="[rules.required, rules.email]"
                         value="${fieldValue(bean: consumer?.user, field: 'email')}"
                         required
                 >
-%{--                    :rules="emailRules"--}%
+%{--                    --}%
                 </v-text-field>
             </v-col>
         </v-row>
@@ -87,7 +84,7 @@
                             label="<g:message code="password"/>"
                             name="password"
                             type="password"
-                            @input="password = $event"
+                            @input="form.password = $event"
                             :messages="passwordMessage"
                             value="${consumer?.user?.password}"
                             loading

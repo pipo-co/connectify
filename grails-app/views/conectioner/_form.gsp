@@ -70,7 +70,7 @@
                             label="<g:message code="password"/>"
                             name="password"
                             type="password"
-                            @input="password = $event"
+                            @input="form.password = $event"
                             :messages="passwordMessage"
                             value="${conectioner?.user?.password}"
                             loading
