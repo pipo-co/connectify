@@ -2,7 +2,7 @@
     <v-container class="pa-5">
         %{-- Username   --}%
         <v-row >
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="user.username">
                     <g:eachError bean="${conectioner}" field="user.username">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -20,7 +20,7 @@
         </v-row>
         %{-- Name   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="user.name">
                     <g:eachError bean="${conectioner}" field="user.name">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -38,7 +38,7 @@
         </v-row>
         %{-- Email   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="user.email">
                     <g:eachError bean="${conectioner}" field="user.email">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -58,7 +58,7 @@
         </v-row>
         %{-- Password   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:if test="${!edit}">
                     <g:hasErrors bean="${conectioner}" field="user.password">
                         <g:eachError bean="${conectioner}" field="user.password">
@@ -70,14 +70,26 @@
                             label="<g:message code="password"/>"
                             name="password"
                             type="password"
-                            hint="At least 8 characters"
-                    ></v-text-field>
+                            @input="password = $event"
+                            :messages="passwordMessage"
+                            value="${conectioner?.user?.password}"
+                            loading
+                    >
+                        <template v-slot:progress>
+                            <v-progress-linear
+                                    :value="passwordProgress"
+                                    :color="passwordProgressColor"
+                                    absolute
+                                    height="7"
+                            ></v-progress-linear>
+                        </template>
+                    </v-text-field>
                 </g:if>
             </v-col>
         </v-row>
         %{-- Avatar   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:if test="${!edit}">
                     <v-file-input
                             dark
@@ -91,7 +103,7 @@
         </v-row>
         %{-- CBU   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="cbu">
                     <g:eachError bean="${conectioner}" field="cbu">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -109,7 +121,7 @@
         </v-row>
         %{-- Country   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="country">
                     <g:eachError bean="${conectioner}" field="country">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -125,29 +137,27 @@
                         required
                 ></v-select>
             </v-col>
+            <v-col class="py-0">
+            <g:hasErrors bean="${conectioner}" field="province">
+                <g:eachError bean="${conectioner}" field="province">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+            <v-select
+                    dark
+                    label="<g:message code="province"/>"
+                    name="province"
+                    :disabled="provinces == null"
+                    value="${fieldValue(bean: conectioner, field: 'province')}"
+                    :items="provinces"
+                    required
+            ></v-select>
+        </v-col>
         </v-row>
-        %{-- Province   --}%
-        <v-row>
-            <v-col class="pa-0">
-                <g:hasErrors bean="${conectioner}" field="province">
-                    <g:eachError bean="${conectioner}" field="province">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
-                <v-select
-                        dark
-                        label="<g:message code="province"/>"
-                        name="province"
-                        :disabled="provinces == null"
-                        value="${fieldValue(bean: conectioner, field: 'province')}"
-                        :items="provinces"
-                        required
-                ></v-select>
-            </v-col>
-        </v-row>
+
         %{-- District   --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="district">
                     <g:eachError bean="${conectioner}" field="district">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -163,9 +173,9 @@
                 </v-text-field>
             </v-col>
         </v-row>
-        %{-- Street   --}%
+        %{-- Street, HouseNumber & PC --}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="street">
                     <g:eachError bean="${conectioner}" field="street">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -180,48 +190,57 @@
                 >
                 </v-text-field>
             </v-col>
+            <v-col class="py-0" cols="3">
+            <g:hasErrors bean="${conectioner}" field="houseNumber">
+                <g:eachError bean="${conectioner}" field="houseNumber">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+            <v-text-field
+                    dark
+                    label="<g:message code="house.number"/>"
+                    name="houseNumber"
+                    type="number"
+                    value="${fieldValue(bean: conectioner, field: 'houseNumber')}"
+                    required
+            >
+            </v-text-field>
+        </v-col>
+            <v-col class="py-0" cols="2">
+            <g:hasErrors bean="${conectioner}" field="cp">
+                <g:eachError bean="${conectioner}" field="cp">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+            <v-text-field
+                    dark
+                    label="<g:message code="cp"/>"
+                    name="cp"
+                    type="number"
+                    value="${fieldValue(bean: conectioner, field: 'cp')}"
+                    required
+            >
+            </v-text-field>
+        </v-col>
         </v-row>
-        %{-- HouseNumber   --}%
+        %{-- Phone type & number   --}%
         <v-row>
-            <v-col class="pa-0">
-                <g:hasErrors bean="${conectioner}" field="houseNumber">
-                    <g:eachError bean="${conectioner}" field="houseNumber">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
-                <v-text-field
-                        dark
-                        label="<g:message code="house.number"/>"
-                        name="houseNumber"
-                        type="number"
-                        value="${fieldValue(bean: conectioner, field: 'houseNumber')}"
-                        required
-                >
-                </v-text-field>
-            </v-col>
-        </v-row>
-        %{-- Cp   --}%
-        <v-row>
-            <v-col class="pa-0">
-                <g:hasErrors bean="${conectioner}" field="cp">
-                    <g:eachError bean="${conectioner}" field="cp">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
-                <v-text-field
-                        dark
-                        label="<g:message code="cp"/>"
-                        name="cp"
-                        type="number"
-                        value="${fieldValue(bean: conectioner, field: 'cp')}"
-                        required
-                >
-                </v-text-field>
-            </v-col>
-        </v-row>
-        %{-- Phone number   --}%
-        <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0" cols="4">
+            <g:hasErrors bean="${conectioner}" field="phoneType">
+                <g:eachError bean="${conectioner}" field="phoneType">
+                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                </g:eachError>
+            </g:hasErrors>
+            <v-select
+                    dark
+                    label="<g:message code="phone.type"/>"
+                    name="phoneType"
+                    value="${fieldValue(bean: conectioner, field: 'phoneType')}"
+                    :items="phoneTypes"
+                    required
+            ></v-select>
+        </v-col>
+            <v-col class="py-0">
                 <g:hasErrors bean="${conectioner}" field="phoneNumber">
                     <g:eachError bean="${conectioner}" field="phoneNumber">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -238,23 +257,6 @@
                 </v-text-field>
             </v-col>
         </v-row>
-        %{-- PhoneType   --}%
-        <v-row>
-            <v-col class="pa-0">
-                <g:hasErrors bean="${conectioner}" field="phoneType">
-                    <g:eachError bean="${conectioner}" field="phoneType">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                    </g:eachError>
-                </g:hasErrors>
-                <v-select
-                        dark
-                        label="<g:message code="phone.type"/>"
-                        name="phoneType"
-                        value="${fieldValue(bean: conectioner, field: 'phoneType')}"
-                        :items="phoneTypes"
-                        required
-                ></v-select>
-            </v-col>
-        </v-row>
+
     </v-container>
 </v-card>

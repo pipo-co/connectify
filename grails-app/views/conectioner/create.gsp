@@ -9,9 +9,9 @@
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
 <v-container class="my-2">
-    <v-row>
-        <v-col cols="3">
-            <p class="headline"><g:message code="conectioner" args="['Creation']"/>:</p>
+    <v-row justify="center">
+        <v-col>
+            <h1 class="headline">Create your Conectioner Account</h1>
         </v-col>
     </v-row>
 </v-container>

@@ -9,9 +9,9 @@
 %{--Include Main Layout--}%
 <meta name="layout" content="main"/>
 <v-container class="my-2">
-    <v-row>
+    <v-row justify="center">
         <v-col>
-            <p class="headline"><g:message code="consumer" args="['Creation']"/>:</p>
+            <h1 class="headline">Create your Consumer Account</h1>
         </v-col>
     </v-row>
 </v-container>

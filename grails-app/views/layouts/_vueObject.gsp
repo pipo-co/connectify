@@ -59,6 +59,7 @@
             currentChip: null,
             currentParticipants: null,
             subscribedActivities: null,
+            password: '',
             mountedRouteMap: {
                 "/": function() {
                     console.log("estoy en index");
@@ -178,6 +179,16 @@
             isSubscribed() {
                 return !!(this.subscribedActivities != null && this.subscribedActivities.includes(parseInt(this.currentChip, 10)));
             },
+            passwordProgress () {
+                return Math.min(100, this.password.length * 5)
+            },
+            passwordProgressColor () {
+                return ['error', 'warning', 'success'][Math.floor(this.passwordProgress / 40)]
+            },
+            passwordMessage(){
+                return ['At least 8 characters', 'Week', 'Strong'][Math.floor(this.passwordProgress / 40)]
+            }
+
         },
         created(){
             this.show = true;
