@@ -2,8 +2,7 @@ var mymap;
 
 function loadMarkers(activities){
     if(mymap === undefined){
-        console.log("acaaaaaa");
-        initializeMap();
+        initializeMap({latitude: -34.603722, longitude: -58.381592});
     }
     activities.forEach(element =>{
         let marker = L.marker([element.latitude, element.longitude]).addTo(mymap);
@@ -14,8 +13,8 @@ function loadMarkers(activities){
     });
 }
 
-function initializeMap() {
-    mymap = L.map('mapid').setView([-34.603722, -58.381592], 15);
+function initializeMap(coordinates) {
+    mymap = L.map('mapid').setView([coordinates.latitude, coordinates.longitude], 15);
     const person = L.icon({
         iconUrl: 'https://img.icons8.com/plasticine/100/000000/marker.png',
         iconSize: [48, 48], // size of the icon
@@ -49,12 +48,6 @@ function initializeMap() {
             console.log(e);
             alert("Location access denied.");
         });
-
-
-
-
-
-
 }
 window.initializeMap = initializeMap;
 window.loadMarkers = loadMarkers;

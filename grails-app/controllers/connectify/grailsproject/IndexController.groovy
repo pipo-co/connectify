@@ -16,4 +16,8 @@ class IndexController {
 
         [activityTList: ans]
     }
+
+    def register(){
+
+    }
 }

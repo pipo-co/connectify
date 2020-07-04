@@ -10,13 +10,8 @@
 <meta name="layout" content="main"/>
 <v-container class="my-2">
     <v-row>
-        <v-col cols="9">
-            <p class="headline"><g:message code="consumer" args="['Creation']"/>:</p>
-        </v-col>
         <v-col>
-            <v-btn color="#2E3047" class="white--text" href="/conectioner/create">
-                Register as Connectioner
-            </v-btn>
+            <p class="headline"><g:message code="consumer" args="['Creation']"/>:</p>
         </v-col>
     </v-row>
 </v-container>

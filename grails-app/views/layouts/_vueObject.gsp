@@ -157,7 +157,18 @@
             prepareMapMarkers() {
                 axios.get('/api/getActiveActivityTemplates')
                     .then(response => {
-                        window.initializeMap();
+                        <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+                        axios.get('/api/getCountryCoordinates/' + ${session.authorized.user.consumer.country})
+                            .then(response => {
+                                window.initializeMap(response);
+                            }).catch(console.log);
+                        </g:if>
+                        <g:elseif test="${session.authorized && session.authorized.user.isTypeConnectioner()}">
+                        axios.get('/api/getCountryCoordinates/' + ${session.authorized.user.conectioner.country})
+                            .then(response => {
+                                window.initializeMap(response);
+                            }).catch(console.log);
+                        </g:elseif>
                         window.loadMarkers(response.data);
                     })
                     .catch(console.log);
