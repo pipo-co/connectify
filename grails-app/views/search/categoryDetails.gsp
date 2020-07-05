@@ -39,19 +39,14 @@
                                                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                                     height="160px"
                                             >
-                                                <v-row no-gutters align="center" class="pl-2 py-0">
-                                                    <v-col cols="10" class="pa-0">
-                                                        <v-card-title class="pa-0 subtitle-1 white--text">Categoria: ${activityt.category.name}</v-card-title>
-                                                        <v-card-title class="pa-0  white--text"> ${activityt.name}</v-card-title>
-                                                    </v-col>
-                                                </v-row>
                                             </v-img>
                                         </v-container>
                                         <v-card-actions class="pa-0">
                                             <v-container fluid class="pa-1">
-                                                <v-row align="center">
-                                                    <v-col cols="9" class="pa-1">
-                                                        <v-card-title class="white--text ml-3 pa-2">By: ${activityt.conectioner.user.name}</v-card-title>
+                                                <v-row no-gutters align="center" class="pl-1 py-0">
+                                                    <v-col cols="10" class="pa-0">
+                                                        <v-card-title class="pa-0 subtitle-1 white--text">By: ${activityt.conectioner.user.name}</v-card-title>
+                                                        <v-card-title class="pa-0 teal--text text--accent-3 headline">${activityt.name}</v-card-title>
                                                     </v-col>
                                                 </v-row>
                                                 <v-row align="center" class="ma-0 pa-0">

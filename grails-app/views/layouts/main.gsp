@@ -183,30 +183,6 @@
                     </v-col>
                 </v-row>
             </v-container>
-            %{--<v-row justify="center" no-gutters>
-                <v-row justify="center" no-gutters>
-
-                </v-row>
-                <v-card
-                        flat
-                        tile
-                        class="lighten-1 white--text text-center"
-                        color="#2E3047">
-                    <v-card-text>
-
-                    </v-card-text>
-
-                    <v-card-text class="white--text pt-0">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam eum, hic labore laborum molestias perferendis placeat reprehenderit sunt voluptates. Deleniti eum magnam mollitia numquam officia possimus repellendus rerum sequi tempore.
-                    </v-card-text>
-
-                    <v-divider></v-divider>
-
-                    <v-card-text class="white--text">
-
-                    </v-card-text>
-                </v-card>
-            </v-row>--}%
         </v-footer>
     </v-app>
 </div>

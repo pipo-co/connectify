@@ -122,6 +122,7 @@
             </v-col>
         </v-row>
     </v-container>
+</g:else>
     <g:each in="${activityTList}" var="pair" >
         <v-container fluid>
             <v-row no-gutters>
@@ -129,16 +130,17 @@
                     <p class="ml-5 headline">Category: ${pair.getaValue().name}</p>
                 </v-col>
             </v-row>
+        <g:if test="${pair.getbValue().size() != 0}">
             <v-row>
                 <v-carousel
                         height="450"
                         hide-delimiters
                         show-arrows-on-hover>
-                    <v-carousel-item :key="j" v-for="j in ${(int)((activityTList.size() - 1 )/3) + 1}">
+                    <v-carousel-item :key="j" v-for="j in ${(int)((pair.getbValue().size() - 1 )/3) +1}">
                         <v-container fluid>
                             <v-row>
-                                <g:each in="${pair.getbValue()}" var="activityt" status="i">
-                                    <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) *3">
+                                <g:each var="activityt" in="${pair.getbValue()}"  status="i">
+                                    <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) * 3">
                                         <v-card color="#1d1e33" class="mx-auto" max-width="400">
                                             <v-container fluid class="pa-0">
                                                 <v-img
@@ -146,19 +148,15 @@
                                                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                                         height="150px"
                                                 >
-                                                    <v-row no-gutters align="center" class="pl-1 py-0">
-                                                        <v-col cols="10" class="pa-0">
-                                                            <v-card-title class="pa-0 subtitle-1 white--text">Categoria: ${activityt.category.name}</v-card-title>
-                                                            <v-card-title class="pa-0  white--text"> ${activityt.name}</v-card-title>
-                                                        </v-col>
-                                                    </v-row>
+
                                                 </v-img>
                                             </v-container>
                                             <v-card-actions class="pa-0">
                                                 <v-container fluid class="pa-1">
-                                                    <v-row align="center">
-                                                        <v-col cols="9" class="pa-1">
-                                                            <v-card-title class="cyan--text ml-3 pa-2"  >By: ${activityt.conectioner.user.name}</v-card-title>
+                                                    <v-row no-gutters align="center" class="pl-1 py-0">
+                                                        <v-col cols="10" class="pa-0">
+                                                            <v-card-title class="pa-0 subtitle-1 white--text">By: ${activityt.conectioner.user.name}</v-card-title>
+                                                            <v-card-title class="pa-0 teal--text text--accent-3 headline">${activityt.name}</v-card-title>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row align="center">
@@ -184,8 +182,9 @@
                     </v-carousel-item>
                 </v-carousel>
             </v-row>
+        </g:if>
         </v-container>
     </g:each>
-</g:else>
+
 </body>
 </html>
