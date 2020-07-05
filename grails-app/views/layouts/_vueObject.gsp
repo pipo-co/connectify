@@ -198,20 +198,24 @@
                 },
                 prepareMapMarkers() {
                     axios.get('/api/getActiveActivityTemplates')
-                        .then(response => {
+                        .then(responseTemplates => {
                             <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
-                            axios.get('/api/getCountryCoordinates/' + ${session.authorized.user.consumer.country})
-                                .then(response => {
-                                    window.initializeMap(response);
+                            axios.get('/api/getCountryCoordinates/' + '${session.authorized.user.consumer.country}')
+                                .then(responseCoordinates => {
+                                    window.initializeMap(responseCoordinates.data);
+                                    window.loadMarkers(responseTemplates.data);
                                 }).catch(console.log);
                             </g:if>
                             <g:elseif test="${session.authorized && session.authorized.user.isTypeConnectioner()}">
-                            axios.get('/api/getCountryCoordinates/' + ${session.authorized.user.conectioner.country})
-                                .then(response => {
-                                    window.initializeMap(response);
+                            axios.get('/api/getCountryCoordinates/' + '${session.authorized.user.conectioner.country}')
+                                .then(responseCoordinates => {
+                                    window.initializeMap(responseCoordinates.data);
+                                    window.loadMarkers(responseTemplates.data);
                                 }).catch(console.log);
                             </g:elseif>
-                            window.loadMarkers(response.data);
+                            <g:else>
+                                window.loadMarkers(responseTemplates.data);
+                            </g:else>
                         })
                         .catch(console.log);
                 },
