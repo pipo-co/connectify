@@ -27,4 +27,19 @@ class UserController {
         }
         redirect(uri: "/")
     }
+
+    def getAvatar(Long id){
+        Users user = Users.get(id)
+        if (!user || !user.avatar || !user.avatarType) {
+            response.sendError(404)
+            return
+        }
+
+        response.setContentType(user.avatarType)
+        response.setContentLength(user.avatar.size())
+
+        OutputStream out = response.getOutputStream();
+        out.write(user.avatar);
+        out.close();
+    }
 }

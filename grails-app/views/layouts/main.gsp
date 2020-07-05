@@ -54,7 +54,7 @@
                         <v-col cols="2" class="pa-1" >
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-list-item-avatar>
-                                    <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="50" width="50" class="card-img-top" contain></v-img>
+                                    <v-img src="${UIHelper.avatarPath(user: session.authorized.user)}" height="60" width="80" class="card-img-top"></v-img>
                                 </v-list-item-avatar>
                                 <div class="text-center">
                                     <v-menu offset-y>
@@ -96,7 +96,7 @@
                         <v-col cols="2" class="pa-1" >
                             <v-list-item dense class="ma-1 pa-1">
                                 <v-list-item-avatar>
-                                    <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}" height="60" width="80" class="card-img-top"></v-img>
+                                    <v-img src="${UIHelper.avatarPath(user: session.authorized.user)}" height="60" width="80" class="card-img-top"></v-img>
                                 </v-list-item-avatar>
                                 <div class="text-center">
                                     <v-menu offset-y>

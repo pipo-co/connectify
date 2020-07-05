@@ -113,7 +113,7 @@
         %{-- Avatar   --}%
         <v-row align="baseline">
             <v-col class="py-0">
-                <g:if test="${!edit}">
+%{--                <g:if test="${!edit}">--}%
                     <v-file-input
                             accept="image/*"
                             dark
@@ -122,7 +122,7 @@
                             prepend-icon="mdi-camera"
                             >
                     </v-file-input>
-                </g:if>
+%{--                </g:if>--}%
             </v-col>
         </v-row>
         %{-- Doc Type and Number  --}%
