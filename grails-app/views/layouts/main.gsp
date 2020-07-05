@@ -36,17 +36,15 @@
                             <v-btn class="ma-1 pa-1" href="/" text>
                                 <v-toolbar-title class="headline white--text" >Connectify</v-toolbar-title>
                             </v-btn>
-                            <g:if test="${session.authorized && session.authorized.isLoggedIn}">
-                                <v-btn class="ma-1 pa-1" href="/map/index" text>
-                                    <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
-                                </v-btn>
-                                <v-btn class="ma-1 pa-1" text href="/search/categoryList">
-                                    <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
-                                </v-btn>
-                                <v-btn class="ma-1 pa-1" text href="/search/index">
-                                    <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
-                                </v-btn>
-                            </g:if>
+                            <v-btn class="ma-1 pa-1" href="/map/index" text>
+                                <v-toolbar-title class="subtitle-1 white--text" >Map</v-toolbar-title>
+                            </v-btn>
+                            <v-btn class="ma-1 pa-1" text href="/search/categoryList">
+                                <v-toolbar-title class="subtitle-1 white--text" >Categories</v-toolbar-title>
+                            </v-btn>
+                            <v-btn class="ma-1 pa-1" text href="/search/index">
+                                <v-toolbar-title class="subtitle-1 white--text">Search <v-icon>mdi-magnify</v-icon></v-toolbar-title>
+                            </v-btn>
                         </v-list-item>
                     </v-col>
                     <g:if test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeConsumer()}">
@@ -157,17 +155,37 @@
 
 
         <v-footer color="#2E3047" padless>
-            <v-row justify="center" no-gutters>
-                <v-row justify="center" no-gutters>
+            <v-container fluid class="pa-1">
+                <v-row align="center" justify="center">
                     <v-btn
                             v-for="link in links"
                             :key="link"
                             color="white"
                             text
                             rounded
-                            class="my-2">
-                        {{ link }}
+                            class="my-2"
+                            :href="link.dir">
+                        {{ link.name }}
                     </v-btn>
+                </v-row>
+                <v-row align="center" justify="center">
+                    <v-btn
+                            v-for="icon in icons"
+                            :key="icon"
+                            class="mx-4 white--text"
+                            icon>
+                        <v-icon size="24px">{{ icon }}</v-icon>
+                    </v-btn>
+                </v-row>
+                <v-row justify="center">
+                    <v-col class="pb-1">
+                        <p class=" white--text">{{ new Date().getFullYear() }} — <strong>Connectify</strong></p>
+                    </v-col>
+                </v-row>
+            </v-container>
+            %{--<v-row justify="center" no-gutters>
+                <v-row justify="center" no-gutters>
+
                 </v-row>
                 <v-card
                         flat
@@ -175,13 +193,7 @@
                         class="lighten-1 white--text text-center"
                         color="#2E3047">
                     <v-card-text>
-                        <v-btn
-                                v-for="icon in icons"
-                                :key="icon"
-                                class="mx-4 white--text"
-                                icon>
-                            <v-icon size="24px">{{ icon }}</v-icon>
-                        </v-btn>
+
                     </v-card-text>
 
                     <v-card-text class="white--text pt-0">
@@ -191,10 +203,10 @@
                     <v-divider></v-divider>
 
                     <v-card-text class="white--text">
-                        {{ new Date().getFullYear() }} — <strong>Connectify</strong>
+
                     </v-card-text>
                 </v-card>
-            </v-row>
+            </v-row>--}%
         </v-footer>
     </v-app>
 </div>
