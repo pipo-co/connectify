@@ -13,13 +13,20 @@ class AuthenticationService {
     }
 
     def doLogin(String username, String password){
+        def ans = [logged: false, emailNotVerified: false]
+
         password = password.encodeAsSHA256()
         Users user = Users.findByUsernameAndPassword(username, password)
+
         if(user){
-            setUserAuthorization(user)
-            return true
+            ans.emailNotVerified = !user.isActive
+            if(user.isActive) {
+                ans.logged = true
+                setUserAuthorization(user)
+                return ans
+            }
         }
-        return false
+        return ans
     }
 
     boolean isAuthenticated(){
@@ -33,7 +40,7 @@ class AuthenticationService {
         return isAuthenticated() && AppUtil.getAppSession()[AUTHORIZED].user.id == user.id
     }
 
-    def getUser(){
+    Users getUser(){
         def authorization = AppUtil.getAppSession()[AUTHORIZED]
         return authorization?.user
     }

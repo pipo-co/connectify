@@ -3,7 +3,7 @@ package connectify.grailsproject
 import grails.testing.web.interceptor.InterceptorUnitTest
 import spock.lang.Specification
 
-class SecurityInterceptorSpec extends Specification implements InterceptorUnitTest<SecurityInterceptor> {
+class NoAuthInterceptorSpec extends Specification implements InterceptorUnitTest<NoAuthInterceptor> {
 
     def setup() {
     }
@@ -12,9 +12,9 @@ class SecurityInterceptorSpec extends Specification implements InterceptorUnitTe
 
     }
 
-    void "Test security interceptor matching"() {
+    void "Test noAuth interceptor matching"() {
         when:"A request matches the interceptor"
-            withRequest(controller:"security")
+            withRequest(controller:"noAuth")
 
         then:"The interceptor does match"
             interceptor.doesMatch()

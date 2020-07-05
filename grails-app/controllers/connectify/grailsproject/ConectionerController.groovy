@@ -6,8 +6,7 @@ class ConectionerController {
     AuthenticationService authenticationService
 
     def index() {
-        def response = conectionerService.list(params)
-        [userList: response.list, total: response.count]
+        render(view: "notFound")
     }
 
     def details(Integer id){

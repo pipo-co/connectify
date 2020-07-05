@@ -10,8 +10,11 @@ class AuthenticationController {
     }
 
     def doLogin(){
-        if(authenticationService.doLogin(params.username, params.password))
+        def ans = authenticationService.doLogin(params.username, params.password)
+        if(ans.logged)
             redirect(uri: "/")
+        else if(ans.emailNotVerified)
+            render(view: "/verifyEmail")
         else
             redirect(controller: "authentication", action: "login")
     }

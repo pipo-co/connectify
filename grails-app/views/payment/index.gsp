@@ -70,7 +70,6 @@
                                     </v-card>
                                 </div>
                             </v-col>
-                        %{--            <a href="${preferenceInfo.preference.initPoint}">Suscribirse por ${preferenceInfo.months} meses. A solo $${preferenceInfo.price}</a>--}%
                         </g:each>
                     </v-row>
                 </v-container>
