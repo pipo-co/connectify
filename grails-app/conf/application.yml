@@ -125,8 +125,8 @@ environments:
             url: ${JDBC_DATABASE_URL}
             username: ${JDBC_DATABASE_USERNAME}
             password: ${JDBC_DATABASE_PASSWORD}
-        production:
-            dataSource:
-                url: ${JDBC_DATABASE_URL}
-                username: ${JDBC_DATABASE_USERNAME}
-                password: ${JDBC_DATABASE_PASSWORD}
+    production:
+        dataSource:
+            url: ${JDBC_DATABASE_URL}
+            username: ${JDBC_DATABASE_USERNAME}
+            password: ${JDBC_DATABASE_PASSWORD}
