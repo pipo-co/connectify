@@ -6,7 +6,7 @@ class ConectionerController {
     AuthenticationService authenticationService
 
     def index() {
-        render(view: "notFound")
+        render(view: "/notFound")
     }
 
     def details(Integer id){
@@ -29,7 +29,7 @@ class ConectionerController {
             flash.redirectParams = response.model
             redirect(controller: "conectioner", action: "create")
         }else{
-            redirect(controller: "conectioner", action: "index")
+            redirect(uri:"/")
         }
     }
 

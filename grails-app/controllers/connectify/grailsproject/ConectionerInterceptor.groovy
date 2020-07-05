@@ -17,8 +17,8 @@ class ConectionerInterceptor {
         match(controller: "activityTemplate", action: "index")
 
         // Activity
-        match(controller: "conectioner", action: "create")
-        match(controller: "conectioner", action: "index")
+        match(controller: "activity", action: "create")
+        match(controller: "activity", action: "index")
     }
 
     boolean before() {

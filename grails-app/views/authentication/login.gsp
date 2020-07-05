@@ -31,7 +31,6 @@
             <v-col cols="4" class="py-0">
                 <v-text-field
                         dark
-                        v-model="password"
                         label="<g:message code="password"/>"
                         name="password"
                         type="password"

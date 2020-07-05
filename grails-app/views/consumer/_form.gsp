@@ -299,7 +299,6 @@
                         dark
                         label="<g:message code="phone.number"/>"
                         name="phoneNumber"
-                        type="number"
                         value="${fieldValue(bean: consumer, field: 'phoneNumber')}"
                         required
                 >

@@ -268,7 +268,6 @@
                         dark
                         label="<g:message code="phone.number"/>"
                         name="phoneNumber"
-                        type="number"
                         value="${fieldValue(bean: conectioner, field: 'phoneNumber')}"
                         required
                 >

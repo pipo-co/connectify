@@ -158,8 +158,8 @@
             <v-container fluid class="pa-1">
                 <v-row align="center" justify="center">
                     <v-btn
-                            v-for="link in links"
-                            :key="link"
+                            v-for="(link,index) in links"
+                            :key="index"
                             color="white"
                             text
                             rounded
@@ -170,8 +170,8 @@
                 </v-row>
                 <v-row align="center" justify="center">
                     <v-btn
-                            v-for="icon in icons"
-                            :key="icon"
+                            v-for="(icon,index) in icons"
+                            :key="index"
                             class="mx-4 white--text"
                             icon>
                         <v-icon size="24px">{{ icon }}</v-icon>
@@ -198,10 +198,3 @@
 
 </body>
 </html>
-
-<script>
-    import VCol from "vuetify/src/components/VGrid/VCol";
-    export default {
-        components: {VCol}
-    }
-</script>

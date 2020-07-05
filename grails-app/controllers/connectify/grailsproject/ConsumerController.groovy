@@ -6,7 +6,7 @@ class ConsumerController {
     AuthenticationService authenticationService
 
     def index() {
-        render(view: "notFound")
+        render(view: "/notFound")
     }
 
     def details(Integer id){
@@ -29,7 +29,7 @@ class ConsumerController {
             flash.redirectParams = response.model
             redirect(controller: "consumer", action: "create")
         }else{
-            redirect(controller: "consumer", action: "index")
+            redirect(uri:"/")
         }
     }
 
