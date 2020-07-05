@@ -4,6 +4,7 @@ class Category {
 
     public static final int imgPoolSize = 4
     private static final Random randGen = new Random()
+    private static final String imgDir = "category"
 
     String name
 
@@ -12,7 +13,7 @@ class Category {
     }
 
     private String imgBasePath(){
-        return name.toLowerCase()
+        return imgDir + "/" + name.toLowerCase()
     }
 
     public String indexImgPath(){

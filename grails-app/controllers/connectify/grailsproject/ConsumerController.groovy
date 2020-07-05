@@ -6,8 +6,7 @@ class ConsumerController {
     AuthenticationService authenticationService
 
     def index() {
-        def response = consumerService.list(params)
-        [userList: response.list, total: response.count]
+        render(view: "notFound")
     }
 
     def details(Integer id){
@@ -76,7 +75,5 @@ class ConsumerController {
         }
     }
 
-    def schedule(){
-
-    }
+    def schedule(){}
 }

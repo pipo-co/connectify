@@ -30,8 +30,9 @@ function initializeMap(coordinates) {
     }).addTo(mymap);
 
     mymap.invalidateSize();
+    console.log("tobi");
 
-    mymap.locate({setView: true}) /* This will return map so you can do chaining */
+    mymap.locate({setView: true})
         .on('locationfound', function(e){
             const marker = L.marker([e.latitude, e.longitude], {icon: person}).bindPopup('Your are here, check for activities around you');
             marker.bindTooltip('Your are here');
