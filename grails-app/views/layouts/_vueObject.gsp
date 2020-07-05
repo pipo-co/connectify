@@ -12,12 +12,10 @@
                 'mdi-instagram',
             ],
             links: [
-                'Home',
-                'About Us',
-                'Team',
-                'Services',
-                'Blog',
-                'Contact Us',
+                {name:'Home', dir:'#'},
+                {name:'About Us', dir:'#'},
+                {name:'Team', dir:'#'},
+                {name:'Contact Us', dir:'#'},
             ],
             headersActivityTemplate: [
                 {text: 'Name', value: 'name'},
