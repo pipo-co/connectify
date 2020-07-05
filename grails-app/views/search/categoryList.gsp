@@ -27,7 +27,7 @@
                             <v-row>
                                 <v-col>
                                     <v-avatar color="#59D0B4" size="80">
-                                        <v-img src="${resource(dir: "category", file: "/${category.indexImgPath()}")}" height="52" width="52" contain></v-img>
+                                        <v-img src="${assetPath(src: category.indexImgPath())}" height="52" width="52" contain></v-img>
                                     </v-avatar>
                                 </v-col>
                             </v-row>

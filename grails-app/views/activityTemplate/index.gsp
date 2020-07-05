@@ -25,7 +25,7 @@
                 <v-card color="#1d1e33" class="mx-auto" max-width="400">
                     <v-container fluid class="pa-0">
                         <v-img
-                                src="${resource(dir: "category", file: "/${info.category.randStockImgPath()}")}"
+                                src="${assetPath(src: info.category.randStockImgPath())}"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                 height="160px"
                         >
