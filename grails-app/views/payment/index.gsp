@@ -18,7 +18,7 @@
             <v-card color="#1d1e33" width="350" height="350">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://www.bigben.com.es/wp-content/uploads/2015/05/cursos-de-ingles-presenciales.jpg"
+                            src="${assetPath(src: '/stock/payment1.jpg')}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     >
@@ -44,7 +44,7 @@
             <v-card color="#1d1e33" width="350" height="350">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://lh3.googleusercontent.com/proxy/l0KeItpVbYSph6zURiP5D2AbIwVerRrCcveAddFtutSBcafWU_xYuMQzZLfYviuv4eT_aE87QPB8OGgWEMD0c2B0SPBY5NocHq2J4X__tSg7O0-ziXaaHXYwzeE_cKpbFRUDOTXlHk33JmalcEni"
+                            src="${assetPath(src: '/stock/payment2.jpg')}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     >
@@ -70,7 +70,7 @@
             <v-card color="#1d1e33" width="350" height="350">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://insiderfinance.com.ar/wp-content/uploads/2020/01/image1.jpeg"
+                            src="${assetPath(src: '/stock/payment3.jpeg')}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     >
