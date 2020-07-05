@@ -16,14 +16,6 @@
                 {name:'Team', dir:'#'},
                 {name:'Contact Us', dir:'#'},
             ],
-            // headersActivityTemplate: [
-            //     {text: 'Name', value: 'name'},
-            //     {text: 'Description', value: 'description'},
-            //     {text: 'Duration', value: 'duration'},
-            //     {text: 'Max', value: 'max'},
-            //     {text: 'Participants', value: 'participants'},
-            //     {text: 'Action', value: 'actions'},
-            // ],
             itemsConsumer: [
                 {title: 'Calendar', color: 'black--text', link: '/consumer/schedule'},
                 {title: 'Log out', color: 'red--text', link: '/authentication/logout'}

@@ -62,31 +62,24 @@ class UserService {
         return true
     }
 
-    def uploadAvatar(Users user, HttpServletRequest request){
-        if (request.getFile("avatar") && !request.getFile("avatar").filename.equals("")){
-            FileUtil.uploadAvatar(user.avatar, request.getFile("avatar"))
-        }
-    }
+    def setUpUser(GrailsParameterMap params, HttpServletRequest request, String userType){
 
-    def setUpUser(GrailsParameterMap params, String userType){
         params.userType = userType
-        params.avatar = FileUtil.getAvatarName(params.username, params.avatar.filename) //No se porque tengo que hacer esto, pero funciona
         params.confirmCode = UUID.randomUUID().toString()
+
         Users user = new Users(params)
+
+        assignAvatar(user, request)
+
         return user
     }
 
-    def freeUserResources(Users user){
-        deleteAvatar(user.avatar)
-    }
+    def assignAvatar(Users user, HttpServletRequest request){
+        def img = request.getFile('avatar')
 
-    def deleteAvatar(String avatarFilename){
-        if(avatarFilename.equals(FileUtil.defaultAvatar))
-            return
-
-        boolean fileSuccessfullyDeleted =  new File(FileUtil.getAvatarDir() + "/" + avatarFilename).delete()
-        if(!fileSuccessfullyDeleted){
-            println("Error al borrar avatar")
+        if(!img.isEmpty()) {
+            user.avatarType = img.getContentType()
+            user.avatar = img.getBytes()
         }
     }
 

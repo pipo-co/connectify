@@ -5,7 +5,8 @@ class Users {
     String password
     String email
     String name
-    String avatar
+    byte[] avatar
+    String avatarType
     String userType
     Boolean isActive = false
     String confirmCode
@@ -17,7 +18,8 @@ class Users {
         password blank: false
         email email: true, blank: false, unique: true
         name blank: false
-        avatar nullable: true, blank: true
+        avatar nullable: true, blank: true, maxSize: 2 * 1024 * 1024 // 2MiB
+        avatarType nullable: true, blank: true, inList: ['image/png', 'image/jpeg', 'image/jpg']
         confirmCode nullable: true
         consumer nullable: true
         conectioner nullable: true

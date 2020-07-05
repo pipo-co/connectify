@@ -12,4 +12,13 @@ class UIHelperTagLib {
             out << "<small class='form-text text-danger''><strong>${errorMessage}</strong></small>"
         }
     }
+
+    def avatarPath = { attrs ->
+        Users user = attrs.user as Users
+
+        if(user.avatar)
+            out << createLink(controller:'user', action:'getAvatar', id: user.id)
+        else
+            out << assetPath(src: "defaultAvatar.png")
+    }
 }

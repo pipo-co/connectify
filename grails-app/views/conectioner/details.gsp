@@ -13,7 +13,7 @@
             <v-row no-gutters>
                 <v-col >
                     <v-list-item-avatar height="150" width="150">
-                        <v-img src="${resource(dir: "avatar", file: "/${session.authorized.user.avatar}")}"  class="card-img-top"></v-img>
+                        <v-img src="${UIHelper.avatarPath(user: session.authorized.user)}"  class="card-img-top"></v-img>
                     </v-list-item-avatar>
                 </v-col>
                 <v-col>

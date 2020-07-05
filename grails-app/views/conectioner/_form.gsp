@@ -99,7 +99,7 @@
         %{-- Avatar   --}%
         <v-row>
             <v-col class="py-0">
-                <g:if test="${!edit}">
+%{--                <g:if test="${!edit}">--}%
                     <v-file-input
                             dark
                             accept="image/*"
@@ -107,7 +107,7 @@
                             label="<g:message code="avatar"/>"
                             prepend-icon="mdi-camera">
                     </v-file-input>
-                </g:if>
+%{--                </g:if>--}%
             </v-col>
         </v-row>
         %{-- CBU   --}%
