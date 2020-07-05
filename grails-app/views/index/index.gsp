@@ -108,7 +108,7 @@
     </v-container>
 </g:else>
     <g:each in="${activityTList}" var="pair" >
-        <v-container fluid>
+        <v-container fluid class="pa-2">
             <v-row no-gutters>
                 <v-col>
                     <p class="ml-5 headline">Category: ${pair.getaValue().name}</p>
@@ -120,12 +120,12 @@
                         height="450"
                         hide-delimiters
                         show-arrows-on-hover>
-                    <v-carousel-item :key="j" v-for="j in ${(int)((pair.getbValue().size() - 1 )/3) +1}">
+                    <v-carousel-item :key="j" v-for="j in ${(int)((pair.getbValue().size() - 1 )/4) +1}">
                         <v-container fluid>
                             <v-row>
                                 <g:each var="activityt" in="${pair.getbValue()}"  status="i">
-                                    <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) * 3">
-                                        <v-card color="#1d1e33" class="mx-auto" max-width="400">
+                                    <v-col v-if="(j-1) * 4 <= ${i} && ${i} < (j) * 4">
+                                        <v-card color="#1d1e33" class="mx-auto" max-width="350">
                                             <v-container fluid class="pa-0">
                                                 <v-img
                                                         src="${assetPath(src: activityt.category.randStockImgPath())}"
