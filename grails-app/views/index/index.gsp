@@ -34,8 +34,8 @@
         >
             <v-col cols="4">
                 <v-card color="#1d1e33" width="350">
-                    <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="160px"></v-img>
-                    <h2 class="font-weight-light white--text">Register</h2>
+                    <v-img src="https://c1.wallpaperflare.com/preview/254/875/642/work-business-design-brainstorming.jpg" height="160px"></v-img>
+                    <h2 class="font-weight-light teal--text text--accent-3">Register</h2>
                     <v-row
                             align="center"
                             justify="center"
@@ -49,8 +49,8 @@
 
             <v-col cols="4">
                 <v-card color="#1d1e33"  width="350">
-                    <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="160px"></v-img>
-                    <h2 class="font-weight-light white--text">Subscribe</h2>
+                    <v-img src="https://cdn10.bostonmagazine.com/wp-content/uploads/2017/01/shakinghands.jpg" height="160px"></v-img>
+                    <h2 class="font-weight-light teal--text text--accent-3">Subscribe</h2>
                     <v-row
                             align="center"
                             justify="center"
@@ -63,8 +63,8 @@
             </v-col>
             <v-col cols="4">
                 <v-card color="#1d1e33"  width="350">
-                    <v-img src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="160px"></v-img>
-                    <h2 class="font-weight-light white--text">Participate</h2>
+                    <v-img src="https://aulasiena.com/wp-content/uploads/2017/08/marketing-educativo.jpg" height="160px"></v-img>
+                    <h2 class="font-weight-light teal--text text--accent-3">Participate</h2>
                     <v-row
                             align="center"
                             justify="center"
