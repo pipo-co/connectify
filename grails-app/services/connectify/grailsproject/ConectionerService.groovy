@@ -12,7 +12,7 @@ class ConectionerService {
     UserService userService
 
     def save(GrailsParameterMap params, HttpServletRequest request){
-        params.user = userService.setUpUser(params, GlobalConfig.USER_TYPE.CONNECTIONER)
+        params.user = userService.setUpUser(params, request, GlobalConfig.USER_TYPE.CONNECTIONER)
 
         Conectioner conectioner = new Conectioner(params)
         def response = AppUtil.saveResponse(false, conectioner)
@@ -21,35 +21,22 @@ class ConectionerService {
             if(!conectioner.hasErrors()){
                 response.isSuccess = true
                 userService.sendConfirmationEmail(conectioner.user)
-                userService.uploadAvatar(conectioner.user, request)
             }
         }
         return response
     }
 
     def update(Conectioner conectioner, GrailsParameterMap params, HttpServletRequest request){
-        def changeAvatar = false
-        String oldAvatar
-
-        if(params.avatar == null || params.avatar.filename.equals(""))
-            params.avatar = conectioner.user.avatar
-        else {
-            changeAvatar = true
-            params.avatar = FileUtil.getAvatarName(params.username, params.avatar.filename)
-            oldAvatar = conectioner.user.avatar
-        }
 
         conectioner.user.properties = params
+        userService.assignAvatar(conectioner.user, request)
         conectioner.properties = params
         def response = AppUtil.saveResponse(false, conectioner)
+
         if(conectioner.validate()){
             conectioner.save(flush: true)
             if(!conectioner.hasErrors()){
                 response.isSuccess = true
-                if(changeAvatar) {
-                    userService.deleteAvatar(oldAvatar)
-                    userService.uploadAvatar(conectioner.user, request)
-                }
             }
         }
         return response
@@ -76,8 +63,6 @@ class ConectionerService {
         def response = [success: false, loggedIn: false]
         if(authenticationService.isAuthenticated(conectioner.user))
             response.loggedIn = true
-
-        userService.freeUserResources(conectioner.user) //Si falla el borrado hay problemas
 
         try{
             conectioner.delete(flush: true)

@@ -12,7 +12,7 @@ class ConsumerService {
     UserService userService
 
     def save(GrailsParameterMap params, HttpServletRequest request){
-        params.user = userService.setUpUser(params, GlobalConfig.USER_TYPE.CONSUMER)
+        params.user = userService.setUpUser(params, request, GlobalConfig.USER_TYPE.CONSUMER)
 
         Consumer consumer = new Consumer(params)
         def response = AppUtil.saveResponse(false, consumer)
@@ -21,35 +21,22 @@ class ConsumerService {
             if(!consumer.hasErrors()){
                 response.isSuccess = true
                 userService.sendConfirmationEmail(consumer.user)
-                userService.uploadAvatar(consumer.user, request)
             }
         }
         return response
     }
 
     def update(Consumer consumer, GrailsParameterMap params, HttpServletRequest request){
-        def changeAvatar = false
-        String oldAvatar
-
-        if(params.avatar == null || params.avatar.filename.equals(""))
-            params.avatar = consumer.user.avatar
-        else {
-            changeAvatar = true
-            params.avatar = FileUtil.getAvatarName(params.username, params.avatar.filename)
-            oldAvatar = consumer.user.avatar
-        }
 
         consumer.user.properties = params
+        userService.assignAvatar(consumer.user, request)
         consumer.properties = params
         def response = AppUtil.saveResponse(false, consumer)
+
         if(consumer.validate()){
             consumer.save(flush: true)
             if(!consumer.hasErrors()){
                 response.isSuccess = true
-                if(changeAvatar) {
-                    userService.deleteAvatar(oldAvatar)
-                    userService.uploadAvatar(consumer.user, request)
-                }
             }
         }
         return response
@@ -78,8 +65,6 @@ class ConsumerService {
         if(authenticationService.isAuthenticated(consumer.user))
             response.loggedIn = true
 
-        userService.freeUserResources(consumer.user) //Si falla el borrado hay problemas
-
         try{
             consumer.delete(flush: true)
         } catch(Exception e) {
@@ -104,7 +89,6 @@ class ConsumerService {
         ans.put('address', aux)
         ans.put('cp', consumer.cp)
         ans.put(consumer.phoneType, consumer.phoneNumber)
-
 
         return ans
     }
