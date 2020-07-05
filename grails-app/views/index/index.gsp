@@ -14,8 +14,8 @@
         >
             <v-col class="text-center" cols="12">
                 <h1 class="display-1 mb-4">A new way of enjoying your free time.</h1>
-                <h4 class="subheading font-weight-thin mb-4">Become part of our community and enjoy numerous and varied activities near you. Starts at $100/month  </h4>
-                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register">Become a member</v-btn>
+                <h4 class="subheading font-weight-thin mb-4">Become part of our community and enjoy numerous and varied activities near you. Starts at $100/month</h4>
+                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register">Register now</v-btn>
             </v-col>
         </v-row>
     </v-parallax>
@@ -77,22 +77,6 @@
             </v-col>
         </v-row>
     </v-container>
-    <v-container class="my-5">
-        <v-row
-                align="center"
-                justify="center"
-        >
-            <v-col>
-                <h1 class="font-weight-light">Do you have an activity that needs more participants?</h1>
-                <h4 class="font-weight-light">If you are interested in helping us to grow our community and work with us </h4>
-            </v-col>
-        </v-row>
-        <v-row>
-            <v-col>
-                <v-btn rounded color="#59D0B4" href="conectioner/create">Register as a Connectioner</v-btn>
-            </v-col>
-        </v-row>
-    </v-container>
 </g:if>
 <g:else>
     <v-container fluid >
@@ -138,7 +122,7 @@
                         <v-container fluid>
                             <v-row>
                                 <g:each in="${pair.getbValue()}" var="activityt" status="i">
-                                    <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) *3">
+                                    <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) * 3">
                                         <v-card color="#1d1e33" class="mx-auto" max-width="400">
                                             <v-container fluid class="pa-0">
                                                 <v-img
