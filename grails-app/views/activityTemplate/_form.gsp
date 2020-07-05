@@ -2,7 +2,7 @@
     <v-container>
         %{-- Name--}%
         <v-row >
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${activityT}" field="name">
                     <g:eachError bean="${activityT}" field="name">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -20,7 +20,7 @@
         </v-row>
         %{-- Description--}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${activityT}" field="description">
                     <g:eachError bean="${activityT}" field="description">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -38,7 +38,7 @@
         </v-row>
         %{-- Duration--}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${activityT}" field="duration">
                     <g:eachError bean="${activityT}" field="duration">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -56,7 +56,7 @@
         </v-row>
         %{-- Address--}%
         <v-row>
-            <v-col class="pa-0">
+            <v-col class="py-0">
                 <g:hasErrors bean="${activityT}" field="address">
                     <g:eachError bean="${activityT}" field="address">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
@@ -88,9 +88,9 @@
         <g:hiddenField id="long" name="longitude" value="${fieldValue(bean: activityT, field: 'longitude')}"/>
         %{-- Max Participants--}%
         <v-row>
-            <v-col class="pa-0">
-                <g:hasErrors bean="${activityT}" field="max.participants">
-                    <g:eachError bean="${activityT}" field="max.participants">
+            <v-col class="py-0">
+                <g:hasErrors bean="${activityT}" field="maxParticipants">
+                    <g:eachError bean="${activityT}" field="maxParticipants">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
                     </g:eachError>
                 </g:hasErrors>
@@ -106,9 +106,9 @@
         </v-row>
 
         <v-row>
-            <v-col class="pa-0">
-                <g:hasErrors bean="${activityT}" field="categoryId">
-                    <g:eachError bean="${activityT}" field="categoryId">
+            <v-col class="py-0">
+                <g:hasErrors bean="${activityT}" field="category">
+                    <g:eachError bean="${activityT}" field="category">
                         <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
                     </g:eachError>
                 </g:hasErrors>
@@ -116,7 +116,7 @@
                         dark
                         label="<g:message code="category"/>"
                         name="categoryId"
-                        value="${fieldValue(bean: activityT, field: 'categoryId')}"
+                        :value="${activityT?.category != null ? fieldValue(bean: activityT?.category, field: 'id') : -1}"
                         :items="categories"
                         required
                 ></v-select>
