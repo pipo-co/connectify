@@ -129,6 +129,18 @@
                             </v-list-item>
                         </v-col>
                     </g:elseif>
+                    <g:elseif test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeAdmin()}">
+                        <v-col cols="4" >
+                            <v-spacer></v-spacer>
+                        </v-col>
+                        <v-col>
+                            <v-list-item dense class="ma-1 pa-1">
+                                <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/logout" right>
+                                    <v-toolbar-title class="title white--text">Log out</v-toolbar-title>
+                                </v-btn>
+                            </v-list-item>
+                        </v-col>
+                    </g:elseif>
                     <g:else>
                         <v-col cols="4" >
                             <v-spacer></v-spacer>
