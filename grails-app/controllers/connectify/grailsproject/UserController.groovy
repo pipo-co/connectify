@@ -13,7 +13,7 @@ class UserController {
         }
 
         if(!params.max)
-            params.max = 12
+            params.max = 10
 
         [users: Users.list(params), usersCount: Users.count()]
     }
