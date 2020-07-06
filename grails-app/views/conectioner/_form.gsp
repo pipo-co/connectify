@@ -98,16 +98,27 @@
         </g:if>
         %{-- Avatar   --}%
         <v-row>
+            <v-col cols="12" class="py-0">
+                <g:hasErrors bean="${conectioner}" field="user.avatar">
+                    <g:eachError bean="${conectioner}" field="user.avatar">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+                <g:hasErrors bean="${conectioner}" field="user.avatarType">
+                    <g:eachError bean="${conectioner}" field="user.avatarType">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+            </v-col>
             <v-col class="py-0">
-%{--                <g:if test="${!edit}">--}%
-                    <v-file-input
-                            dark
-                            accept="image/*"
-                            name="avatar"
-                            label="<g:message code="avatar"/>"
-                            prepend-icon="mdi-camera">
-                    </v-file-input>
-%{--                </g:if>--}%
+                <v-file-input
+                        dark
+                        accept="image/*"
+                        name="avatar"
+                        label="<g:message code="avatar"/>"
+                        messages="The default avatar will be set if left empty"
+                        prepend-icon="mdi-camera">
+                </v-file-input>
             </v-col>
         </v-row>
         %{-- CBU   --}%

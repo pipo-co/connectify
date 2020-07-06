@@ -15,8 +15,7 @@
                         label="<g:message code="username"/>"
                         name="username"
                         value="${fieldValue(bean: consumer?.user, field: 'username')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
         </v-row>
@@ -29,10 +28,10 @@
                     </g:eachError>
                 </g:hasErrors>
                 <g:hasErrors bean="${consumer}" field="lastName">
-                <g:eachError bean="${consumer}" field="lastName">
-                    <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
-                </g:eachError>
-            </g:hasErrors>
+                    <g:eachError bean="${consumer}" field="lastName">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
             </v-col>
             <v-col class="py-0">
                 <v-text-field
@@ -40,8 +39,7 @@
                         label="<g:message code="name"/>"
                         name="name"
                         value="${fieldValue(bean: consumer?.user, field: 'name')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
             <v-col class="py-0">
@@ -50,8 +48,8 @@
                         label="<g:message code="last.name"/>"
                         name="lastName"
                         value="${fieldValue(bean: consumer, field: 'lastName')}"
-                        required
-                ></v-text-field>
+                        required>
+                </v-text-field>
             </v-col>
         </v-row>
         %{-- Email   --}%
@@ -71,8 +69,7 @@
                         type="email"
                         :rules="[rules.required, rules.email]"
                         value="${fieldValue(bean: consumer?.user, field: 'email')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
         </v-row>
@@ -96,15 +93,14 @@
                             :messages="passwordMessage"
                             value="${consumer?.user?.password}"
                             loading
-                            required
-                    >
+                            required>
                         <template v-slot:progress>
                             <v-progress-linear
                                     :value="passwordProgress"
                                     :color="passwordProgressColor"
                                     absolute
-                                    height="7"
-                            ></v-progress-linear>
+                                    height="7">
+                            </v-progress-linear>
                         </template>
                     </v-text-field>
                 </v-col>
@@ -112,17 +108,27 @@
         </g:if>
         %{-- Avatar   --}%
         <v-row align="baseline">
+            <v-col cols="12" class="py-0">
+                <g:hasErrors bean="${consumer}" field="user.avatar">
+                    <g:eachError bean="${consumer}" field="user.avatar">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+                <g:hasErrors bean="${consumer}" field="user.avatarType">
+                    <g:eachError bean="${consumer}" field="user.avatarType">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
+            </v-col>
             <v-col class="py-0">
-%{--                <g:if test="${!edit}">--}%
-                    <v-file-input
-                            accept="image/*"
-                            dark
-                            name="avatar"
-                            label="<g:message code="avatar"/>"
-                            prepend-icon="mdi-camera"
-                            >
-                    </v-file-input>
-%{--                </g:if>--}%
+                <v-file-input
+                        accept="image/*"
+                        dark
+                        name="avatar"
+                        label="<g:message code="avatar"/>"
+                        messages="The default avatar will be set if left empty"
+                        prepend-icon="mdi-camera">
+                </v-file-input>
             </v-col>
         </v-row>
         %{-- Doc Type and Number  --}%
@@ -155,8 +161,7 @@
                         label="<g:message code="document"/>"
                         name="document"
                         value="${fieldValue(bean: consumer, field: 'document')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
         </v-row>
@@ -182,8 +187,8 @@
                         value="${fieldValue(bean: consumer, field: 'country')}"
                         :items="countries"
                         @change="getProvinces($event)"
-                        required
-                ></v-select>
+                        required>
+                </v-select>
             </v-col>
             <v-col class="py-0">
                 <v-select
@@ -193,8 +198,8 @@
                         :disabled="provinces == null"
                         value="${fieldValue(bean: consumer, field: 'province')}"
                         :items="provinces"
-                        required
-                ></v-select>
+                        required>
+                </v-select>
         </v-col>
         </v-row>
         %{-- District   --}%
@@ -207,14 +212,12 @@
                 </g:hasErrors>
             </v-col>
             <v-col class="py-0">
-
                 <v-text-field
                         dark
                         label="<g:message code="district"/>"
                         name="district"
                         value="${fieldValue(bean: consumer, field: 'district')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
         </v-row>
@@ -243,8 +246,7 @@
                         label="<g:message code="street"/>"
                         name="street"
                         value="${fieldValue(bean: consumer, field: 'street')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
             <v-col class="py-0" cols="3">
@@ -254,8 +256,7 @@
                         name="houseNumber"
                         type="number"
                         value="${fieldValue(bean: consumer, field: 'houseNumber')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
             <v-col class="py-0" cols="2">
@@ -265,8 +266,7 @@
                         name="cp"
                         type="number"
                         value="${fieldValue(bean: consumer, field: 'cp')}"
-                        required
-                >
+                        required>
                 </v-text-field>
         </v-col>
         </v-row>
@@ -300,8 +300,7 @@
                         label="<g:message code="phone.number"/>"
                         name="phoneNumber"
                         value="${fieldValue(bean: consumer, field: 'phoneNumber')}"
-                        required
-                >
+                        required>
                 </v-text-field>
             </v-col>
         </v-row>
