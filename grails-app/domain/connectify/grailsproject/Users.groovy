@@ -36,4 +36,8 @@ class Users {
     Boolean isTypeConnectioner(){
         return userType.equals(GlobalConfig.USER_TYPE.CONNECTIONER)
     }
+
+    Boolean isTypeAdmin(){
+        return userType.equals(GlobalConfig.USER_TYPE.ADMINISTRATOR)
+    }
 }

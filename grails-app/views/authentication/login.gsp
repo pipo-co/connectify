@@ -41,10 +41,10 @@
             <v-col cols="7">
                 <v-btn type="submit" name="login" color="#2E3047" class="white--text" value="Login" width="200" rounded>Login</v-btn>
             </v-col>
-            <v-col cols="8" >
-                <v-btn color="#59D0B4" text>Forgot your password?
-                </v-btn>
-            </v-col>
+%{--            <v-col cols="8" >--}%
+%{--                <v-btn color="#59D0B4" text>Forgot your password?--}%
+%{--                </v-btn>--}%
+%{--            </v-col>--}%
         </v-row>
     </g:form>
 </v-container>
