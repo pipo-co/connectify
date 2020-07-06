@@ -14,7 +14,7 @@
 <body>
 <v-container>
     <v-row>
-        <v-col class="ml-4">
+        <v-col class="ml-4" xl="2">
             <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
@@ -40,7 +40,7 @@
                 </v-container>
             </v-card>
         </v-col>
-        <v-col>
+        <v-col xl="2">
             <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
@@ -66,7 +66,7 @@
                 </v-container>
             </v-card>
         </v-col>
-        <v-col>
+        <v-col xl="2">
             <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
@@ -95,7 +95,7 @@
     </v-row>
     <v-row>
         <g:each in="${preferencesInfo}" var="preferenceInfo">
-            <v-col cols="3">
+            <v-col cols="3" xl="2">
                 <v-card color="#1d1e33" max-width="300" height="250" class="ma-auto">
                     <v-container fluid class="pa-0" >
                         <v-row no-gutters>
@@ -114,7 +114,7 @@
                         </v-row>
                         <v-divider dark></v-divider>
                         <v-row no-gutters>
-                            <v-col>
+                            <v-col >
                                 <v-card-subtitle class="white--text text-left pa-2">
                                     <v-icon color="#1DE9B6">mdi-minus</v-icon>
                                     One payment of $${preferenceInfo.price}
