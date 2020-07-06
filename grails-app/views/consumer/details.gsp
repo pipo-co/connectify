@@ -26,7 +26,7 @@
         </v-col>
         <v-col>
             <v-container >
-                <v-card shaped color="#1d1e33" max-width="600">
+                <v-card shaped color="#1d1e33" max-width="1200">
                     <v-row>
                         <v-col>
                             <v-list-item>
@@ -37,7 +37,7 @@
                     <v-row>
                         <v-col cols="3">
                             <v-list-item>
-                                <v-list-item-title class="white--text"><g:message code="username"/>:  </v-list-item-title>
+                                <v-list-item-title class="white--text"><g:message code="username"/>:</v-list-item-title>
                             </v-list-item>
                         </v-col>
                         <v-col >
@@ -102,7 +102,6 @@
                                         Pay
                                     </v-btn>
                                 </v-list-item-title>
-
                             </g:if>
                             <g:else>
                                 <v-list-item-title>${consumer.suscribedUntil}</v-list-item-title>

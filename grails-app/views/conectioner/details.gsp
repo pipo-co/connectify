@@ -25,7 +25,7 @@
         </v-col>
         <v-col>
             <v-container >
-                <v-card shaped color="#1d1e33" max-width="600">
+                <v-card shaped color="#1d1e33" max-width="1200">
                     <v-row>
                         <v-col>
                             <v-list-item>
