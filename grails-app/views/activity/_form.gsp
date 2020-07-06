@@ -2,34 +2,33 @@
     <v-container>
         %{-- Name--}%
         <v-row align="center">
-            <v-col class="pa-0">
+            <v-col class="py-0" cols="12">
                 <g:hasErrors bean="${activity}" field="initDate">
                     <g:eachError bean="${activity}" field="initDate">
-                        <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
                     </g:eachError>
                 </g:hasErrors>
-                <v-row justify="center">
-                    <v-date-picker
-                            dark
-                            v-model="picker"
-                            year-icon="mdi-calendar-blank"
-                            prev-icon="mdi-skip-previous"
-                            next-icon="mdi-skip-next"
-                    ></v-date-picker>
-                </v-row>
+                <g:hasErrors bean="${activity}" field="initTime">
+                    <g:eachError bean="${activity}" field="initTime">
+                        <p class='red--text text--darken--1'><span><g:message error="${it}"/></span></p>
+                    </g:eachError>
+                </g:hasErrors>
             </v-col>
-            <v-col class="pa-0">
-            <g:hasErrors bean="${activityT}" field="description">
-                <g:eachError bean="${activityT}" field="description">
-                    <small class='form-text text-danger'><strong><g:message error="${it}"/></strong></small>
-                </g:eachError>
-            </g:hasErrors>
-            <v-row justify="space-around">
-                    <v-time-picker dark v-model="timePicker" format="24hr"></v-time-picker>
 
-            </v-row>
+            <v-col class="py-0">
+                <v-date-picker
+                        dark
+                        v-model="picker"
+                        year-icon="mdi-calendar-blank"
+                        prev-icon="mdi-skip-previous"
+                        next-icon="mdi-skip-next"
+                ></v-date-picker>
+            </v-col>
+            <v-col class="py-0">
+                <v-time-picker dark v-model="timePicker" format="24hr"></v-time-picker>
+            </v-col>
 
-    </v-row>
+        </v-row>
         %{-- Description--}%
         <input type="hidden" name="initDate" v-model="picker">
         <input type="hidden" name="initTime" v-model="timePicker">
