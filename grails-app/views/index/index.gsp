@@ -10,11 +10,12 @@
     >
         <v-row
                 align="center"
+                justify="start"
         >
-            <v-col class="text-center mb-12" cols="6">
+            <v-col class="text-center ml-12 mb-12" cols="6">
                 <h1 class="display-1 mb-4 text-left">A new way of enjoying your free time. </h1>
                 <h4 class="subheading font-weight-thin mb-4 text-left">Become part of our community and enjoy numerous and varied activities near you.<br> Starts at $100/month</h4>
-                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register">Register now</v-btn>
+                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register" start>Register now</v-btn>
             </v-col>
         </v-row
         >
