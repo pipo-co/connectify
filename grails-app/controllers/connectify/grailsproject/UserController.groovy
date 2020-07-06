@@ -7,12 +7,12 @@ class UserController {
     AuthenticationService authenticationService
 
     def adminPanel(){
-//        if(!authenticationService.isAuthenticated() || !authenticationService.getUser().isTypeAdmin()){
-//            redirect(uri: "/")
-//            return
-//        }
+        if(!authenticationService.isAuthenticated() || !authenticationService.getUser().isTypeAdmin()){
+            redirect(uri: "/")
+            return
+        }
 
-        [users: Users.list(max: 1), usersCount: Users.count()]
+        [users: Users.list(params), usersCount: Users.count()]
     }
 
     @Transactional
