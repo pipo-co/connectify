@@ -6,18 +6,18 @@
 </head>
 <body>
 <g:if test="${!(session.authorized && session.authorized.isLoggedIn)}">
-    <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    <v-parallax dark src="${assetPath(src: '/stock/imagenPrincipal.png')}"
     >
         <v-row
                 align="center"
-                justify="center"
         >
-            <v-col class="text-center" cols="12">
-                <h1 class="display-1 mb-4">A new way of enjoying your free time.</h1>
-                <h4 class="subheading font-weight-thin mb-4">Become part of our community and enjoy numerous and varied activities near you. Starts at $100/month</h4>
+            <v-col class="text-center mb-12" cols="6">
+                <h1 class="display-1 mb-4 text-left">A new way of enjoying your free time. </h1>
+                <h4 class="subheading font-weight-thin mb-4 text-left">Become part of our community and enjoy numerous and varied activities near you.<br> Starts at $100/month</h4>
                 <v-btn rounded color="#59D0B4" class="py-5" href="/index/register">Register now</v-btn>
             </v-col>
-        </v-row>
+        </v-row
+        >
     </v-parallax>
     <v-container class="my-5">
         <v-row
@@ -78,42 +78,14 @@
         </v-row>
     </v-container>
 </g:if>
-<g:else>
-    <v-container fluid >
-        <v-row>
+
+<g:each in="${activityTList}" var="pair" >
+    <v-container fluid class="pa-2">
+        <v-row no-gutters>
             <v-col>
-                <v-carousel
-                        cycle
-                        height="350"
-                        hide-delimiter-background
-                        show-arrows-on-hover
-                >
-                    <v-carousel-item>
-                        <v-sheet height="100%">
-                            <v-row class="fill-height" align="center" justify="center">
-                                <div class="display-3">Slide 1</div>
-                            </v-row>
-                        </v-sheet>
-                    </v-carousel-item><v-carousel-item>
-                    <v-sheet height="100%">
-                        <v-row class="fill-height" align="center" justify="center">
-                            <div class="display-3">Slide 2</div>
-                        </v-row>
-                    </v-sheet>
-                </v-carousel-item>
-                </v-carousel>
-            </v-card>
+                <p class="ml-5 headline">Category: ${pair.getaValue().name}</p>
             </v-col>
         </v-row>
-    </v-container>
-</g:else>
-    <g:each in="${activityTList}" var="pair" >
-        <v-container fluid class="pa-2">
-            <v-row no-gutters>
-                <v-col>
-                    <p class="ml-5 headline">Category: ${pair.getaValue().name}</p>
-                </v-col>
-            </v-row>
         <g:if test="${pair.getbValue().size() != 0}">
             <v-row>
                 <v-carousel
@@ -167,8 +139,8 @@
                 </v-carousel>
             </v-row>
         </g:if>
-        </v-container>
-    </g:each>
+    </v-container>
+</g:each>
 
 </body>
 </html>
