@@ -185,7 +185,7 @@
                 return ['error', 'warning', 'success'][Math.floor(this.passwordProgress / 40)]
             },
             passwordMessage() {
-                return ['At least 8 characters', 'Week', 'Strong'][Math.floor(this.passwordProgress / 40)]
+                return ['At least 8 characters', 'Weak', 'Strong'][Math.floor(this.passwordProgress / 40)]
             }
         },
         created() {
