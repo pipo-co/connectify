@@ -10,11 +10,12 @@
     >
         <v-row
                 align="center"
+                justify="start"
         >
-            <v-col class="text-center mb-12" cols="6">
+            <v-col class="text-center ml-12 mb-12" cols="6">
                 <h1 class="display-1 mb-4 text-left">A new way of enjoying your free time. </h1>
                 <h4 class="subheading font-weight-thin mb-4 text-left">Become part of our community and enjoy numerous and varied activities near you.<br> Starts at $100/month</h4>
-                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register">Register now</v-btn>
+                <v-btn rounded color="#59D0B4" class="py-5" href="/index/register" start>Register now</v-btn>
             </v-col>
         </v-row
         >
@@ -33,7 +34,7 @@
                 justify="center"
         >
             <v-col cols="4">
-                <v-card color="#1d1e33" width="350">
+                <v-card color="#1d1e33" max-width="350" class="ma-auto">
                     <v-img src="${assetPath(src: '/stock/register.jpg')}" height="160px"></v-img>
                     <h2 class="font-weight-light teal--text text--accent-3">Register</h2>
                     <v-row
@@ -48,7 +49,7 @@
             </v-col>
 
             <v-col cols="4">
-                <v-card color="#1d1e33"  width="350">
+                <v-card color="#1d1e33"  max-width="350" class="ma-auto">
                     <v-img src="${assetPath(src: '/stock/subscribe.jpg')}" height="160px"></v-img>
                     <h2 class="font-weight-light teal--text text--accent-3">Subscribe</h2>
                     <v-row
@@ -62,7 +63,7 @@
                 </v-card>
             </v-col>
             <v-col cols="4">
-                <v-card color="#1d1e33"  width="350">
+                <v-card color="#1d1e33"  max-width="350" class="ma-auto">
                     <v-img src="${assetPath(src: '/stock/participate.jpg')}" height="160px"></v-img>
                     <h2 class="font-weight-light teal--text text--accent-3">Participate</h2>
                     <v-row
