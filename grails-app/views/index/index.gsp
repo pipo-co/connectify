@@ -33,9 +33,8 @@
                 align="center"
                 justify="center"
         >
-            <v-col cols="1"></v-col>
             <v-col cols="4">
-                <v-card color="#1d1e33" width="350">
+                <v-card color="#1d1e33" width="400">
                     <v-img src="${assetPath(src: '/stock/register.jpg')}" height="160px"></v-img>
                     <h2 class="font-weight-light teal--text text--accent-3">Register</h2>
                     <v-row
@@ -50,7 +49,7 @@
             </v-col>
 
             <v-col cols="4">
-                <v-card color="#1d1e33"  width="350">
+                <v-card color="#1d1e33"  width="400">
                     <v-img src="${assetPath(src: '/stock/subscribe.jpg')}" height="160px"></v-img>
                     <h2 class="font-weight-light teal--text text--accent-3">Subscribe</h2>
                     <v-row
@@ -64,7 +63,7 @@
                 </v-card>
             </v-col>
             <v-col cols="4">
-                <v-card color="#1d1e33"  width="350">
+                <v-card color="#1d1e33"  width="400">
                     <v-img src="${assetPath(src: '/stock/participate.jpg')}" height="160px"></v-img>
                     <h2 class="font-weight-light teal--text text--accent-3">Participate</h2>
                     <v-row
