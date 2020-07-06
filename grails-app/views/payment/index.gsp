@@ -15,7 +15,7 @@
 <v-container>
     <v-row>
         <v-col class="ml-4">
-            <v-card color="#1d1e33" width="350" height="350">
+            <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
                             src="${assetPath(src: '/stock/payment1.jpg')}"
@@ -41,7 +41,7 @@
             </v-card>
         </v-col>
         <v-col>
-            <v-card color="#1d1e33" width="350" height="350">
+            <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
                             src="${assetPath(src: '/stock/payment2.jpg')}"
@@ -67,7 +67,7 @@
             </v-card>
         </v-col>
         <v-col>
-            <v-card color="#1d1e33" width="350" height="350">
+            <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
                             src="${assetPath(src: '/stock/payment3.jpeg')}"
@@ -96,7 +96,7 @@
     <v-row>
         <g:each in="${preferencesInfo}" var="preferenceInfo">
             <v-col cols="3">
-                <v-card color="#1d1e33" width="300" height="250">
+                <v-card color="#1d1e33" max-width="300" height="250" class="ma-auto">
                     <v-container fluid class="pa-0" >
                         <v-row no-gutters>
                             <v-col>
