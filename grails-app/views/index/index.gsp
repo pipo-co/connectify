@@ -33,6 +33,7 @@
                 align="center"
                 justify="center"
         >
+            <v-col cols="2"></v-col>
             <v-col cols="4">
                 <v-card color="#1d1e33" width="350">
                     <v-img src="${assetPath(src: '/stock/register.jpg')}" height="160px"></v-img>
