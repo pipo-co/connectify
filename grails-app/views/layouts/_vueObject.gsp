@@ -56,7 +56,6 @@
             },
             mountedRouteMap: {
                     "/": function () {
-                        console.log("estoy en index");
                     },
                     "/consumer/create": function () {
                         this.getCountries();

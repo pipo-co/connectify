@@ -7,6 +7,8 @@ class AuthenticationController {
     def login() {
         if(authenticationService.isAuthenticated())
             redirect(uri: "/")
+
+        [logInFailed: flash.logInFailed, username: flash.username]
     }
 
     def doLogin(){
@@ -15,8 +17,11 @@ class AuthenticationController {
             redirect(uri: "/")
         else if(ans.emailNotVerified)
             render(view: "/verifyEmail")
-        else
+        else{
+            flash.username = ans.usernameNotFound ? null : params.username
+            flash.logInFailed = true
             redirect(controller: "authentication", action: "login")
+        }
     }
 
     def logout(){
