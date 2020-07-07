@@ -26,7 +26,7 @@
                         <v-row no-gutters justify="start">
                             <v-col class="pa-0">
                                 <p class="text-left white--text px-4">${activityT.description}</p>
-                                <p class="text-left white--text px-4">Duration: ${activityT.duration}</p>
+                                <p class="text-left white--text px-4">Duration: ${activityT.duration} minutes</p>
                             </v-col>
                         </v-row>
                         <v-row no-gutters justify="start" >
