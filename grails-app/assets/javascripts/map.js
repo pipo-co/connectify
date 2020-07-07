@@ -14,7 +14,9 @@ function loadMarkers(activities){
 }
 
 function initializeMap(coordinates) {
-    mymap = L.map('mapid').setView([coordinates.latitude, coordinates.longitude], 15);
+    mymap = L.map('mapid', {
+        worldCopyJump: true
+    }).setView([coordinates.latitude, coordinates.longitude], 15);
     const person = L.icon({
         iconUrl: 'https://img.icons8.com/plasticine/100/000000/marker.png',
         iconSize: [48, 48], // size of the icon

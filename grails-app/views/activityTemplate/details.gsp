@@ -3,10 +3,10 @@
     <v-row align="center" justify="center">
         <v-col cols="12">
             <v-card  class="mx-auto my-5"
-                     width="600" color="#1d1e33">
+                     max-width="600" color="#1d1e33">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
+                            src="${assetPath(src: activityT.category.randStockImgPath())}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     ></v-img>
@@ -41,6 +41,7 @@
                             </v-col>
                         </v-row>
                         <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+                            <g:if test="${session.authorized.user.consumer.isSuscribed()}" >
                             <v-row align="center">
                                 <v-chip-group
                                         active-class="teal accent-2"
@@ -64,6 +65,10 @@
                                     </v-btn>
                                 </v-col>
                             </v-row>
+                            </g:if>
+                            <g:else>
+                                <p>To be able to take on an activity, you must have an active suscription. Renovate your suscription <g:link controller="payment" action="index" >here</g:link></p>
+                            </g:else>
                         </g:if>
                     </v-container>
                 </v-card-actions>

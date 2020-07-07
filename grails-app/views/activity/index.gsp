@@ -10,7 +10,7 @@
 <v-container class="my-2">
     <v-row justify="start">
         <v-col>
-            <p class="headline">  <g:message code="activities" args="['List Of']"/></p>
+            <p class="headline"><g:message code="activities" args="['List Of']"/></p>
         </v-col>
     </v-row>
     <v-row wrap>
@@ -71,9 +71,6 @@
                                             <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'details', id: info.id)}">
                                                 Detail
                                             </v-btn>
-                                            %{--<v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'edit', id: info.id)}">
-                                                Edit
-                                            </v-btn>--}%
                                             <v-btn color="red" class="mx-auto" href="${createLink(controller: 'activity', action: 'delete', id: info.id)}">
                                                 Delete
                                             </v-btn>

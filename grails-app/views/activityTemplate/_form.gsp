@@ -107,7 +107,7 @@
                 </v-text-field>
             </v-col>
         </v-row>
-
+        %{-- Category --}%
         <v-row>
             <v-col class="py-0">
                 <g:hasErrors bean="${activityT}" field="category">
