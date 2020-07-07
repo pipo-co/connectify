@@ -22,7 +22,7 @@
     <v-row wrap>
         <g:each in="${activityTList}" var="info">
             <v-col>
-                <v-card color="#1d1e33" class="mx-auto" width="450" max-width="450" max-height="400">
+                <v-card color="#1d1e33" class="mx-auto" width="450" max-width="450" max-height="420">
                     <v-container fluid class="pa-0">
                         <v-img
                                 src="${assetPath(src: info.category.randStockImgPath())}"
@@ -35,7 +35,7 @@
                         <v-container fluid class="pa-1">
                             <v-row no-gutters align="center" class="pl-1 py-0">
                                 <v-col cols="10" class="pa-0">
-                                    <v-card-title class="pa-0  white--text"> ${info?.name}</v-card-title>
+                                    <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" class="pa-0 text-left white--text headline"> ${info?.name}</p>
                                 </v-col>
                             </v-row>
                             <v-row>

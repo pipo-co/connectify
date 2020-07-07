@@ -81,6 +81,7 @@
 </g:if>
 
 <g:each in="${activityTList}" var="pair" >
+
     <v-container fluid class="pa-2">
         <v-row no-gutters>
             <v-col>
@@ -88,6 +89,7 @@
             </v-col>
         </v-row>
         <g:if test="${pair.getbValue().size() != 0}">
+            <v-card color="#2E3047" height="380">
             <v-row>
                 <v-carousel
                         height="450"
@@ -105,7 +107,6 @@
                                                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                                         height="150px"
                                                 >
-
                                                 </v-img>
                                             </v-container>
                                             <v-card-actions class="pa-0">
@@ -139,8 +140,10 @@
                     </v-carousel-item>
                 </v-carousel>
             </v-row>
+            </v-card>
         </g:if>
     </v-container>
+
 </g:each>
 
 </body>
