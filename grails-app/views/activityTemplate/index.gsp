@@ -15,19 +15,19 @@
         <v-spacer></v-spacer>
         <v-col cols="3">
             <v-btn color="#59D0B4" href="/activityTemplate/create">
-                <g:message code="create"/> new activity template
+                <g:message code="create"/> new activity
             </v-btn>
         </v-col>
     </v-row>
     <v-row wrap>
         <g:each in="${activityTList}" var="info">
             <v-col>
-                <v-card color="#1d1e33" class="mx-auto" max-width="400">
+                <v-card color="#1d1e33" class="mx-auto" width="450" max-width="450" max-height="400">
                     <v-container fluid class="pa-0">
                         <v-img
                                 src="${assetPath(src: info.category.randStockImgPath())}"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                                height="160px"
+                                height="150px"
                         >
                         </v-img>
                     </v-container>
@@ -36,6 +36,11 @@
                             <v-row no-gutters align="center" class="pl-1 py-0">
                                 <v-col cols="10" class="pa-0">
                                     <v-card-title class="pa-0  white--text"> ${info?.name}</v-card-title>
+                                </v-col>
+                            </v-row>
+                            <v-row>
+                                <v-col  class="pa-0">
+                                    <v-card-subtitle class=" text-left white--text"> ${info?.description}</v-card-subtitle>
                                 </v-col>
                             </v-row>
                             <v-divider dark></v-divider>
@@ -48,31 +53,16 @@
                                 </v-col>
                             </v-row>
                             <v-row>
-                                <v-col>
-                                    <v-list color="#1d1e33">
-                                        <v-list-item>
-                                            <v-list-item-title class="white--text">Actions</v-list-item-title>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'create', id: info.id)}" >
-                                                Start Activity
-                                            </v-btn>
-                                            <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'index', id: info.id)}">
-                                                List Activities
-                                            </v-btn>
-                                        </v-list-item>
-                                        <v-list-item>
-                                            <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'details', id: info.id)}">
-                                                Detail
-                                            </v-btn>
-%{--                                            <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'edit', id: info.id)}">--}%
-%{--                                                Edit--}%
-%{--                                            </v-btn>--}%
-                                            <v-btn color="red" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'delete', id: info.id)}">
-                                                Delete
-                                            </v-btn>
-                                        </v-list-item>
-                                    </v-list>
+                                <v-col class="pa-1">
+                                    <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'create', id: info.id)}" >
+                                        Start Activity
+                                    </v-btn>
+                                    <v-btn color="#59D0B4" class="mx-auto" href="${createLink(controller: 'activity', action: 'index', id: info.id)}">
+                                        List Activities
+                                    </v-btn>
+                                    <v-btn color="red" class="mx-auto" href="${createLink(controller: 'activityTemplate', action: 'delete', id: info.id)}">
+                                        Delete
+                                    </v-btn>
                                 </v-col>
                             </v-row>
                         </v-container>

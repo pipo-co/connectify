@@ -98,7 +98,7 @@
                             <v-row>
                                 <g:each var="activityt" in="${pair.getbValue()}"  status="i">
                                     <v-col v-if="(j-1) * 4 <= ${i} && ${i} < (j) * 4">
-                                        <v-card color="#1d1e33" class="mx-auto" max-width="350">
+                                        <v-card color="#1d1e33" class="mx-auto" max-width="350" height="330" >
                                             <v-container fluid class="pa-0">
                                                 <v-img
                                                         src="${assetPath(src: activityt.category.randStockImgPath())}"
@@ -113,15 +113,15 @@
                                                     <v-row no-gutters align="center" class="pl-1 py-0">
                                                         <v-col cols="10" class="pa-0">
                                                             <v-card-title class="pa-0 subtitle-1 white--text">By: ${activityt.conectioner.user.name}</v-card-title>
-                                                            <v-card-title class="pa-0 teal--text text--accent-3 headline">${activityt.name}</v-card-title>
+                                                            <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" class="pa-0 teal--text text--accent-3 headline">${activityt.name}</p>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row align="center">
-                                                        <v-col class="pa-1" >
-                                                            <p class="ml-5" >${activityt.description}</p>
+                                                        <v-col class="px-4 py-0">
+                                                            <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;">${activityt.description}</p>
                                                         </v-col>
                                                     </v-row>
-                                                    <v-row class="ma-0 pa-0">
+                                                    <v-row class="ma-0 pa-0" align="end">
                                                         <v-col cols="8"></v-col>
                                                         <v-col class=" ma-0">
                                                             <v-btn rounded color="#59D0B4" href="activityTemplate/details/${activityt.id}">
