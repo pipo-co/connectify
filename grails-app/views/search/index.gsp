@@ -48,6 +48,8 @@
                             value="${country}"
                             :items="countries"
                             @change="getProvinces($event)"
+                            clearable
+                            @click:clear="provinces = null"
                     ></v-select>
                 </v-col>
                 <v-col cols="1"></v-col>
@@ -58,6 +60,8 @@
                             name="province"
                             value="${province}"
                             :items="provinces"
+                            :disabled="provinces === null"
+                            clearable
                     ></v-select>
                 </v-col>
                 <v-col cols="1"></v-col>
