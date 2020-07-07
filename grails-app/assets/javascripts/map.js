@@ -32,7 +32,6 @@ function initializeMap(coordinates) {
     }).addTo(mymap);
 
     mymap.invalidateSize();
-    console.log("tobi");
 
     mymap.locate({setView: true})
         .on('locationfound', function(e){
