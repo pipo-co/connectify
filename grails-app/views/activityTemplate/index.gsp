@@ -29,18 +29,13 @@
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                 height="160px"
                         >
-                            <v-row no-gutters align="center" class="pl-1 py-0">
-                                <v-col cols="10" class="pa-0">
-                                    <v-card-title class="pa-0  white--text"> ${info?.name}</v-card-title>
-                                </v-col>
-                            </v-row>
                         </v-img>
                     </v-container>
                     <v-card-actions class="pa-0">
                         <v-container fluid class="pa-1">
-                            <v-row align="center">
-                                <v-col class="pa-1" >
-                                    <p class="ml-5 white--text" >Description: ${info?.description}</p>
+                            <v-row no-gutters align="center" class="pl-1 py-0">
+                                <v-col cols="10" class="pa-0">
+                                    <v-card-title class="pa-0  white--text"> ${info?.name}</v-card-title>
                                 </v-col>
                             </v-row>
                             <v-divider dark></v-divider>
@@ -49,7 +44,7 @@
                                     <p class="subtitle-1 white--text ml-5 my-0 py-1">Max Participants: ${info?.maxParticipants}</p>
                                 </v-col>
                                 <v-col class="pa-0" >
-                                    <p class="subtitle-1 white--text ml-5 my-0 py-1">Duration: ${info?.duration}</p>
+                                    <p class="subtitle-1 white--text ml-5 my-0 py-1">Duration: ${info?.duration} min</p>
                                 </v-col>
                             </v-row>
                             <v-row>
