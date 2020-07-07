@@ -43,7 +43,7 @@ class ActivityController {
             redirect(uri: "/")
         } else {
             def activityTId = activityService.delete(response)
-            redirect(controller: "activityTemplate", action: "index", id: activityTId)
+            redirect(controller: "activity", action: "index", id: activityTId)
         }
     }
 
