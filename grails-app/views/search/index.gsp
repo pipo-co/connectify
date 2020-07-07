@@ -99,7 +99,7 @@
                                     <g:each in="${result}" var="activityt" status="i">
                                         <v-col v-if="(j-1) * 4 <= ${i} && ${i} < (j) *4">
                                             <v-card  class="mx-auto"
-                                                     max-width="400">
+                                                     max-width="350" height="330">
                                                 <v-container fluid class="pa-0">
                                                     <v-img
                                                             src="${assetPath(src: activityt.category.randStockImgPath())}"

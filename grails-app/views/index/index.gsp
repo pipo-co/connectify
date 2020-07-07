@@ -114,7 +114,7 @@
                                                     <v-row no-gutters align="center" class="pl-1 py-0">
                                                         <v-col cols="10" class="pa-0">
                                                             <v-card-title class="pa-0 subtitle-1 white--text">By: ${activityt.conectioner.user.name}</v-card-title>
-                                                            <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" class="pa-0 teal--text text--accent-3 headline">${activityt.name}</p>
+                                                            <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" class="pa-0 teal--text text--accent-3 headline text-left">${activityt.name}</p>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row align="center">
