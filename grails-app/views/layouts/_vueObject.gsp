@@ -3,6 +3,17 @@
         el: '#app',
         vuetify: new Vuetify(),
         data: {
+            headers: [
+                {
+                    text: 'Date',
+                    align: 'start',
+                    sortable: false,
+                    value: 'info.initDate',
+                },
+                { text: 'Time', value: 'info.initTime' },
+                { text: 'Participants', value: 'info.participants' },
+                { text: 'Max participants', value: 'info.activityTemplate.maxParticipants' },
+            ],
             window: window,
             icons: [
                 'mdi-facebook',
