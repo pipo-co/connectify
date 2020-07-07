@@ -3,10 +3,10 @@
     <v-row align="center" justify="center">
         <v-col cols="12">
             <v-card  class="mx-auto my-5"
-                     width="600" color="#1d1e33">
+                     max-width="600" color="#1d1e33">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
+                            src="${assetPath(src: activityT.category.randStockImgPath())}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     ></v-img>
