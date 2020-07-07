@@ -34,7 +34,7 @@
                             dark
                             label="<g:message code="category"/>"
                             name="category"
-                            value="${category}"
+                            :value="${category? category : -1}"
                             :items="categories"
                             clearable
                     ></v-select>
@@ -48,6 +48,8 @@
                             value="${country}"
                             :items="countries"
                             @change="getProvinces($event)"
+                            clearable
+                            @click:clear="provinces = null"
                     ></v-select>
                 </v-col>
                 <v-col cols="1"></v-col>
@@ -58,6 +60,8 @@
                             name="province"
                             value="${province}"
                             :items="provinces"
+                            :disabled="provinces === null || provinces.length === 0"
+                            clearable
                     ></v-select>
                 </v-col>
                 <v-col cols="1"></v-col>

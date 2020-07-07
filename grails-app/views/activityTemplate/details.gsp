@@ -41,6 +41,7 @@
                             </v-col>
                         </v-row>
                         <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+                            <g:if test="${session.authorized.user.consumer.isSuscribed()}" >
                             <v-row align="center">
                                 <v-chip-group
                                         active-class="teal accent-2"
@@ -64,6 +65,10 @@
                                     </v-btn>
                                 </v-col>
                             </v-row>
+                            </g:if>
+                            <g:else>
+                                <p>To be able to take on an activity, you must have an active suscription. Renovate your suscription <g:link controller="payment" action="index" >here</g:link></p>
+                            </g:else>
                         </g:if>
                     </v-container>
                 </v-card-actions>

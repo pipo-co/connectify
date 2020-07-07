@@ -33,9 +33,9 @@ class ApiController {
         Country country = Country.findByName(id)
 
         if(!country){
-            println("El nombre del pais no es valido")
-            render null as JSON
-            return
+            println("getProvinces - El nombre del pais no es valido")
+            //render null as JSON
+            return false
         }
 
         render Province.findAllByCountry(country).collect({ it.name }) as JSON
@@ -43,6 +43,12 @@ class ApiController {
 
     def getConsumerActivities(Long id){
         Consumer consumer = Consumer.get(id)
+
+        if(!consumer) {
+            println("getConsumerActivities - El consumer Id no es valido")
+            return false
+        }
+
         render consumer.activities.findAll({ it.isActive()} ).collect({
             [id: it.id,
              name: it.activityTemplate.name,
@@ -57,6 +63,12 @@ class ApiController {
 
     def getConsumerActivitiesId(Long id){
         Consumer consumer = Consumer.get(id)
+
+        if(!consumer) {
+            println("getConsumerActivitiesId - El consumer Id no es valido")
+            return false
+        }
+
         render consumer.activities.findAll({ it.isActive() }).collect({ it.id }) as JSON
     }
 
@@ -77,6 +89,12 @@ class ApiController {
 
     def getCountryCoordinates(String id){
         Country country = Country.findByName(id)
+
+        if(!country) {
+            println("getCountryCoordinates - El country name no es valido")
+            return false
+        }
+
         def ans = [latitude: country.latitude, longitude: country.longitude]
         render ans as JSON
     }
