@@ -1,4 +1,6 @@
-package connectify.grailsproject
+package connectify.grailsproject.interceptors
+
+import connectify.grailsproject.AuthenticationService
 
 
 class AdminInterceptor {

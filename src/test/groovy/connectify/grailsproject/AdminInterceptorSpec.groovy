@@ -1,5 +1,6 @@
 package connectify.grailsproject
 
+import connectify.grailsproject.interceptors.AdminInterceptor
 import grails.testing.web.interceptor.InterceptorUnitTest
 import spock.lang.Specification
 

@@ -57,6 +57,11 @@ class ActivityController {
             return
         }
 
+        if(activity.participants >= activity.activityTemplate.maxParticipants){
+            println("Error - Activity esta lleno")
+            return false
+        }
+
         Long consumerId = authenticationService.getUser().consumer.id
 
         def success = activityService.addConsumer(activity, consumerId)
@@ -78,6 +83,12 @@ class ActivityController {
             render ([success: false] as JSON)
             return
         }
+
+        if(activity.participants <= 0){
+            println("Error - Activity vacio")
+            return false
+        }
+
         Long consumerId = authenticationService.getUser().consumer.id
 
         def success = activityService.removeConsumer(activity, consumerId)

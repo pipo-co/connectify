@@ -169,6 +169,21 @@
         </g:each>
     %{--            <a href="${preferenceInfo.preference.initPoint}">Suscribirse por ${preferenceInfo.months} meses. A solo $${preferenceInfo.price}</a>--}%
     </v-row>
+    <v-row justify="center">
+        <v-col cols="8">
+                <v-card color="#1d1e33"  class="ma-auto">
+                    <v-card-title class="text-h5 white--text text-center pa-3">
+                        Durante la etapa de prueba del producto, utilizar los siguientes datos para realizar un pago:
+                    </v-card-title>
+                    <v-card-text>
+                        <p class="text-h6 white--text text-center px-3"><v-icon color="#1DE9B6">mdi-minus</v-icon> Numero de tarjeta: 5031 7557 3453 0604</p>
+                        <p class="text-h6 white--text text-center px-3"><v-icon color="#1DE9B6">mdi-minus</v-icon>Fecha de vencimiento: 11/25</p>
+                        <p class="text-h6 white--text text-center px-3"><v-icon color="#1DE9B6">mdi-minus</v-icon>CVV: 123</p>
+                        <p class="text-h6 white--text text-center px-3">Si se quiere probar que pasa si el pago es aprovado o falla utilizar como nombre APRO o FUND correspondientemente. El DNI puede ser cualquier DNI válido</p>
+                    </v-card-text>
+                </v-card>
+        </v-col>
+    </v-row>
 </v-container>
 </body>
 
