@@ -81,72 +81,74 @@
 
 <g:if test="${result != null}">
     <v-container fluid>
-            <v-row no-gutters>
-                <v-col>
-                    <p class="ml-5 headline">Results:</p>
-                </v-col>
-            </v-row>
-    <g:if test="${result.size() > 0}">
-            <v-row>
-                <v-carousel
-                        height="450"
-                        hide-delimiters
-                        show-arrows-on-hover>
-                    <v-carousel-item :key="j" v-for="j in ${(int)((result.size() - 1)/3) + 1}">
-                        <v-container fluid>
-                            <v-row>
-                                <g:each in="${result}" var="activityt" status="i">
-                                    <v-col v-if="(j-1) * 3 <= ${i} && ${i} < (j) *3">
-                                        <v-card  class="mx-auto"
-                                                 max-width="400">
-                                            <v-container fluid class="pa-0">
-                                                <v-img
-                                                        src="${assetPath(src: activityt.category.randStockImgPath())}"
-                                                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                                                        height="160px"
-                                                >
-                                                </v-img>
-                                            </v-container>
-                                            <v-card-actions class="pa-0">
-                                                <v-container fluid class="pa-1">
-                                                    <v-row no-gutters align="center" class="pl-1 py-0">
-                                                        <v-col cols="10" class="pa-0">
-                                                            <v-card-title class="pa-0 subtitle-1 white--text">By: ${activityt.conectioner.user.name} - Category: ${activityt.category.name}</v-card-title>
-                                                            <v-card-title class="pa-0 teal--text text--accent-3 headline">${activityt.name}</v-card-title>
-                                                        </v-col>
-                                                    </v-row>
-                                                    <v-row align="center" class="ma-0 pa-0">
-                                                        <v-col class="pa-0" >
-                                                            <p class="my-0 mx-1">${activityt.description}</p>
-                                                        </v-col>
-                                                    </v-row>
-                                                    <v-row class="ma-0 pa-0">
-                                                        <v-col cols="8"></v-col>
-                                                        <v-col class="ma-0">
-                                                            <v-btn rounded color="#59D0B4" href="/activityTemplate/details/${activityt.id}">
-                                                                more
-                                                            </v-btn>
-                                                        </v-col>
-                                                    </v-row>
-                                                </v-container>
-                                            </v-card-actions>
-                                        </v-card>
-                                    </v-col>
-                                </g:each>
-                            </v-row>
-                        </v-container>
-                    </v-carousel-item>
-                </v-carousel>
-            </v-row>
-        </v-container>
-    </g:if>
-    <g:else>
-        <v-row>
+        <v-row no-gutters>
             <v-col>
-                <p class="headline">Ups... There were no results for that search</p>
+                <p class="ml-5 headline">Results:</p>
             </v-col>
         </v-row>
-    </g:else>
+        <g:if test="${result.size() > 0}">
+            <v-card color="#2E3047" height="380">
+                <v-row>
+                    <v-carousel
+                            height="450"
+                            hide-delimiters
+                            show-arrows-on-hover>
+                        <v-carousel-item :key="j" v-for="j in ${(int)((result.size() - 1)/4) + 1}">
+                            <v-container fluid>
+                                <v-row>
+                                    <g:each in="${result}" var="activityt" status="i">
+                                        <v-col v-if="(j-1) * 4 <= ${i} && ${i} < (j) *4">
+                                            <v-card  class="mx-auto"
+                                                     max-width="400">
+                                                <v-container fluid class="pa-0">
+                                                    <v-img
+                                                            src="${assetPath(src: activityt.category.randStockImgPath())}"
+                                                            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                                                            height="150px"
+                                                    >
+                                                    </v-img>
+                                                </v-container>
+                                                <v-card-actions class="pa-0">
+                                                    <v-container fluid class="pa-1">
+                                                        <v-row no-gutters align="center" class="pl-1 py-0">
+                                                            <v-col cols="10" class="pa-0">
+                                                                <v-card-title class="pa-0 subtitle-1 white--text">By: ${activityt.conectioner.user.name} - Category: ${activityt.category.name}</v-card-title>
+                                                                <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" class="pa-0 teal--text text--accent-3 text-left headline">${activityt.name}</p>
+                                                            </v-col>
+                                                        </v-row>
+                                                        <v-row align="center" class="ma-0 pa-0">
+                                                            <v-col class="pa-0" >
+                                                                <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;" >${activityt.description}</p>
+                                                            </v-col>
+                                                        </v-row>
+                                                        <v-row class="ma-0 pa-0">
+                                                            <v-col cols="8"></v-col>
+                                                            <v-col class="ma-0">
+                                                                <v-btn rounded color="#59D0B4" href="/activityTemplate/details/${activityt.id}">
+                                                                    more
+                                                                </v-btn>
+                                                            </v-col>
+                                                        </v-row>
+                                                    </v-container>
+                                                </v-card-actions>
+                                            </v-card>
+                                        </v-col>
+                                    </g:each>
+                                </v-row>
+                            </v-container>
+                        </v-carousel-item>
+                    </v-carousel>
+                </v-row>
+            </v-card>
+        </g:if>
+        <g:else>
+            <v-row>
+                <v-col>
+                    <p class="headline">Ups... There were no results for that search</p>
+                </v-col>
+            </v-row>
+        </g:else>
+    </v-container>
 </g:if>
 </v-container>
 </body>

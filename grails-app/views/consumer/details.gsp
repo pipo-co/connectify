@@ -99,7 +99,7 @@
                                 </v-list-item-title>
                             </g:if>
                             <g:else>
-                                <v-list-item-title>${consumer.suscribedUntil}</v-list-item-title>
+                                <v-list-item-title class="white--text">${consumer.suscribedUntil}</v-list-item-title>
                             </g:else>
                             <v-divider></v-divider>
                         </v-col>

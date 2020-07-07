@@ -34,13 +34,14 @@
                                 <p class="text-left title ml-3 my-0 white--text">Address: ${activityT.address}</p>
                             </v-col>
                         </v-row>
+                        <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
                         <v-divider dark></v-divider>
                         <v-row>
                             <v-col class="pa-1">
                                 <p class="title ml-5 py-1 white--text">Availability:</p>
                             </v-col>
                         </v-row>
-                        <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+
                             <g:if test="${session.authorized.user.consumer.isSuscribed()}" >
                             <v-row align="center">
                                 <v-chip-group
@@ -67,7 +68,7 @@
                             </v-row>
                             </g:if>
                             <g:else>
-                                <p>To be able to take on an activity, you must have an active suscription. Renovate your suscription <g:link controller="payment" action="index" >here</g:link></p>
+                                <p class="white--text subtitle-1">To be able to take on an activity, you must have an active suscription. <br> <v-btn color="#59D0B4" href="/payment/index" > Renovate your suscription </v-btn></p>
                             </g:else>
                         </g:if>
                     </v-container>
