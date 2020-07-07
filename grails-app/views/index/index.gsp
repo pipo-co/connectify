@@ -98,7 +98,7 @@
                             <v-row>
                                 <g:each var="activityt" in="${pair.getbValue()}"  status="i">
                                     <v-col v-if="(j-1) * 4 <= ${i} && ${i} < (j) * 4">
-                                        <v-card color="#1d1e33" class="mx-auto" max-width="350">
+                                        <v-card color="#1d1e33" class="mx-auto" max-width="350" >
                                             <v-container fluid class="pa-0">
                                                 <v-img
                                                         src="${assetPath(src: activityt.category.randStockImgPath())}"
@@ -117,8 +117,8 @@
                                                         </v-col>
                                                     </v-row>
                                                     <v-row align="center">
-                                                        <v-col class="pa-1" >
-                                                            <p class="ml-5" >${activityt.description}</p>
+                                                        <v-col class="px-4 py-0">
+                                                            <p style="text-overflow:ellipsis; white-space: nowrap; overflow: hidden;">${activityt.description}</p>
                                                         </v-col>
                                                     </v-row>
                                                     <v-row class="ma-0 pa-0">
