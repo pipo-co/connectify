@@ -2,7 +2,7 @@ package connectify.grailsproject
 
 class Category {
 
-    public static final int imgPoolSize = 4
+    public static final int imgPoolSize = 5
     private static final Random randGen = new Random()
     private static final String imgDir = "category"
 

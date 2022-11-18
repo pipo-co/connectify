@@ -4,6 +4,20 @@ import grails.gorm.transactions.Transactional
 
 class UserController {
 
+    AuthenticationService authenticationService
+
+    def adminPanel(){
+        if(!authenticationService.isAuthenticated() || !authenticationService.getUser().isTypeAdmin()){
+            redirect(uri: "/")
+            return
+        }
+
+        if(!params.max)
+            params.max = 10
+
+        [users: Users.list(params), usersCount: Users.count()]
+    }
+
     @Transactional
     def confirm(String id){ // Email Confirmation Code
         Users user = Users.findByConfirmCode(id)

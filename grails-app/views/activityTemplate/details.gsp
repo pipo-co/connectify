@@ -3,10 +3,10 @@
     <v-row align="center" justify="center">
         <v-col cols="12">
             <v-card  class="mx-auto my-5"
-                     width="600" color="#1d1e33">
+                     max-width="600" color="#1d1e33">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://cdn.vuetifyjs.com/images/cards/house.jpg"
+                            src="${assetPath(src: activityT.category.randStockImgPath())}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     ></v-img>
@@ -26,7 +26,7 @@
                         <v-row no-gutters justify="start">
                             <v-col class="pa-0">
                                 <p class="text-left white--text px-4">${activityT.description}</p>
-                                <p class="text-left white--text px-4">Duration: ${activityT.duration}</p>
+                                <p class="text-left white--text px-4">Duration: ${activityT.duration} minutes</p>
                             </v-col>
                         </v-row>
                         <v-row no-gutters justify="start" >
@@ -34,13 +34,15 @@
                                 <p class="text-left title ml-3 my-0 white--text">Address: ${activityT.address}</p>
                             </v-col>
                         </v-row>
+                        <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
                         <v-divider dark></v-divider>
                         <v-row>
                             <v-col class="pa-1">
                                 <p class="title ml-5 py-1 white--text">Availability:</p>
                             </v-col>
                         </v-row>
-                        <g:if test="${session.authorized && session.authorized.user.isTypeConsumer()}">
+
+                            <g:if test="${session.authorized.user.consumer.isSuscribed()}" >
                             <v-row align="center">
                                 <v-chip-group
                                         active-class="teal accent-2"
@@ -64,6 +66,10 @@
                                     </v-btn>
                                 </v-col>
                             </v-row>
+                            </g:if>
+                            <g:else>
+                                <p class="white--text subtitle-1">To be able to take on an activity, you must have an active suscription. <br> <v-btn color="#59D0B4" href="/payment/index" > Renovate your suscription </v-btn></p>
+                            </g:else>
                         </g:if>
                     </v-container>
                 </v-card-actions>

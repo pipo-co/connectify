@@ -3,6 +3,17 @@
         el: '#app',
         vuetify: new Vuetify(),
         data: {
+            headers: [
+                {
+                    text: 'Date',
+                    align: 'start',
+                    sortable: false,
+                    value: 'info.initDate',
+                },
+                { text: 'Time', value: 'info.initTime' },
+                { text: 'Participants', value: 'info.participants' },
+                { text: 'Max participants', value: 'info.activityTemplate.maxParticipants' },
+            ],
             window: window,
             icons: [
                 'mdi-facebook',
@@ -56,7 +67,6 @@
             },
             mountedRouteMap: {
                     "/": function () {
-                        console.log("estoy en index");
                     },
                     "/consumer/create": function () {
                         this.getCountries();
@@ -185,7 +195,7 @@
                 return ['error', 'warning', 'success'][Math.floor(this.passwordProgress / 40)]
             },
             passwordMessage() {
-                return ['At least 8 characters', 'Week', 'Strong'][Math.floor(this.passwordProgress / 40)]
+                return ['At least 8 characters', 'Weak', 'Strong'][Math.floor(this.passwordProgress / 40)]
             }
         },
         created() {

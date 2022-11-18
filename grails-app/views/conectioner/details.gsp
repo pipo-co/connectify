@@ -12,20 +12,15 @@
         <v-col cols="1">
             <v-row no-gutters>
                 <v-col >
-                    <v-list-item-avatar height="150" width="150">
+                    <v-list-item-avatar height="200" width="200">
                         <v-img src="${UIHelper.avatarPath(user: session.authorized.user)}"  class="card-img-top"></v-img>
                     </v-list-item-avatar>
-                </v-col>
-                <v-col>
-                    <v-btn class="ml-2 my-3" rounded  color="#59D0B4">
-                        Edit <g:message code="avatar"/>
-                    </v-btn>
                 </v-col>
             </v-row>
         </v-col>
         <v-col>
             <v-container >
-                <v-card shaped color="#1d1e33">
+                <v-card shaped color="#1d1e33" max-width="1200">
                     <v-row>
                         <v-col>
                             <v-list-item>

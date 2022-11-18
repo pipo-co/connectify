@@ -14,11 +14,11 @@
 <body>
 <v-container>
     <v-row>
-        <v-col class="ml-4">
-            <v-card color="#1d1e33" width="350" height="350">
+        <v-col class="ml-4" >
+            <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://www.bigben.com.es/wp-content/uploads/2015/05/cursos-de-ingles-presenciales.jpg"
+                            src="${assetPath(src: '/stock/payment1.jpg')}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     >
@@ -40,11 +40,11 @@
                 </v-container>
             </v-card>
         </v-col>
-        <v-col>
-            <v-card color="#1d1e33" width="350" height="350">
+        <v-col >
+            <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://lh3.googleusercontent.com/proxy/l0KeItpVbYSph6zURiP5D2AbIwVerRrCcveAddFtutSBcafWU_xYuMQzZLfYviuv4eT_aE87QPB8OGgWEMD0c2B0SPBY5NocHq2J4X__tSg7O0-ziXaaHXYwzeE_cKpbFRUDOTXlHk33JmalcEni"
+                            src="${assetPath(src: '/stock/payment2.jpg')}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     >
@@ -67,10 +67,10 @@
             </v-card>
         </v-col>
         <v-col>
-            <v-card color="#1d1e33" width="350" height="350">
+            <v-card color="#1d1e33" max-width="350" height="350" class="ma-auto">
                 <v-container fluid class="pa-0">
                     <v-img
-                            src="https://insiderfinance.com.ar/wp-content/uploads/2020/01/image1.jpeg"
+                            src="${assetPath(src: '/stock/payment3.jpeg')}"
                             gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                             height="160px"
                     >
@@ -95,8 +95,8 @@
     </v-row>
     <v-row>
         <g:each in="${preferencesInfo}" var="preferenceInfo">
-            <v-col cols="3">
-                <v-card color="#1d1e33" width="300" height="250">
+            <v-col cols="3" >
+                <v-card color="#1d1e33" max-width="300" height="250" class="ma-auto">
                     <v-container fluid class="pa-0" >
                         <v-row no-gutters>
                             <v-col>
@@ -114,7 +114,7 @@
                         </v-row>
                         <v-divider dark></v-divider>
                         <v-row no-gutters>
-                            <v-col>
+                            <v-col >
                                 <v-card-subtitle class="white--text text-left pa-2">
                                     <v-icon color="#1DE9B6">mdi-minus</v-icon>
                                     One payment of $${preferenceInfo.price}
@@ -168,6 +168,21 @@
             </v-col>
         </g:each>
     %{--            <a href="${preferenceInfo.preference.initPoint}">Suscribirse por ${preferenceInfo.months} meses. A solo $${preferenceInfo.price}</a>--}%
+    </v-row>
+    <v-row justify="center">
+        <v-col cols="8">
+                <v-card color="#1d1e33"  class="ma-auto">
+                    <v-card-title class="text-h5 white--text text-center pa-3">
+                        Durante la etapa de prueba del producto, utilizar los siguientes datos para realizar un pago:
+                    </v-card-title>
+                    <v-card-text>
+                        <p class="text-h6 white--text text-center px-3"><v-icon color="#1DE9B6">mdi-minus</v-icon> Numero de tarjeta: 5031 7557 3453 0604</p>
+                        <p class="text-h6 white--text text-center px-3"><v-icon color="#1DE9B6">mdi-minus</v-icon>Fecha de vencimiento: 11/25</p>
+                        <p class="text-h6 white--text text-center px-3"><v-icon color="#1DE9B6">mdi-minus</v-icon>CVV: 123</p>
+                        <p class="text-h6 white--text text-center px-3">Si se quiere probar que pasa si el pago es aprovado o falla utilizar como nombre APRO o FUND correspondientemente. El DNI puede ser cualquier DNI válido</p>
+                    </v-card-text>
+                </v-card>
+        </v-col>
     </v-row>
 </v-container>
 </body>

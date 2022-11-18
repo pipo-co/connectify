@@ -6,9 +6,8 @@
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+    <asset:link rel="icon" href="faviconConnectify.ico" type="image/x-ico"/>
     <asset:stylesheet src="main.css"/>
 
     <g:layoutHead/>
@@ -129,6 +128,18 @@
                             </v-list-item>
                         </v-col>
                     </g:elseif>
+                    <g:elseif test="${session.authorized && session.authorized.isLoggedIn && session.authorized.user.isTypeAdmin()}">
+                        <v-col cols="4" >
+                            <v-spacer></v-spacer>
+                        </v-col>
+                        <v-col>
+                            <v-list-item dense class="ma-1 pa-1">
+                                <v-btn class="ma-2 pa-2" outlined rounded color="#59D0B4" href="/authentication/logout" right>
+                                    <v-toolbar-title class="title white--text">Log out</v-toolbar-title>
+                                </v-btn>
+                            </v-list-item>
+                        </v-col>
+                    </g:elseif>
                     <g:else>
                         <v-col cols="4" >
                             <v-spacer></v-spacer>
@@ -158,8 +169,8 @@
             <v-container fluid class="pa-1">
                 <v-row align="center" justify="center">
                     <v-btn
-                            v-for="link in links"
-                            :key="link"
+                            v-for="(link,index) in links"
+                            :key="index"
                             color="white"
                             text
                             rounded
@@ -170,8 +181,8 @@
                 </v-row>
                 <v-row align="center" justify="center">
                     <v-btn
-                            v-for="icon in icons"
-                            :key="icon"
+                            v-for="(icon,index) in icons"
+                            :key="index"
                             class="mx-4 white--text"
                             icon>
                         <v-icon size="24px">{{ icon }}</v-icon>
@@ -198,10 +209,3 @@
 
 </body>
 </html>
-
-<script>
-    import VCol from "vuetify/src/components/VGrid/VCol";
-    export default {
-        components: {VCol}
-    }
-</script>

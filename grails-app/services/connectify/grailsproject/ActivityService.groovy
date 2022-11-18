@@ -54,10 +54,12 @@ class ActivityService {
     }
 
     def addConsumer(Activity activity, Long consumerId){
+
         //Validar que la actividad no haya ocurrido ya
         if(!activity.isActive())
             return false
 
+        // Validar que el consumer no este anotado a la actividad todavia
         Optional<Consumer> optConsumer = activity.consumers.stream()
                 .filter({consumer -> consumer.id == consumerId}).findFirst()
 
@@ -66,7 +68,8 @@ class ActivityService {
 
         Consumer consumer = Consumer.get(consumerId)
 
-        if(!consumer)
+        // Validar que el consumer este suscripto
+        if(!consumer || !consumer.isSuscribed())
             return false
 
         consumer.addToActivities(activity)
@@ -85,10 +88,12 @@ class ActivityService {
     }
 
     def removeConsumer(Activity activity, Long consumerId){
+
         //Validar que la actividad no haya ocurrido ya
         if(!activity.isActive())
             return false
 
+        // Validar que el consumer este anotado a la actividad todavia
         Optional<Consumer> optConsumer = activity.consumers.stream()
                 .filter({consumer -> consumer.id == consumerId}).findFirst()
 

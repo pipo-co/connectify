@@ -13,17 +13,19 @@ class AuthenticationService {
     }
 
     def doLogin(String username, String password){
-        def ans = [logged: false, emailNotVerified: false]
+        def ans = [logged: false, emailNotVerified: false, usernameNotFound: true]
 
         password = password.encodeAsSHA256()
-        Users user = Users.findByUsernameAndPassword(username, password)
-
+        Users user = Users.findByUsername(username)
         if(user){
-            ans.emailNotVerified = !user.isActive
-            if(user.isActive) {
-                ans.logged = true
-                setUserAuthorization(user)
-                return ans
+            ans.usernameNotFound = false
+            if(user.password.equals(password)){
+                ans.emailNotVerified = !user.isActive
+                if(user.isActive) {
+                    ans.logged = true
+                    setUserAuthorization(user)
+                    return ans
+                }
             }
         }
         return ans

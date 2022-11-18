@@ -52,7 +52,7 @@ class PaymentService {
                 .setPayer(payer)
                 .setBackUrls(backUrls)
                 .setPaymentMethods(paymentMethods)
-                .setAutoReturn(Preference.AutoReturn.all)
+                //.setAutoReturn(Preference.AutoReturn.all)
                 .setBinaryMode(true)
                 .appendItem(item)
                 .save()

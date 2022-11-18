@@ -4,14 +4,15 @@ import grails.gorm.DetachedCriteria
 
 class SearchController {
 
-    def index() {
-
-    }
+    def index() {}
 
     def searchResult(){
 
         Boolean hasSearchParam = false
         def result = null
+
+        if(params.category.equals("-1"))
+            params.category = ""
 
         DetachedCriteria<ActivityTemplate> query = new DetachedCriteria<>(ActivityTemplate.class, "activityTemplate")
 
@@ -25,14 +26,14 @@ class SearchController {
         if(params.name){
             hasSearchParam = true
             query = query.where {
-                name ==~ params.name
+                name =~ "%${params.name}%"
             }
         }
 
         if(params.connectioner){
             hasSearchParam = true
             query = query.where {
-                conectioner { user { name ==~ params.connectioner } }
+                conectioner { user { name =~ "%${params.connectioner}%" } }
             }
         }
 

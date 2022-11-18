@@ -15,7 +15,7 @@ class Users {
 
     static constraints = {
         username blank: false, unique: true
-        password blank: false
+        password blank: false, minSize: 8
         email email: true, blank: false, unique: true
         name blank: false
         avatar nullable: true, blank: true, maxSize: 2 * 1024 * 1024 // 2MiB
@@ -35,5 +35,9 @@ class Users {
 
     Boolean isTypeConnectioner(){
         return userType.equals(GlobalConfig.USER_TYPE.CONNECTIONER)
+    }
+
+    Boolean isTypeAdmin(){
+        return userType.equals(GlobalConfig.USER_TYPE.ADMINISTRATOR)
     }
 }

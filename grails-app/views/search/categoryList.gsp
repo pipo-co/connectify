@@ -26,13 +26,13 @@
                         <v-container>
                             <v-row>
                                 <v-col>
-                                    <v-avatar color="#59D0B4" size="80">
-                                        <v-img src="${assetPath(src: category.indexImgPath())}" height="52" width="52" contain></v-img>
+                                    <v-avatar size="120">
+                                        <v-img src="${assetPath(src: category.indexImgPath())}" height="82" width="82" contain></v-img>
                                     </v-avatar>
                                 </v-col>
                             </v-row>
                             <v-row>
-                                <v-col>
+                                <v-col class="pa-0">
                                     <p class="white--text title">${category.name}</p>
                                 </v-col>
                             </v-row>

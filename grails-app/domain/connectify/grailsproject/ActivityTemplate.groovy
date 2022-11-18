@@ -24,6 +24,7 @@ class ActivityTemplate {
         latitude blank: false
         longitude blank: false
         maxParticipants blank: false
+        category blank: false
     }
 
     static mapping = {

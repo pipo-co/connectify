@@ -43,7 +43,7 @@ class ActivityController {
             redirect(uri: "/")
         } else {
             def activityTId = activityService.delete(response)
-            redirect(controller: "activityTemplate", action: "index", id: activityTId)
+            redirect(controller: "activity", action: "index", id: activityTId)
         }
     }
 
@@ -55,6 +55,11 @@ class ActivityController {
             println("Error - Activity no encontrado")
             render ([success: false] as JSON)
             return
+        }
+
+        if(activity.participants >= activity.activityTemplate.maxParticipants){
+            println("Error - Activity esta lleno")
+            return false
         }
 
         Long consumerId = authenticationService.getUser().consumer.id
@@ -78,6 +83,12 @@ class ActivityController {
             render ([success: false] as JSON)
             return
         }
+
+        if(activity.participants <= 0){
+            println("Error - Activity vacio")
+            return false
+        }
+
         Long consumerId = authenticationService.getUser().consumer.id
 
         def success = activityService.removeConsumer(activity, consumerId)

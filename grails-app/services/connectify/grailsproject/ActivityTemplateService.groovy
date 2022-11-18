@@ -17,17 +17,19 @@ class ActivityTemplateService {
             conectioner.attach()
 
         Category category = Category.get(params.categoryId)
-        if(!category)
-            return false
+
 
         // Grails parsed it differently depending on the browser!!!
         // Doing this I always parse it to double.
-        params.longitude = Double.parseDouble(params.longitude)
-        params.latitude = Double.parseDouble(params.latitude)
+        if(params.longitude != "" && params.latitude != ""){
+            params.longitude = Double.parseDouble(params.longitude)
+            params.latitude = Double.parseDouble(params.latitude)
+        }
 
         ActivityTemplate activityT = new ActivityTemplate(params)
         activityT.conectioner = conectioner
-        activityT.category = category
+        if(category)
+            activityT.category = category
 
         def response = AppUtil.saveResponse(false, activityT)
         if(activityT.validate()){

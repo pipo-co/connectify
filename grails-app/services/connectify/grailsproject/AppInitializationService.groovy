@@ -1,6 +1,7 @@
 package connectify.grailsproject
 
 import grails.gorm.transactions.Transactional
+import jdk.nashorn.internal.objects.Global
 
 @Transactional
 class AppInitializationService {
@@ -9,6 +10,8 @@ class AppInitializationService {
         initCategories();
 
         initCountries()
+
+        generateAdmin()
 
         //createTestingConectioner()
         //createTestingConsumer()
@@ -51,6 +54,22 @@ class AppInitializationService {
         country.save()
     }
 
+    private static generateAdmin(){
+        Users user = new Users()
+
+        user.username = "admin"
+        user.password = "admin123"
+        user.name = "admin"
+        user.email = "admin@admin.com"
+        user.userType = GlobalConfig.USER_TYPE.ADMINISTRATOR
+        user.isActive = true
+        user.confirmCode = null
+
+        user.validate()
+
+        user.save()
+    }
+
     private static createTestingConectioner(){
         Conectioner conectioner = new Conectioner()
         conectioner.user = new Users()
@@ -59,7 +78,6 @@ class AppInitializationService {
         conectioner.user.password = "tobias"
         conectioner.user.name = "tobias"
         conectioner.user.email = "t@t.com"
-        conectioner.user.avatar = "defaultAvatar.png"
         conectioner.user.userType = GlobalConfig.USER_TYPE.CONNECTIONER
         conectioner.user.confirmCode = null
         conectioner.user.isActive = true
@@ -85,7 +103,6 @@ class AppInitializationService {
         consumer.user.password = "tobias"
         consumer.user.name = "tobiasConsumer"
         consumer.user.email = "t2@t.com"
-        consumer.user.avatar = "defaultAvatar.png"
         consumer.user.userType = GlobalConfig.USER_TYPE.CONSUMER
         consumer.user.confirmCode = null
         consumer.user.isActive = true

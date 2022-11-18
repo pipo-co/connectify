@@ -15,10 +15,10 @@
     <v-container>
         <v-row>
             <v-col cols="5">
-                <v-card color="#1d1e33">
+                <v-card color="#1d1e33" max-width="550" class="ma-auto">
                     <v-container fluid class="pa-0">
                         <v-img
-                                src="https://www.danielcolombo.com/wp-content/uploads/2018/07/motivacion-conferencia-taller-manos-en-alto-daniel-colombo.png"
+                                src="${assetPath(src: '/stock/consumer.png')}"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                 height="250px"
                         >
@@ -52,10 +52,10 @@
             </v-col>
             <v-col cols="2"></v-col>
             <v-col cols="5">
-                <v-card color="#1d1e33">
+                <v-card color="#1d1e33" max-width="550" class="ma-auto">
                     <v-container fluid class="pa-0">
                         <v-img
-                                src="https://www.airlinepilotcoach.com/wp-content/uploads/2019/03/david-brock.jpg"
+                                src="${assetPath(src: '/stock/connectioner.jpg')}"
                                 gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                 height="250px"
                         >
